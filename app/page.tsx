@@ -2,10 +2,10 @@
 
 import { Navigation } from "@/components/navigation"
 import { HeroPanel } from "@/components/panels/hero-panel"
-import { ThreeLayerPanel } from "@/components/panels/three-layer-panel"
-import { WhatsThatPanel } from "@/components/panels/whats-that-panel"
+import { DeadTimePanel } from "@/components/panels/dead-time-panel"
 import { OpportunityTextPanel } from "@/components/panels/opportunity-text-panel"
-import { GuestDiscoveryPanel } from "@/components/panels/guest-discovery-panel"
+import { ThreeLayerPanel } from "@/components/panels/three-layer-panel"
+import { OsloRoutesPanel } from "@/components/panels/oslo-routes-panel"
 import { OperatorPanel } from "@/components/panels/operator-panel"
 import { StrategicValuePanel } from "@/components/panels/strategic-value-panel"
 import { PilotPanel } from "@/components/panels/pilot-panel"
@@ -17,10 +17,10 @@ export default function Page() {
       <Navigation />
       <main>
         <HeroPanel />
-        <WhatsThatPanel />
+        <DeadTimePanel />
         <OpportunityTextPanel />
         <ThreeLayerPanel />
-        <GuestDiscoveryPanel />
+        <OsloRoutesPanel />
         <OperatorPanel />
         <StrategicValuePanel />
         <PilotPanel />

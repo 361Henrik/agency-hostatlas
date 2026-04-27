@@ -1,24 +1,16 @@
 "use client"
 
-const layers = [
-  {
-    number: "01",
-    title: "Curation",
-    body: "We research, write, curate and geo-locate narratives for your routes. You approve. We publish directly to the guest platform.",
-  },
-  {
-    number: "02",
-    title: "Experience",
-    body: "Guests access The Host Atlas via QR and are guided through the quiet stretches of the journey with context delivered in motion.",
-  },
-  {
-    number: "03",
-    title: "Insight",
-    body: "Engagement is measured in real time. Data reveals what captures attention — and what drives it — across every route.",
-  },
-]
+import { useLanguage } from "@/lib/language-context"
 
 export function ThreeLayerPanel() {
+  const { t } = useLanguage()
+
+  const layers = [
+    { number: "01", titleKey: "three_layer_01_title" as const, bodyKey: "three_layer_01_body" as const },
+    { number: "02", titleKey: "three_layer_02_title" as const, bodyKey: "three_layer_02_body" as const },
+    { number: "03", titleKey: "three_layer_03_title" as const, bodyKey: "three_layer_03_body" as const },
+  ]
+
   return (
     <section
       data-section="concept"
@@ -28,26 +20,24 @@ export function ThreeLayerPanel() {
       {/* Header */}
       <div className="text-center mb-10 max-w-3xl mx-auto">
         <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
-          System Architecture
+          {t("three_layer_eyebrow")}
         </p>
         <h2
           className="font-serif leading-[1.06] mb-8"
           style={{ color: "#C9A962", fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 500 }}
         >
-          <span className="block">Curated Narratives.</span>
-          <span className="block">Transforming the Quiet Passages.</span>
+          <span className="block">{t("three_layer_heading_line1")}</span>
+          <span className="block">{t("three_layer_heading_line2")}</span>
         </h2>
 
         <div className="space-y-5 max-w-2xl mx-auto text-center">
           <p style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,243,239,0.88)", fontWeight: 500 }} className="font-sans">
-            Guests often find themselves looking out between the stops, between the attractions, wondering what they are seeing. The uninterpreted landscape and sights leave guests with questions about what they are seeing.                 
+            {t("three_layer_intro1")}
           </p>
           <p style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,243,239,0.82)", fontWeight: 500 }} className="font-sans">
-            The Host Atlas resolves this. It turns unanswered questions into context, and long stretches into part of the experience.
+            {t("three_layer_intro2")}
           </p>
         </div>
-
-        
       </div>
 
       {/* Three-column grid */}
@@ -65,13 +55,11 @@ export function ThreeLayerPanel() {
             >
               {layer.number}
             </span>
-
             <h3 className="font-serif text-[#F5F3EF] leading-[1.15] mb-4" style={{ fontSize: "clamp(1.375rem, 2vw, 1.75rem)", fontWeight: 500 }}>
-              {layer.title}
+              {t(layer.titleKey)}
             </h3>
-
             <p className="font-sans" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,243,239,0.85)", fontWeight: 500 }}>
-              {layer.body}
+              {t(layer.bodyKey)}
             </p>
           </div>
         ))}

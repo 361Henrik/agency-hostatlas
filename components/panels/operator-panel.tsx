@@ -1,45 +1,49 @@
 "use client"
 
+import { useLanguage } from "@/lib/language-context"
+
 const steps = [
   {
     num: "01",
-    title: "Define the Experience",
-    lines: ["You select the route.", "You define your tone of voice.", "You choose the categories you want your guests to explore."],
-    note: "We work within your strategic framework — not the other way around.",
+    title: "Define Your Event",
+    lines: ["Tell us your event city, your industry focus, and the number of guests.", "We align the route themes to your conference topics and brand voice."],
+    note: "No technical setup required. We handle everything from briefing.",
   },
   {
     num: "02",
-    title: "We Build It For You",
-    lines: ["In-depth research across your selected categories.", "Every point of interest written in your brand voice.", "Each POI geo-mapped precisely to the route."],
-    note: "You receive a fully structured, ready-to-launch experience.",
+    title: "We Build the Routes",
+    lines: ["Five curated walking routes, each written to your industry lens.", "Every point of interest researched, written, and geo-positioned."],
+    note: "You receive fully structured, content-ready routes before your event.",
   },
   {
     num: "03",
-    title: "Approve & Launch",
-    lines: ["You review. You approve. You launch from your operator dashboard."],
-    note: "Guests access the experience via QR code and select the themes they want to follow.",
+    title: "You Approve the Content",
+    lines: ["Review every route and point of interest in our preview tool.", "Request edits, adjust emphasis, approve in a single sign-off."],
+    note: "Your brand, your voice, your approval — before a single guest arrives.",
   },
   {
     num: "04",
-    title: "Deliver a Dynamic Guest Experience",
-    lines: ["Curated points of interest appear in map view or as a live lens overlay in camera view."],
-    note: "Guests engage with what matters to them — in the moment.",
+    title: "Deploy in Minutes",
+    lines: ["Guests access their routes via a QR code on their event badge or programme.", "Or send the link directly by SMS or email before arrival."],
+    note: "No app download required. Works in any mobile browser.",
   },
   {
     num: "05",
-    title: "Unlock Behavioural Insight",
-    lines: ["What guests explore. What they skip. Which themes drive attention."],
-    note: "For the first time, the space between ports becomes measurable.",
+    title: "Guests Discover the City",
+    lines: ["Self-guided, branded walking routes with map view and live navigation.", "Each stop tells a story connecting the city to your event's themes."],
+    note: "Guests explore at their own pace — in English or Norwegian.",
   },
   {
     num: "06",
-    title: "Optimize & Scale",
-    lines: ["Refine content. Adjust categories. Enhance future departures.", "Launch new routes using the same streamlined process."],
-    note: "Define. Approve. Launch. Measure. Optimize. Relaunch.",
+    title: "You Receive the Insight",
+    lines: ["Which routes were walked. Which stops captured attention.", "Which topics sparked follow-up interest from your delegates."],
+    note: "Engagement intelligence delivered after the event — not guesswork.",
   },
 ]
 
 export function OperatorPanel() {
+  const { t } = useLanguage()
+
   return (
     <section
       data-section="operators"
@@ -47,17 +51,16 @@ export function OperatorPanel() {
       style={{ backgroundColor: "#F8F5EE", color: "#1C2B1E" }}
     >
       <div className="max-w-6xl w-full">
-
         {/* Header */}
         <div className="text-center mb-14">
           <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
-            How It Works
+            {t("operator_eyebrow")}
           </p>
           <h2 className="font-serif text-balance mb-5 leading-[1.06] text-accent" style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 500 }}>
-            From Curated Narratives to Revenue Insight
+            {t("operator_heading")}
           </h2>
           <p className="font-sans max-w-[48ch] mx-auto text-pretty" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(28,43,30,0.75)" }}>
-            The Host Atlas turns your voyages into measurable, branded guest experiences. This is how it works:
+            {t("operator_intro")}
           </p>
         </div>
 
@@ -82,7 +85,6 @@ export function OperatorPanel() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )

@@ -2,18 +2,17 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
+import { LanguageToggle } from "./language-toggle"
 
 const navLinks = [
-  { label: "Concept",        sectionId: "concept" },
-  { label: "Experience",     sectionId: "experience" },
-  { label: "Operators",      sectionId: "operators" },
-  { label: "Advantage",      sectionId: "advantage" },
-
+  { label: "For Hosts",  sectionId: "operators" },
+  { label: "Routes",     sectionId: "routes" },
+  { label: "ROI",        sectionId: "advantage" },
 ]
 
-const CTA = { label: "Contact", sectionId: "contact" }
+const CTA = { label: "Get Started", sectionId: "contact" }
 
-const lightSections = ["experience"]
+const lightSections = ["opportunity", "routes"]
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
@@ -22,8 +21,6 @@ export function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 80)
-
-      // Determine active section by which section is most in view
       const sections = document.querySelectorAll("[data-section]")
       let current = "hero"
       sections.forEach((el) => {
@@ -52,12 +49,11 @@ export function Navigation() {
 
   const onLight = lightSections.includes(activeSection) && !scrolled
 
-  const navColor      = onLight ? "rgba(38, 38, 38, 0.8)"   : "rgba(255,255,255,1)"
-  const navHoverColor = onLight ? "rgba(38, 38, 38, 1)"      : "rgba(255,255,255,1)"
+  const navColor       = onLight ? "rgba(38, 38, 38, 0.8)"  : "rgba(255,255,255,1)"
+  const navHoverColor  = onLight ? "rgba(38, 38, 38, 1)"     : "rgba(255,255,255,1)"
   const underlineColor = onLight ? "rgba(38, 38, 38, 0.5)"  : "rgba(201, 169, 98, 1)"
-  const ctaColor      = onLight ? "rgba(38, 38, 38, 0.8)"   : "rgba(201, 169, 98, 1)"
-  const ctaHoverColor = onLight ? "rgba(38, 38, 38, 1)"      : "rgba(201, 169, 98, 1)"
-  const logoColor     = onLight ? "rgba(38, 38, 38, 1)"      : "rgba(255,255,255,1)"
+  const ctaColor       = onLight ? "rgba(38, 38, 38, 0.8)"  : "rgba(201, 169, 98, 1)"
+  const ctaHoverColor  = onLight ? "rgba(38, 38, 38, 1)"    : "rgba(201, 169, 98, 1)"
 
   return (
     <nav
@@ -88,22 +84,19 @@ export function Navigation() {
               <button
                 key={link.label}
                 onClick={() => scrollToSection(link.sectionId)}
-                className="group relative text-[16px] uppercase font-medium transition-colors duration-200 py-1"
-                style={{
-                  letterSpacing: "0.04em",
-                  color: navColor,
-                }}
+                className="group relative text-[14px] uppercase font-medium transition-colors duration-200 py-1"
+                style={{ letterSpacing: "0.06em", color: navColor }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = navHoverColor)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = navColor)}
               >
                 {link.label}
                 <span
-                  className="absolute left-0 right-0 bottom-0 h-px transition-opacity duration-200 ease-out"
+                  className="absolute left-0 right-0 bottom-0 h-px transition-opacity duration-200"
                   style={{ backgroundColor: underlineColor, opacity: isActive ? 1 : 0 }}
                 />
                 {!isActive && (
                   <span
-                    className="absolute left-0 right-0 bottom-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out"
+                    className="absolute left-0 right-0 bottom-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-200"
                     style={{ backgroundColor: underlineColor }}
                   />
                 )}
@@ -114,17 +107,14 @@ export function Navigation() {
           {/* CTA */}
           <button
             onClick={() => scrollToSection(CTA.sectionId)}
-            className="group relative text-[16px] uppercase font-medium py-1 transition-colors duration-200"
-            style={{
-              letterSpacing: "0.04em",
-              color: ctaColor,
-            }}
+            className="group relative text-[14px] uppercase font-medium py-1 transition-colors duration-200"
+            style={{ letterSpacing: "0.06em", color: ctaColor }}
             onMouseEnter={(e) => (e.currentTarget.style.color = ctaHoverColor)}
             onMouseLeave={(e) => (e.currentTarget.style.color = ctaColor)}
           >
             {CTA.label}
             <span
-              className="absolute left-0 right-0 bottom-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-200 ease-out"
+              className="absolute left-0 right-0 bottom-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-200"
               style={{ backgroundColor: underlineColor }}
             />
             {activeSection === CTA.sectionId && (
@@ -136,9 +126,12 @@ export function Navigation() {
           </button>
         </div>
 
+        {/* Language toggle — far right */}
+        <div className="ml-auto">
+          <LanguageToggle onLight={onLight} />
+        </div>
       </div>
 
-      {/* Bottom divider */}
       <div
         className={`h-px bg-[oklch(0.38_0.06_155)] transition-opacity duration-[400ms] ${
           scrolled ? "opacity-100" : "opacity-0"

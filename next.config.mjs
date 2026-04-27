@@ -1,13 +1,25 @@
 /** @type {import('next').NextConfig} */
-// pipeline-test
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
   images: {
     formats: ["image/avif", "image/webp"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "unpkg.com",
+      },
+      {
+        protocol: "https",
+        hostname: "hebbkx1anhila5yf.public.blob.vercel-storage.com",
+      },
+    ],
   },
- 
 }
 
 export default nextConfig

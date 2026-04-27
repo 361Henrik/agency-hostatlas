@@ -1,14 +1,17 @@
 "use client"
 
 import Image from "next/image"
+import { useLanguage } from "@/lib/language-context"
 
 export function HeroPanel() {
+  const { t } = useLanguage()
+
   return (
     <section data-section="hero" className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/hero-aerial-landscape.jpg"
-          alt="Aerial view of rolling green hills flowing into a winding river meeting the sea at early morning with soft golden light and atmospheric mist"
+          src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1920&q=85"
+          alt="Aerial view of Oslo city and the Oslofjord"
           fill
           priority
           className="object-cover hero-ken-burns saturate-[0.85]"
@@ -16,7 +19,7 @@ export function HeroPanel() {
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.55) 100%)",
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.65) 100%)",
           }}
         />
       </div>
@@ -45,6 +48,13 @@ export function HeroPanel() {
 
       <div className="relative z-10 flex h-full flex-col justify-end px-6 md:px-16 lg:px-24 pb-[12vh] md:pb-[14vh]">
         <div className="w-full">
+          <p
+            className="font-sans font-medium uppercase mb-6"
+            style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(201,169,98,0.85)" }}
+          >
+            {t("hero_eyebrow")}
+          </p>
+
           <h1
             className="font-serif font-medium"
             style={{
@@ -54,19 +64,19 @@ export function HeroPanel() {
               fontSize: "clamp(2rem, 7vw, 5.5rem)",
             }}
           >
-            <span className="block">A Hill is Just a Hill</span>
-            <span className="block">Until You Know Its Story.</span>
+            <span className="block">{t("hero_h1_line1")}</span>
+            <span className="block">{t("hero_h1_line2")}</span>
           </h1>
 
           <p
-            className="font-sans font-medium text-pretty mt-8 md:mt-12 max-w-[42ch]"
+            className="font-sans font-medium text-pretty mt-8 md:mt-12 max-w-[48ch]"
             style={{
               fontSize: "clamp(1.125rem, 1.8vw, 1.375rem)",
               lineHeight: 1.7,
-              color: "rgba(255,255,255,0.94)",
+              color: "rgba(255,255,255,0.90)",
             }}
           >
-            The Host Atlas transforms quiet stretches into branded, story-driven experiences that deepen guest engagement and deliver the strategic insight needed to elevate storytelling and drive long-term loyalty.
+            {t("hero_body")}
           </p>
 
           <p
@@ -77,7 +87,7 @@ export function HeroPanel() {
               color: "rgba(201,169,98,0.9)",
             }}
           >
-            {'Curated \u00B7 Branded \u00B7 Hosted \u00B7 Operator-Controlled'}
+            {t("hero_tagline")}
           </p>
         </div>
       </div>

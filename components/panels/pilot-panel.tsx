@@ -1,22 +1,25 @@
 "use client"
 
 import { Clock, BarChart3, ShieldCheck, Check } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 const includes = [
-  "Route Architecture",
-  "Content Creation",
-  "Hosted Platform",
-  "Operator Control",
-  "Engagement Insight",
+  "Route Research & Content Creation",
+  "Industry Lens Curation",
+  "Hosted Guest Platform",
+  "QR / SMS / Email Deployment",
+  "Engagement Report",
 ]
 
 const projectDetails = [
-  { icon: ShieldCheck, label: "Defined scope",      detail: "One route, one voyage, full support." },
-  { icon: Clock,       label: "6-week activation",  detail: "From sign-off to live guest experience." },
-  { icon: BarChart3,   label: "Measurable insight", detail: "Engagement data delivered at conclusion." },
+  { icon: ShieldCheck, label: "Defined scope",     detail: "One event city, one industry lens, full support." },
+  { icon: Clock,       label: "48-hour setup",     detail: "From sign-off to live guest experience." },
+  { icon: BarChart3,   label: "Post-event insight", detail: "Engagement data delivered after the event." },
 ]
 
 export function PilotPanel() {
+  const { t } = useLanguage()
+
   return (
     <section
       data-section="contact"
@@ -25,7 +28,7 @@ export function PilotPanel() {
     >
       {/* Section label */}
       <p className="font-sans font-medium uppercase tracking-[0.25em] text-accent mb-10" style={{ fontSize: "0.75rem" }}>
-        A Leadership Opportunity
+        {t("pilot_eyebrow")}
       </p>
 
       {/* Main heading */}
@@ -34,23 +37,19 @@ export function PilotPanel() {
           className="font-serif text-balance leading-[1.06] mb-8"
           style={{ color: "#C9A962", fontSize: "clamp(2rem, 4.5vw, 3.5rem)", fontWeight: 500 }}
         >
-          Curating the Quiet Passages   
+          {t("pilot_heading")}
         </h2>
         <p className="font-sans text-pretty" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.82)", fontWeight: 500 }}>
-          {"The Host Atlas is now available as a defined project  - one route, one voyage, fully supported from start to finish.\n\nIf you operate fixed-route travel,  coastal voyages, river cruises or expedition cruises  The Host Atlas is built for you."}
+          {t("pilot_body")}
         </p>
       </div>
 
-      {/* Gold divider */}
-      
-
       {/* Two-column details */}
       <div className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 mb-20">
-
         {/* Left — includes */}
         <div>
           <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
-            Each Project Includes
+            {t("pilot_includes_label")}
           </p>
           <div className="grid grid-cols-1 gap-y-3 mb-8">
             {includes.map((item) => (
@@ -73,17 +72,14 @@ export function PilotPanel() {
           </div>
         </div>
 
-        {/* Right — editorial statement + contact */}
+        {/* Right — working with us + contact */}
         <div className="flex flex-col justify-between gap-10">
           <div>
             <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
-              Working With Us
+              {t("pilot_working_label")}
             </p>
             <p className="font-sans text-pretty mb-5" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.82)", fontWeight: 500 }}>
-              We work directly with route operators and product teams to design and deploy a fully curated, branded experience. without technical overhead or the need for a large internal team.
-            </p>
-            <p className="font-sans text-pretty" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.65)" }}>
-              {""}
+              {t("pilot_working_body")}
             </p>
           </div>
 
@@ -93,10 +89,10 @@ export function PilotPanel() {
             style={{ border: "1px solid rgba(201,169,98,0.35)", backgroundColor: "rgba(255,255,255,0.04)" }}
           >
             <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-4" style={{ fontSize: "0.75rem" }}>
-              Get in Touch
+              {t("pilot_contact_label")}
             </p>
             <p className="font-sans mb-5" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.75)" }}>
-              Reach us directly to discuss your route, your guests, and how The Host Atlas can serve both.
+              {t("pilot_contact_body")}
             </p>
             <a
               href="mailto:connect@hostatlas.guide"

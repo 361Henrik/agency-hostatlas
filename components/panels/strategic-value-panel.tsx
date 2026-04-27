@@ -1,36 +1,40 @@
 "use client"
 
+import { useLanguage } from "@/lib/language-context"
+
 const pillars = [
   {
     num: "01",
-    title: "Stronger Guest Experience",
+    title: "Stronger Guest Satisfaction",
     points: [
-      "Guests engage with landscape between ports, not just at stops.",
-      "Curiosity is met in real time, with curated context.",
-      "The experience feels native to the voyage — never intrusive.",
+      "Guests who explore the city return to the evening programme more engaged — not scattered.",
+      "Structured discovery reduces the aimless gap that erodes event satisfaction scores.",
+      "A city experience branded to your event makes the city feel like part of the programme.",
     ],
   },
   {
     num: "02",
-    title: "New Strategic Insight",
+    title: "Brand Continuity Beyond the Venue",
     points: [
-      "Understand what guests engage with, when, where, and for how long.",
-      "Behavioural data tied to geography — a dimension operators currently lack.",
-      "Smarter decisions about route design and content investment.",
+      "Your event brand travels with the guest into the city — on every street, at every stop.",
+      "Every point of interest carries your narrative framing, your tone, your identity.",
+      "Brand presence becomes continuous — not confined to the conference room or gala dinner.",
     ],
   },
   {
     num: "03",
-    title: "Organic Brand Extension",
+    title: "Actionable Engagement Data",
     points: [
-      "The experience carries your visual identity and narrative style.",
-      "Brand presence becomes continuous — not confined to cabin or dock.",
-      "Engagement patterns inform how your brand evolves.",
+      "Understand which topics resonate with your delegates outside the formal programme.",
+      "Which routes were walked, which stops engaged, which themes sparked follow-up interest.",
+      "Intelligence that informs future event content, sponsor conversations, and city selection.",
     ],
   },
 ]
 
 export function StrategicValuePanel() {
+  const { t } = useLanguage()
+
   return (
     <section
       data-section="advantage"
@@ -38,18 +42,14 @@ export function StrategicValuePanel() {
       style={{ backgroundColor: "#1F3528", color: "#F5F0E8" }}
     >
       <div className="max-w-6xl w-full">
-
         {/* Header */}
         <div className="text-center mb-14">
           <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
-            Strategic Value
+            {t("strategic_eyebrow")}
           </p>
           <h2 className="font-serif text-balance text-foreground mb-5 leading-[1.06]" style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 500 }}>
-            Value for Travel Operators  
+            {t("strategic_heading")}
           </h2>
-          <p className="font-sans max-w-[40ch] mx-auto text-pretty" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.85)", fontWeight: 500 }}>
-            {""}
-          </p>
         </div>
 
         {/* Three pillars */}
@@ -76,7 +76,6 @@ export function StrategicValuePanel() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )

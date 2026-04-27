@@ -3,8 +3,9 @@ import type { Metadata } from "next"
 
 import { Analytics } from "@vercel/analytics/next"
 import { Lexend, Playfair_Display, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
+import { Toaster } from "@/components/ui/sonner"
+import { LanguageProvider } from "@/lib/language-context"
 
-// Initialize fonts
 const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
 
 const lexend = Lexend({
@@ -22,38 +23,39 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://one.hostatlas.guide"),
-  title: "The Host Atlas",
+  metadataBase: new URL("https://corporate.hostatlas.guide"),
+  title: "The Host Atlas for Corporate Events",
   description:
-    "An operator-branded, location-aware information capability designed for fixed-route travel. Transforming scenic journeys into strategic guest experiences.",
+    "Turn unused event time into branded local discovery. Give your guests a curated, industry-relevant view of the city — combining local highlights with stories that connect to your event and brand.",
   icons: {
     icon: "/icon.svg",
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "The Host Atlas — by ThreeSixtyOne",
+    title: "The Host Atlas for Corporate Events",
     description:
-      "A new strategic capability for premium travel operators. Transform the silent stretches of every voyage into moments of branded guest engagement.",
-    url: "https://one.hostatlas.guide",
+      "Turn unused event time into branded local discovery. Five curated Oslo routes for the Nordic Finance Summit — map view, live navigation, EN/NO language support.",
+    url: "https://corporate.hostatlas.guide",
     type: "website",
     locale: "en_US",
     siteName: "The Host Atlas",
     images: [
       {
         url: "/hero-aerial-landscape.jpg",
-        width: 1024,
-        height: 1024,
-        alt: "The Host Atlas — aerial view of rolling hills meeting the sea",
+        width: 1200,
+        height: 630,
+        alt: "The Host Atlas for Corporate Events",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Host Atlas — by ThreeSixtyOne",
+    title: "The Host Atlas for Corporate Events",
     description:
-      "A new strategic capability for premium travel operators. Transform the silent stretches of every voyage into moments of branded guest engagement.",
+      "Turn unused event time into branded local discovery.",
     images: ["/hero-aerial-landscape.jpg"],
   },
+  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -68,12 +70,14 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${lexend.variable} ${playfair.variable} font-sans antialiased bg-background`}>
-        {children}
-        <Analytics />
+        <LanguageProvider>
+          {children}
+          <Toaster />
+          <Analytics />
+        </LanguageProvider>
       </body>
     </html>
   )
 }
-
 
 import './globals.css'
