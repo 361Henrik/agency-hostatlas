@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     siteName: "The Host Atlas",
     images: [
       {
-        url: "/hero-aerial-landscape.jpg",
+        url: "/og-oslo.jpg",
         width: 1200,
         height: 630,
         alt: "The Host Atlas for Corporate Events",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     title: "The Host Atlas for Corporate Events",
     description:
       "Turn unused event time into branded local discovery.",
-    images: ["/hero-aerial-landscape.jpg"],
+    images: ["/og-oslo.jpg"],
   },
   generator: 'v0.app'
 }
