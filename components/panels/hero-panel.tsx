@@ -69,9 +69,9 @@ export function HeroPanel() {
           </h1>
 
           <p
-            className="font-sans font-medium text-pretty mt-8 md:mt-12 max-w-[48ch]"
+            className="font-sans font-normal md:font-medium text-pretty mt-8 md:mt-12 max-w-[48ch]"
             style={{
-              fontSize: "clamp(1.125rem, 1.8vw, 1.375rem)",
+              fontSize: "clamp(0.9375rem, 1.8vw, 1.375rem)",
               lineHeight: 1.7,
               color: "rgba(255,255,255,0.90)",
             }}

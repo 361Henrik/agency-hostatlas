@@ -178,6 +178,7 @@ export function GuestSection() {
                 playsInline
                 preload="metadata"
                 controls={false}
+                poster="/mobile-app-map-interface-showing-points-of-interes.jpg"
                 className="w-full h-auto block"
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Close_Up_Screen_Content_Video-Jkr0TMGzi8Gq1sXht4c5aPjy49Hafc.mp4"
                 ref={(el) => { if (el) el.volume = 0 }}

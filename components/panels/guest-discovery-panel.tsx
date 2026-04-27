@@ -39,6 +39,7 @@ export function GuestDiscoveryPanel() {
                 playsInline
                 preload="metadata"
                 controls={false}
+                poster="/fjord-with-atlas.jpg"
                 className="absolute inset-0 w-full h-full object-cover"
                 src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/POI_Color_Change_Video_Generated%20%281%29-uIT83t0CqsqYdkHFALxleWYATgJ2Xc.mp4"
               />

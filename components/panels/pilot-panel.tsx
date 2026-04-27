@@ -95,16 +95,33 @@ export function PilotPanel() {
               {t("pilot_contact_body")}
             </p>
             <a
-              href="mailto:connect@hostatlas.guide"
-              className="group inline-flex items-center gap-3 transition-opacity duration-300 hover:opacity-75"
+              href="mailto:connect@hostatlas.guide?subject=Request%20a%20Conversation%20%E2%80%94%20The%20Host%20Atlas"
+              className="inline-flex items-center justify-center w-full font-sans font-medium uppercase tracking-[0.12em] transition-all duration-300"
+              style={{
+                fontSize: "0.8125rem",
+                color: "#1F3528",
+                backgroundColor: "#C9A962",
+                padding: "1rem 2rem",
+                letterSpacing: "0.12em",
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#b8944f" }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#C9A962" }}
             >
-              <span
-                className="font-serif italic leading-none"
-                style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)", color: "#C9A962", fontWeight: 500 }}
+              Request a Conversation
+            </a>
+            <p
+              className="font-sans mt-4 text-center"
+              style={{ fontSize: "0.875rem", color: "rgba(245,240,232,0.4)" }}
+            >
+              or email{" "}
+              <a
+                href="mailto:connect@hostatlas.guide"
+                className="transition-opacity hover:opacity-75"
+                style={{ color: "rgba(201,169,98,0.7)" }}
               >
                 connect@hostatlas.guide
-              </span>
-            </a>
+              </a>
+            </p>
           </div>
         </div>
       </div>
