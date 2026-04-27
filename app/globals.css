@@ -303,3 +303,22 @@
 .scroll-indicator {
   animation: scrollBounce 2s ease-in-out infinite;
 }
+
+/* Hero scroll indicator */
+@keyframes scrollChevron {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(5px); opacity: 0.6; }
+}
+
+.scroll-chevron {
+  animation: scrollChevron 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollIndicatorFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.scroll-indicator-fade {
+  animation: scrollIndicatorFade 1s ease-out 2s both;
+}

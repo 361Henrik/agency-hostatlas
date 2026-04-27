@@ -21,6 +21,28 @@ export function HeroPanel() {
         />
       </div>
 
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-0 right-0 z-20 flex flex-col items-center gap-2 pointer-events-none scroll-indicator-fade">
+        <span
+          className="font-sans font-medium uppercase"
+          style={{ fontSize: "0.625rem", letterSpacing: "0.25em", color: "rgba(201,169,98,0.75)" }}
+        >
+          Scroll
+        </span>
+        <svg
+          width="16"
+          height="24"
+          viewBox="0 0 16 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="scroll-chevron"
+          aria-hidden="true"
+        >
+          <path d="M1 1L8 8L15 1" stroke="rgba(201,169,98,0.75)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M1 9L8 16L15 9" stroke="rgba(201,169,98,0.45)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+
       <div className="relative z-10 flex h-full flex-col justify-end px-6 md:px-16 lg:px-24 pb-[12vh] md:pb-[14vh]">
         <div className="w-full">
           <h1

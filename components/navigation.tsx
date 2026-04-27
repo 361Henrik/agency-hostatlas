@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { Menu, X } from "lucide-react"
 import Image from "next/image"
 
 const navLinks = [
@@ -18,7 +17,6 @@ const lightSections = ["experience"]
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
 
   useEffect(() => {
@@ -41,7 +39,6 @@ export function Navigation() {
   }, [])
 
   const scrollToSection = useCallback((sectionId: string) => {
-    setMobileOpen(false)
     const el = document.querySelector(`[data-section="${sectionId}"]`)
     if (!el) return
     const offset = 72
@@ -50,7 +47,6 @@ export function Navigation() {
   }, [])
 
   const scrollToTop = useCallback(() => {
-    setMobileOpen(false)
     window.scrollTo({ top: 0, behavior: "smooth" })
   }, [])
 
@@ -140,15 +136,6 @@ export function Navigation() {
           </button>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="ml-auto md:hidden transition-colors duration-[400ms]"
-          style={{ color: onLight ? "rgba(31,70,54,0.7)" : "rgba(255,255,255,0.8)" }}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
       </div>
 
       {/* Bottom divider */}
@@ -157,52 +144,6 @@ export function Navigation() {
           scrolled ? "opacity-100" : "opacity-0"
         }`}
       />
-
-      {/* Mobile menu — animated slide-down */}
-      <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-[oklch(0.22_0.05_155/0.97)] backdrop-blur-md ${
-          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex flex-col px-6 py-8 gap-1">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.sectionId
-            return (
-              <button
-                key={link.label}
-                onClick={() => scrollToSection(link.sectionId)}
-                className="text-left text-[16px] uppercase py-3 border-b border-white/8 transition-colors duration-200"
-                style={{
-                  fontWeight: 500,
-                  letterSpacing: "0.04em",
-                  color: isActive ? "rgba(196, 154, 92, 1)" : "rgba(255,255,255,0.85)",
-                }}
-              >
-                {link.label}
-              </button>
-            )
-          })}
-          <button
-            onClick={() => scrollToSection(CTA.sectionId)}
-            className="text-left text-[16px] uppercase py-3 font-medium transition-colors duration-200 mt-3"
-            style={{
-              letterSpacing: "0.04em",
-              color: "rgba(196, 154, 92, 0.85)",
-            }}
-          >
-            {CTA.label}
-          </button>
-        </div>
-      </div>
-
-      {/* Backdrop — closes menu when tapping outside */}
-      {mobileOpen && (
-        <div
-          className="fixed inset-0 z-[-1] md:hidden"
-          onClick={() => setMobileOpen(false)}
-          aria-hidden="true"
-        />
-      )}
     </nav>
   )
 }
