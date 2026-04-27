@@ -44,16 +44,16 @@ export function DeadTimePanel() {
         </h2>
 
         <div className="space-y-5">
-          <p className="font-sans" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(28,43,30,0.8)", fontWeight: 500 }}>
+          <p className="font-sans" style={{ fontSize: "clamp(1rem, 2.5vw, 1.1875rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.8)", fontWeight: 500 }}>
             {t("dead_time_p1")}
           </p>
-          <p className="font-sans" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(28,43,30,0.75)" }}>
+          <p className="font-sans" style={{ fontSize: "clamp(1rem, 2.5vw, 1.1875rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.75)" }}>
             {t("dead_time_p2")}
           </p>
-          <p className="font-sans" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(28,43,30,0.75)" }}>
+          <p className="font-sans" style={{ fontSize: "clamp(1rem, 2.5vw, 1.1875rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.75)" }}>
             {t("dead_time_p3")}
           </p>
-          <p className="font-sans font-medium" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "#1C2B1E" }}>
+          <p className="font-sans font-medium" style={{ fontSize: "clamp(1rem, 2.5vw, 1.1875rem)", lineHeight: 1.6, color: "#1C2B1E" }}>
             {t("dead_time_stat")}
           </p>
         </div>

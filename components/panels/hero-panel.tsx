@@ -10,7 +10,7 @@ export function HeroPanel() {
     <section data-section="hero" className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1920&q=85"
+          src="https://images.unsplash.com/photo-1673697967248-0a52621c991e?w=1920&q=85"
           alt="Aerial view of Oslo city and the Oslofjord"
           fill
           priority

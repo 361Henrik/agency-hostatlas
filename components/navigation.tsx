@@ -3,20 +3,16 @@
 import { useState, useEffect, useCallback } from "react"
 import Image from "next/image"
 import { LanguageToggle } from "./language-toggle"
+import { useLanguage } from "@/lib/language-context"
 
-const navLinks = [
-  { label: "For Hosts",  sectionId: "operators" },
-  { label: "Routes",     sectionId: "routes" },
-  { label: "ROI",        sectionId: "advantage" },
-]
-
-const CTA = { label: "Get Started", sectionId: "contact" }
-
+const NAV_SECTION_IDS = ["operators", "routes", "advantage"]
+const CTA_SECTION_ID = "contact"
 const lightSections = ["opportunity", "routes"]
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState("hero")
+  const { t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,18 +74,19 @@ export function Navigation() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-7 ml-8">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.sectionId
+          {NAV_SECTION_IDS.map((sectionId, i) => {
+            const label = t(["nav_hosts", "nav_routes", "nav_advantage"][i] as any)
+            const isActive = activeSection === sectionId
             return (
               <button
-                key={link.label}
-                onClick={() => scrollToSection(link.sectionId)}
+                key={sectionId}
+                onClick={() => scrollToSection(sectionId)}
                 className="group relative text-[14px] uppercase font-medium transition-colors duration-200 py-1"
                 style={{ letterSpacing: "0.06em", color: navColor }}
                 onMouseEnter={(e) => (e.currentTarget.style.color = navHoverColor)}
                 onMouseLeave={(e) => (e.currentTarget.style.color = navColor)}
               >
-                {link.label}
+                {label}
                 <span
                   className="absolute left-0 right-0 bottom-0 h-px transition-opacity duration-200"
                   style={{ backgroundColor: underlineColor, opacity: isActive ? 1 : 0 }}
@@ -106,18 +103,18 @@ export function Navigation() {
 
           {/* CTA */}
           <button
-            onClick={() => scrollToSection(CTA.sectionId)}
+            onClick={() => scrollToSection(CTA_SECTION_ID)}
             className="group relative text-[14px] uppercase font-medium py-1 transition-colors duration-200"
             style={{ letterSpacing: "0.06em", color: ctaColor }}
             onMouseEnter={(e) => (e.currentTarget.style.color = ctaHoverColor)}
             onMouseLeave={(e) => (e.currentTarget.style.color = ctaColor)}
           >
-            {CTA.label}
+            {t("nav_contact")}
             <span
               className="absolute left-0 right-0 bottom-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-200"
               style={{ backgroundColor: underlineColor }}
             />
-            {activeSection === CTA.sectionId && (
+            {activeSection === CTA_SECTION_ID && (
               <span
                 className="absolute left-0 right-0 bottom-0 h-px"
                 style={{ backgroundColor: underlineColor, opacity: 1 }}
