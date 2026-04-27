@@ -158,39 +158,50 @@ export function Navigation() {
         }`}
       />
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-[oklch(0.22_0.05_155/0.97)] backdrop-blur-md">
-          <div className="flex flex-col px-6 py-8 gap-1">
-            {navLinks.map((link) => {
-              const isActive = activeSection === link.sectionId
-              return (
-                <button
-                  key={link.label}
-                  onClick={() => scrollToSection(link.sectionId)}
-                  className="text-left text-[16px] uppercase py-3 border-b border-white/8 transition-colors duration-200"
-                  style={{
-                    fontWeight: 500,
-                    letterSpacing: "0.04em",
-                    color: isActive ? "rgba(196, 154, 92, 1)" : "rgba(255,255,255,0.85)",
-                  }}
-                >
-                  {link.label}
-                </button>
-              )
-            })}
-            <button
-              onClick={() => scrollToSection(CTA.sectionId)}
-              className="text-left text-[16px] uppercase py-3 font-medium transition-colors duration-200 mt-3"
-              style={{
-                letterSpacing: "0.04em",
-                color: "rgba(196, 154, 92, 0.85)",
-              }}
-            >
-              {CTA.label}
-            </button>
-          </div>
+      {/* Mobile menu — animated slide-down */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-[oklch(0.22_0.05_155/0.97)] backdrop-blur-md ${
+          mobileOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="flex flex-col px-6 py-8 gap-1">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.sectionId
+            return (
+              <button
+                key={link.label}
+                onClick={() => scrollToSection(link.sectionId)}
+                className="text-left text-[16px] uppercase py-3 border-b border-white/8 transition-colors duration-200"
+                style={{
+                  fontWeight: 500,
+                  letterSpacing: "0.04em",
+                  color: isActive ? "rgba(196, 154, 92, 1)" : "rgba(255,255,255,0.85)",
+                }}
+              >
+                {link.label}
+              </button>
+            )
+          })}
+          <button
+            onClick={() => scrollToSection(CTA.sectionId)}
+            className="text-left text-[16px] uppercase py-3 font-medium transition-colors duration-200 mt-3"
+            style={{
+              letterSpacing: "0.04em",
+              color: "rgba(196, 154, 92, 0.85)",
+            }}
+          >
+            {CTA.label}
+          </button>
         </div>
+      </div>
+
+      {/* Backdrop — closes menu when tapping outside */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-[-1] md:hidden"
+          onClick={() => setMobileOpen(false)}
+          aria-hidden="true"
+        />
       )}
     </nav>
   )

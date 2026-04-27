@@ -178,7 +178,7 @@ export function GuestSection() {
               loop
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               controls={false}
               className="w-full h-auto block"
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Close_Up_Screen_Content_Video-Jkr0TMGzi8Gq1sXht4c5aPjy49Hafc.mp4"

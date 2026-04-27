@@ -32,8 +32,8 @@ export function HeroPanel() {
               fontSize: "clamp(2rem, 7vw, 5.5rem)",
             }}
           >
-            <span className="block whitespace-nowrap">A Hill is Just a Hill</span>
-            <span className="block whitespace-nowrap">Until You Know Its Story.</span>
+            <span className="block">A Hill is Just a Hill</span>
+            <span className="block">Until You Know Its Story.</span>
           </h1>
 
           <p
