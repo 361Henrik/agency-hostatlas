@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// pipeline-test
 const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
