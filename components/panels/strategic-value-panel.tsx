@@ -9,37 +9,76 @@ const pillars: Array<{ num: string; title: L; points: [L, L, L] }> = [
   {
     num: "01",
     title: {
-      en: "Stronger Guest Satisfaction",
-      no: "Sterkere gjestetilfredshet",
+      en: "Higher Guest Satisfaction Scores",
+      ja: "より高いゲスト満足度スコア",
+      zh: "更高的客人满意度评分",
     },
     points: [
-      { en: "Guests who walk the city return to the evening programme more engaged — not scattered.",             no: "Gjester som går i byen, vender tilbake til kveldsprogrammet mer engasjert — ikke spredt." },
-      { en: "A structured city experience reduces the aimless gap that erodes event satisfaction scores.",        no: "En strukturert byopplevelse reduserer det formålsløse gapet som svekker tilfredshetsscore." },
-      { en: "A city experience branded to your event makes the city feel like part of the programme.",           no: "En byopplevelse merket til ditt arrangement gjør at byen føles som en del av programmet." },
+      {
+        en: "Guests who explore Lofoten with confidence return to the group programme more engaged — not anxious or scattered.",
+        ja: "自信を持ってロフォーテンを探索したゲストは、不安になることなく、グループプログラムにより積極的に戻ってきます。",
+        zh: "充满信心探索罗弗敦的客人回归团体行程时更投入——而不是焦虑或分散。",
+      },
+      {
+        en: "Near-50% Chinese visitor dissatisfaction in Norway is driven by unstructured time. HostAtlas closes that gap directly.",
+        ja: "ノルウェーでの中国人訪問者の不満の約50%は非構造的な時間によって引き起こされます。HostAtlasはそのギャップを直接埋めます。",
+        zh: "中国游客在挪威近50%的不满意度源于非结构化时间。HostAtlas直接弥补这一差距。",
+      },
+      {
+        en: "A confident guest becomes a peer recommendation. In Chinese travel culture, word-of-mouth is the primary booking driver.",
+        ja: "自信のあるゲストはクチコミになります。中国の旅行文化では、口コミが主要な予約動機です。",
+        zh: "充满信心的客人会成为口碑推荐者。在中国旅行文化中，口碑是主要的预订驱动力。",
+      },
     ],
   },
   {
     num: "02",
     title: {
-      en: "Brand Continuity Beyond the Venue",
-      no: "Merkevarekontinuitet utover møtelokalet",
+      en: "Zero Missed Buses. Zero Operational Risk.",
+      ja: "バスの乗り遅れゼロ。運営リスクゼロ。",
+      zh: "零误车。零运营风险。",
     },
     points: [
-      { en: "Your event brand travels with the guest into the city — on every street, at every stop.",           no: "Ditt arrangementsbrand følger gjesten ut i byen — på hver gate, ved hvert stopp." },
-      { en: "Every point of interest carries your narrative framing, your tone, your identity.",                  no: "Hvert interessepunkt bærer din narrative innramming, din tone, din identitet." },
-      { en: "Brand presence becomes continuous — not confined to the conference room or gala dinner.",            no: "Merkevaretilstedeværelsen blir kontinuerlig — ikke begrenset til konferanserommet eller gallamiddagen." },
+      {
+        en: "Every route includes a departure countdown and real-time return navigation to the group meeting point.",
+        ja: "すべてのルートには出発カウントダウンとグループ集合点へのリアルタイム帰還ナビゲーションが含まれています。",
+        zh: "每条路线都包含出发倒计时和实时返回团体集合点的导航。",
+      },
+      {
+        en: "The guide controls which routes are visible. Guests cannot activate content for the wrong stop or the wrong day.",
+        ja: "ガイドはどのルートが見えるかを制御します。ゲストは間違った停留地や間違った日のコンテンツをアクティベートできません。",
+        zh: "导游控制哪些路线可见。客人无法激活错误站点或错误日期的内容。",
+      },
+      {
+        en: "Offline-first architecture means the tool works in Lofoten's connectivity dead zones — exactly where it's needed most.",
+        ja: "オフラインファーストのアーキテクチャにより、ロフォーテンの接続のないゾーンでもツールが機能します — まさに最も必要な場所で。",
+        zh: "离线优先架构意味着该工具在罗弗敦的无网络区域同样有效——正是最需要的地方。",
+      },
     ],
   },
   {
     num: "03",
     title: {
-      en: "Actionable Engagement Data",
-      no: "Handlingsorienterte engasjementsdata",
+      en: "A Destination Beyond Three Spots",
+      ja: "3つのスポットを超えた目的地",
+      zh: "超越三个景点的目的地",
     },
     points: [
-      { en: "Understand which topics resonate with your guests outside the formal programme.",                    no: "Forstå hvilke temaer som resonnerer med dine gjester utenfor det formelle programmet." },
-      { en: "Which routes were walked, which stops engaged, which themes sparked follow-up interest.",            no: "Hvilke ruter som ble gått, hvilke stopp som engasjerte, hvilke temaer som skapte videre interesse." },
-      { en: "Intelligence that informs future event content, sponsor conversations, and city selection.",         no: "Innsikt som former fremtidige arrangementer, sponsorsamtaler og valg av arrangementsby." },
+      {
+        en: "Without HostAtlas, premium guests spend free time at 2–3 well-known spots. With it, they experience the depth that justifies the premium price.",
+        ja: "HostAtlasなしでは、プレミアムゲストは2〜3の有名スポットで自由時間を過ごします。HostAtlasがあれば、プレミアム価格を正当化する深みを体験します。",
+        zh: "没有HostAtlas，高端客人将在2至3个知名景点度过自由时间。有了它，他们能体验到证明高端价格合理的深度。",
+      },
+      {
+        en: "Photography viewpoints, cultural moments, and golden hour timing — built into every route, delivered in the guest's language.",
+        ja: "フォトポイント、文化的な瞬間、ゴールデンアワーのタイミング — すべてのルートに組み込まれ、ゲストの言語で提供されます。",
+        zh: "摄影观景点、文化时刻和黄金时段时机——融入每条路线，以客人的语言呈现。",
+      },
+      {
+        en: "Post-departure engagement data shows which routes were walked, which stops captured attention, and how guests used their time.",
+        ja: "出発後のエンゲージメントデータは、どのルートが歩かれたか、どの停留地が注目を集めたか、ゲストがどのように時間を使ったかを示します。",
+        zh: "出发后的参与度数据显示哪些路线被行走、哪些停留点引发关注，以及客人如何使用他们的时间。",
+      },
     ],
   },
 ]
@@ -49,7 +88,7 @@ export function StrategicValuePanel() {
 
   return (
     <section
-      data-section="advantage"
+      data-section="why-hostatlas"
       className="w-full flex items-center justify-center px-6 md:px-12 lg:px-20 py-28 md:py-36 panel-green"
       style={{ backgroundColor: "#1F3528", color: "#F5F0E8" }}
     >
@@ -81,7 +120,7 @@ export function StrategicValuePanel() {
                 {pillar.points.map((point, i) => (
                   <li key={point.en} className="flex gap-3">
                     <span className="text-accent mt-0.5 shrink-0">{"—"}</span>
-                    <p className="font-sans" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.85)", fontWeight: i === 0 ? 500 : 400 }}>{point[lang]}</p>
+                    <p className="font-sans" style={{ fontSize: "1.0625rem", lineHeight: 1.6, color: "rgba(245,240,232,0.85)", fontWeight: i === 0 ? 500 : 400 }}>{point[lang]}</p>
                   </li>
                 ))}
               </ul>

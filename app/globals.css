@@ -4,7 +4,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* ThreeSixtyOne — Orient Express editorial palette */
+/* ATLASdesign — HostAtlas brand tokens */
+:root {
+  --atlas-canvas: #f6f3ee;
+  --atlas-stone: #e8e2d9;
+  --atlas-charcoal: #1a1f1a;
+  --atlas-muted: #6e6a5e;
+  --atlas-green: #1f4a3a;
+  --atlas-terracotta: #c35c3c;
+  --atlas-bronze: #c9a962;
+  --atlas-border: #ccc4b8;
+}
+
+/* Agency site — dark editorial base */
 :root {
   /* Deep midnight sapphire — primary, hero, dark sections */
   --background: oklch(0.12 0.03 255);

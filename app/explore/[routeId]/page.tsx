@@ -21,10 +21,12 @@ const OsloMap = dynamic(
   }
 )
 
-const poiTypeLabels: Record<string, { en: string; no: string }> = {
-  city_highlight:  { en: "City Highlight",  no: "Byhøydepunkt" },
-  industry_poi:    { en: "Industry POI",    no: "Bransjestopp" },
-  host_narrative:  { en: "Host Story",      no: "Vertshistorie" },
+const poiTypeLabels: Record<string, { en: string; ja: string; zh: string }> = {
+  city_highlight:   { en: "Cultural Stop",  ja: "文化スポット",  zh: "文化景点" },
+  photo_moment:     { en: "Photo Moment",   ja: "フォトモーメント", zh: "拍照时机" },
+  cultural_story:   { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
+  industry_poi:     { en: "Cultural Stop",  ja: "文化スポット",  zh: "文化景点" },
+  host_narrative:   { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
 }
 
 export default function RouteDetailPage({ params }: { params: Promise<{ routeId: string }> }) {
@@ -41,14 +43,14 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
         style={{ backgroundColor: "rgba(15,31,21,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(201,169,98,0.12)" }}
       >
         <Link
-          href={`/explore${lang === "no" ? "?lang=no" : ""}`}
+          href={`/explore${lang !== "en" ? `?lang=${lang}` : ""}`}
           className="flex items-center gap-2 transition-opacity hover:opacity-70"
           style={{ color: "rgba(245,240,232,0.7)" }}
         >
           <ArrowLeft className="h-4 w-4" strokeWidth={1.5} />
           <span className="font-sans" style={{ fontSize: "0.875rem" }}>{t("explore_back")}</span>
         </Link>
-        <Link href={lang === "no" ? "/?lang=no" : "/"} className="absolute left-1/2 -translate-x-1/2" aria-label="Back to main site">
+        <Link href={lang !== "en" ? `/?lang=${lang}` : "/"} className="absolute left-1/2 -translate-x-1/2" aria-label="Back to main site">
           <Image
             src="/host-atlas-logo.png"
             alt="The Host Atlas"
@@ -100,7 +102,7 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
       {/* Start CTA */}
       <div className="px-4 mb-8">
         <Link
-          href={`/explore/${routeId}/navigate${lang === "no" ? "?lang=no" : ""}`}
+          href={`/explore/${routeId}/navigate${lang !== "en" ? `?lang=${lang}` : ""}`}
           className="flex items-center justify-center gap-3 w-full py-4 font-sans font-medium uppercase transition-opacity hover:opacity-85 active:scale-[0.98]"
           style={{
             backgroundColor: "#C9A962",

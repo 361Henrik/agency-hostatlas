@@ -45,10 +45,12 @@ const LiveViewCamera = dynamic(
   { ssr: false }
 )
 
-const poiTypeLabels: Record<string, { en: string; no: string }> = {
-  city_highlight: { en: "City Highlight",  no: "Byhøydepunkt" },
-  industry_poi:   { en: "Industry POI",    no: "Bransjestopp" },
-  host_narrative: { en: "Host Story",      no: "Vertshistorie" },
+const poiTypeLabels: Record<string, { en: string; ja: string; zh: string }> = {
+  city_highlight:  { en: "Cultural Stop",  ja: "文化スポット",     zh: "文化景点" },
+  photo_moment:    { en: "Photo Moment",   ja: "フォトモーメント", zh: "拍照时机" },
+  cultural_story:  { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
+  industry_poi:    { en: "Cultural Stop",  ja: "文化スポット",     zh: "文化景点" },
+  host_narrative:  { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
 }
 
 function formatDistance(metres: number): string {

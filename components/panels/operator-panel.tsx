@@ -9,76 +9,76 @@ type L = Record<Lang, string>
 const steps: Array<{ num: string; title: L; lines: [L, L]; note: L }> = [
   {
     num: "01",
-    title: { en: "Define Your Event",       no: "Definer arrangementet ditt" },
+    title: { en: "Share Your Tour Itinerary", ja: "ツアー旅程を共有", zh: "分享您的旅游行程" },
     lines: [
-      { en: "Tell us your event city, your industry focus, and the number of guests.",          no: "Fortell oss arrangementsbyen, bransjefokuset og antall gjester." },
-      { en: "We align the route themes to your conference topics and brand voice.",              no: "Vi tilpasser rutetemaene til konferanseinnholdet og din merkevarestemme." },
+      { en: "Tell us your destinations, your group profile, and your departure dates.",          ja: "目的地、グループプロファイル、出発日をお知らせください。",          zh: "告诉我们您的目的地、团队特征和出发日期。" },
+      { en: "We align the route themes to the specific places and time windows in your itinerary.", ja: "旅程の特定の場所と時間帯にルートテーマを合わせます。",          zh: "我们将路线主题与您行程中的具体地点和时间窗口对齐。" },
     ],
-    note: { en: "No technical setup required. We handle everything from briefing.",             no: "Ingen teknisk oppsett nødvendig. Vi håndterer alt fra briefing." },
+    note: { en: "No technical setup required. We handle everything from here.",                  ja: "技術的な設定は不要です。こちらですべて処理します。",              zh: "无需技术设置。我们处理一切。" },
   },
   {
     num: "02",
-    title: { en: "We Build the Routes",     no: "Vi bygger rutene" },
+    title: { en: "We Configure the Routes",   ja: "ルートを設定します",      zh: "我们配置路线" },
     lines: [
-      { en: "Five curated walking routes, each written to your industry lens.",                 no: "Fem kuraterte gåturer, hver skrevet etter din bransjlinse." },
-      { en: "Every point of interest researched, written, and geo-positioned.",                 no: "Hvert interessepunkt er forsket på, skrevet og geo-posisjonert." },
+      { en: "Time-bound walking routes built for your specific destinations.",                   ja: "特定の目的地に合わせて構築されたタイムバウンドウォーキングルート。",  zh: "为您的特定目的地构建的限时步行路线。" },
+      { en: "Meeting-point return logic, photo moments, and cultural depth built in.",           ja: "集合点帰還ロジック、フォトモーメント、文化的深みが組み込まれています。", zh: "内置集合点返回逻辑、拍照时机和文化深度。" },
     ],
-    note: { en: "You receive fully structured, content-ready routes before your event.",        no: "Du mottar ferdig strukturerte, innholdsklare ruter før arrangementet." },
+    note: { en: "Routes delivered within 48 hours of receiving your itinerary.",               ja: "旅程を受け取ってから48時間以内にルートを提供します。",             zh: "收到您的行程后48小时内交付路线。" },
   },
   {
     num: "03",
-    title: { en: "You Approve the Content", no: "Du godkjenner innholdet" },
+    title: { en: "You Approve the Content",   ja: "コンテンツを承認します",   zh: "您批准内容" },
     lines: [
-      { en: "Review every route and point of interest in our preview tool.",                    no: "Se gjennom alle ruter og interessepunkter i forhåndsvisningsverktøyet." },
-      { en: "Request edits, adjust emphasis, approve in a single sign-off.",                    no: "Be om justeringer, endre vektlegging, godkjenn i ett enkelt steg." },
+      { en: "Review every route and point of interest in our preview tool.",                    ja: "プレビューツールですべてのルートと興味ポイントを確認します。",       zh: "在我们的预览工具中审查每条路线和兴趣点。" },
+      { en: "Request edits, adjust timing, approve in a single sign-off.",                      ja: "編集を依頼し、タイミングを調整し、一度の承認で完了します。",       zh: "请求编辑，调整时间，单次审批完成。" },
     ],
-    note: { en: "Your brand, your voice, your approval — before a single guest arrives.",       no: "Din merkevare, din tone, din godkjenning — før én eneste gjest ankommer." },
+    note: { en: "Your destinations, your timing, your approval — before your guests arrive.", ja: "あなたの目的地、あなたのタイミング、あなたの承認 — ゲストが到着する前に。", zh: "您的目的地，您的时间，您的批准——在您的客人抵达之前。" },
   },
   {
     num: "04",
-    title: { en: "Deploy in Minutes",       no: "Klar på minutter" },
+    title: { en: "Set the Languages",         ja: "言語を設定します",         zh: "设置语言" },
     lines: [
-      { en: "Guests access their routes via a QR code on their event badge or programme.",      no: "Gjestene får tilgang til rutene via QR-kode på arrangementsbadgen eller programmet." },
-      { en: "Or send the link directly by SMS or email before arrival.",                        no: "Eller send lenken direkte via SMS eller e-post før ankomst." },
+      { en: "Activate EN, 日本語, or 简体中文 — or all three for mixed-nationality groups.",   ja: "EN、日本語、または简体中文をアクティベート — または混合国籍グループ向けに3つすべて。", zh: "激活EN、日本語或简体中文——或为混合国籍团体激活全部三种。" },
+      { en: "Language is set at the agency level. Guests open their native language automatically.", ja: "言語は旅行会社レベルで設定されます。ゲストは自動的に母国語で開きます。", zh: "语言在旅行社层面设置。客人自动以母语打开。" },
     ],
-    note: { en: "No app download required. Works in any mobile browser.",                      no: "Ingen app-nedlasting nødvendig. Fungerer i alle mobilnettlesere." },
+    note: { en: "Cultural tone adapted, not just translated. Same destination, different voice.", ja: "単なる翻訳ではなく、文化的トーン適応。同じ目的地、異なる声。", zh: "文化语气适配，而非仅仅翻译。相同目的地，不同声音。" },
   },
   {
     num: "05",
-    title: { en: "Guests Experience the City", no: "Gjestene opplever byen" },
+    title: { en: "Activate on the Day",       ja: "当日にアクティベート",      zh: "当天激活" },
     lines: [
-      { en: "Self-guided, branded walking routes with map view and live navigation.",           no: "Selvguidede, merkede gåturer med kartvisning og live navigasjon." },
-      { en: "Each stop tells a story connecting the city to your event's themes.",              no: "Hvert stopp forteller en historie som knytter byen til arrangementets temaer." },
+      { en: "Your guide activates the relevant routes for each stop — guests only see what's live.", ja: "ガイドが各停留地点に関連するルートをアクティベート — ゲストはライブのものだけを見ます。", zh: "您的导游为每个停留点激活相关路线——客人只看到正在进行的内容。" },
+      { en: "Guests scan a QR code or tap a link. No app download. Works in any mobile browser.", ja: "ゲストはQRコードをスキャンするかリンクをタップします。アプリ不要。モバイルブラウザで動作。", zh: "客人扫描二维码或点击链接。无需下载应用。在任何手机浏览器中运行。" },
     ],
-    note: { en: "Guests move at their own pace — in English or Norwegian.",                    no: "Gjestene går i eget tempo — på engelsk eller norsk." },
+    note: { en: "All content cached at QR scan. Works offline in Lofoten's dead zones.",       ja: "QRスキャン時にすべてのコンテンツをキャッシュ。ロフォーテンのデッドゾーンでもオフラインで動作。", zh: "二维码扫描时缓存所有内容。在罗弗敦的死区离线工作。" },
   },
   {
     num: "06",
-    title: { en: "You Receive the Insight", no: "Du mottar innsikten" },
+    title: { en: "You Receive the Insight",   ja: "インサイトを受け取ります",   zh: "您收到洞察报告" },
     lines: [
-      { en: "Which routes were walked. Which stops captured attention.",                        no: "Hvilke ruter som ble gått. Hvilke stopp som fanget oppmerksomhet." },
-      { en: "Which topics sparked follow-up interest from your guests.",                        no: "Hvilke temaer som skapte videre interesse blant gjestene." },
+      { en: "Which routes were walked. Which stops captured attention. How guests used their time.", ja: "どのルートが歩かれたか。どの停留地が注目を集めたか。ゲストがどのように時間を使ったか。", zh: "哪些路线被行走。哪些停留点引发关注。客人如何使用他们的时间。" },
+      { en: "Engagement data delivered after the departure — not guesswork.",                   ja: "出発後に提供されるエンゲージメントデータ — 推測ではありません。",  zh: "出发后提供的参与度数据——而非猜测。" },
     ],
-    note: { en: "Engagement intelligence delivered after the event — not guesswork.",          no: "Engasjementsdata levert etter arrangementet — ikke gjettverk." },
+    note: { en: "Intelligence that makes your next departure smarter.",                         ja: "次の出発をより賢くするインテリジェンス。",                       zh: "让您的下次出发更加智慧的情报。" },
   },
 ]
 
 const itIs: L[] = [
-  { en: "A premium digital host layer",                              no: "Et premium digitalt vertslag" },
-  { en: "A bespoke city narrative for your guests",                  no: "Et skreddersydd bynarrativ for dine gjester" },
-  { en: "A curated, host-branded recommendation experience",         no: "En kuratert, vertsmerket anbefalingsopplevelse" },
-  { en: "A way to extend hospitality beyond the programme",          no: "En måte å forlenge gjestfriheten utover programmet" },
-  { en: "Fast to deploy, with no new logistics or staffing",         no: "Rask å rulle ut — uten ny logistikk eller bemanning" },
-  { en: "Measurable — with engagement data after the event",         no: "Målbart — med engasjementsdata etter arrangementet" },
+  { en: "A curated digital companion for your guests' free time",                ja: "ゲストの自由時間のためのキュレーションされたデジタルコンパニオン",    zh: "为您客人自由时间设计的精心策划数字伴侣" },
+  { en: "Time-bound routes with departure countdowns and return logic",           ja: "出発カウントダウンと帰還ロジックを備えたタイムバウンドルート",       zh: "带有出发倒计时和返回逻辑的限时路线" },
+  { en: "Offline-capable — no signal needed after QR scan",                      ja: "オフライン対応 — QRスキャン後は信号不要",                          zh: "离线可用——QR扫描后无需信号" },
+  { en: "White-labelled to your agency brand",                                   ja: "あなたの旅行会社ブランドでホワイトラベル",                          zh: "以您的旅行社品牌白标显示" },
+  { en: "Deployed within 48 hours of receiving your itinerary",                  ja: "旅程受信から48時間以内に展開",                                    zh: "收到行程后48小时内部署" },
+  { en: "Measurable — engagement data delivered after departure",                ja: "測定可能 — 出発後にエンゲージメントデータを提供",                   zh: "可量化——出发后提供参与度数据" },
 ]
 
 const itIsNot: L[] = [
-  { en: "A live tour operation or guide service",                    no: "En live turoperasjon eller guideservice" },
-  { en: "A logistics or transport platform",                         no: "En logistikk- eller transportplattform" },
-  { en: "A generic city guide or tourist app",                       no: "En generisk byguide eller turistapp" },
-  { en: "A restaurant marketplace or booking platform",              no: "En restaurantmarkedsplass eller bookingplattform" },
-  { en: "A replacement for your event team",                         no: "En erstatning for arrangementsteamet ditt" },
-  { en: "A mass-market event app for general attendees",             no: "En massemarkeds-app for vanlige deltagere" },
+  { en: "A live tour guide or escort service",                                   ja: "ライブツアーガイドまたはエスコートサービス",                       zh: "实时导游或陪同服务" },
+  { en: "A logistics or transport platform",                                     ja: "物流または交通プラットフォーム",                                  zh: "物流或交通平台" },
+  { en: "A tourist app or activity booking tool",                                ja: "観光アプリやアクティビティ予約ツール",                             zh: "旅游应用或活动预订工具" },
+  { en: "A replacement for your programme or guide team",                        ja: "プログラムやガイドチームの代替",                                  zh: "您的行程或导游团队的替代品" },
+  { en: "A general city guide open to all travellers",                           ja: "すべての旅行者に開かれた一般的な都市ガイド",                       zh: "向所有旅行者开放的一般城市指南" },
+  { en: "An AI concierge or recommendation engine",                              ja: "AIコンシェルジュまたはレコメンデーションエンジン",                 zh: "AI礼宾服务或推荐引擎" },
 ]
 
 export function OperatorPanel() {
@@ -86,7 +86,7 @@ export function OperatorPanel() {
 
   return (
     <section
-      data-section="operators"
+      data-section="agencies"
       className="w-full flex flex-col items-center px-6 md:px-10 lg:px-16 py-28 md:py-36 panel-white"
       style={{ backgroundColor: "#F8F5EE", color: "#1C2B1E" }}
     >
@@ -116,10 +116,10 @@ export function OperatorPanel() {
               </h4>
               <div className="mb-3 space-y-1">
                 {step.lines.map((line, i) => (
-                  <p key={i} className="font-sans" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(28,43,30,0.78)", fontWeight: i === 0 ? 500 : 400 }}>{line[lang]}</p>
+                  <p key={i} className="font-sans" style={{ fontSize: "1.0625rem", lineHeight: 1.6, color: "rgba(28,43,30,0.78)", fontWeight: i === 0 ? 500 : 400 }}>{line[lang]}</p>
                 ))}
               </div>
-              <p className="font-sans italic mt-auto" style={{ fontSize: "1.0625rem", lineHeight: 1.6, color: "rgba(28,43,30,0.6)" }}>
+              <p className="font-sans italic mt-auto" style={{ fontSize: "1rem", lineHeight: 1.6, color: "rgba(28,43,30,0.6)" }}>
                 {step.note[lang]}
               </p>
             </div>
@@ -128,7 +128,6 @@ export function OperatorPanel() {
 
         {/* What it is / What it is not */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-accent/10 border border-accent/10">
-          {/* Left */}
           <div className="p-8 lg:p-10 bg-card">
             <p className="font-sans font-medium uppercase tracking-[0.18em] mb-6" style={{ fontSize: "0.6875rem", color: "rgba(196,154,92,1)" }}>
               {t("operator_label_is")}
@@ -142,8 +141,6 @@ export function OperatorPanel() {
               ))}
             </ul>
           </div>
-
-          {/* Right */}
           <div className="p-8 lg:p-10 bg-card" style={{ borderLeft: "1px solid rgba(196,154,92,0.1)" }}>
             <p className="font-sans font-medium uppercase tracking-[0.18em] mb-6" style={{ fontSize: "0.6875rem", color: "rgba(28,43,30,0.45)" }}>
               {t("operator_label_is_not")}

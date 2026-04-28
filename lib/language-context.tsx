@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, type ReactNode } from "react"
 import { translations, type TranslationKey } from "./translations"
 
-export type Lang = "en" | "no"
+export type Lang = "en" | "ja" | "zh"
 
 interface LanguageContextValue {
   lang: Lang

@@ -9,12 +9,11 @@ import { osloRoutes } from "@/lib/oslo-data"
 import { Badge } from "@/components/ui/badge"
 
 const themeColors: Record<string, string> = {
-  "banking-financial-history":   "#C9A962",
-  "fintech-startups":            "#7EB8A4",
-  "oslo-culture-highlights":     "#A8B89C",
-  "innovation-investment-trail": "#B8A0C8",
-  "corporate-innovation-hybrid": "#C9A962",
-  "oslo-essentials":             "#8FAAB8",
+  "first-evening-svolvaer":    "#C9A962",
+  "story-of-skrei":            "#7EB8A4",
+  "golden-hour-photo-walk":    "#C9A962",
+  "coastal-culture-craft":     "#A8B89C",
+  "weather-safe-short-walk":   "#8FAAB8",
 }
 
 export default function ExplorePage() {
@@ -24,7 +23,7 @@ export default function ExplorePage() {
     <div className="min-h-screen" style={{ backgroundColor: "#0F1F15", color: "#F5F0E8" }}>
       {/* Header */}
       <header className="sticky top-0 z-50 px-5 py-4 flex items-center justify-between" style={{ backgroundColor: "rgba(15,31,21,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(201,169,98,0.12)" }}>
-        <Link href={lang === "no" ? "/?lang=no" : "/"} aria-label="Back to main site">
+        <Link href={lang !== "en" ? `/?lang=${lang}` : "/"} aria-label="Back to main site">
           <Image
             src="/host-atlas-logo.png"
             alt="The Host Atlas"
@@ -64,7 +63,7 @@ export default function ExplorePage() {
           return (
             <Link
               key={route.id}
-              href={`/explore/${route.id}${lang === "no" ? "?lang=no" : ""}`}
+              href={`/explore/${route.id}${lang !== "en" ? `?lang=${lang}` : ""}`}
               className="group flex gap-4 p-5 transition-all duration-200 hover:opacity-90 active:scale-[0.99]"
               style={{
                 backgroundColor: "rgba(255,255,255,0.04)",

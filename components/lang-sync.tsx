@@ -10,7 +10,7 @@ export function LangSync() {
   const { setLang } = useLanguage()
   useEffect(() => {
     const l = params.get("lang") as Lang | null
-    if (l === "en" || l === "no") setLang(l)
+    if (l === "en" || l === "ja" || l === "zh") setLang(l)
   }, [params, setLang])
   return null
 }

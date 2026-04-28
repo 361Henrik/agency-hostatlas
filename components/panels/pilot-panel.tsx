@@ -5,43 +5,78 @@ import { Clock, BarChart3, ShieldCheck, Check } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import type { Lang } from "@/lib/language-context"
 
+type L = Record<Lang, string>
+
 const includes: Record<Lang, string[]> = {
   en: [
     "Route Research & Content Creation",
-    "Industry Lens Curation",
-    "Hosted Guest Platform",
-    "QR / SMS / Email Deployment",
-    "Engagement Report",
+    "Cultural & Photography Lens Curation",
+    "Multilingual Guest Platform (EN / 日本語 / 中文)",
+    "QR Deployment & Offline Caching",
+    "Post-Departure Engagement Report",
   ],
-  no: [
-    "Ruteforskning og innholdsproduksjon",
-    "Kuratering av bransjeperspektiv",
-    "Vertsbasert gjesteplatform",
-    "Utrulling via QR / SMS / e-post",
-    "Engasjementsrapport",
+  ja: [
+    "ルート調査とコンテンツ制作",
+    "文化・写真レンズのキュレーション",
+    "多言語ゲストプラットフォーム (EN / 日本語 / 中文)",
+    "QRデプロイとオフラインキャッシング",
+    "出発後エンゲージメントレポート",
+  ],
+  zh: [
+    "路线研究与内容创建",
+    "文化与摄影视角策划",
+    "多语言客人平台 (EN / 日本語 / 中文)",
+    "二维码部署与离线缓存",
+    "出发后参与度报告",
   ],
 }
 
-const projectDetails = [
+const projectDetails: Array<{ icon: React.ElementType; label: L; detail: L }> = [
   {
     icon: ShieldCheck,
-    label: { en: "Defined scope",      no: "Klart definert omfang" },
-    detail: { en: "One event city, one industry lens, full support.", no: "Én arrangementsby, én bransjlinse, full støtte." },
+    label: {
+      en: "Defined scope",
+      ja: "明確に定義されたスコープ",
+      zh: "明确定义的范围",
+    },
+    detail: {
+      en: "One destination, one itinerary, full support.",
+      ja: "一つの目的地、一つの旅程、完全サポート。",
+      zh: "一个目的地，一份行程，全力支持。",
+    },
   },
   {
     icon: Clock,
-    label: { en: "48-hour setup",      no: "48-timers oppstart" },
-    detail: { en: "From sign-off to live guest experience.",          no: "Fra godkjenning til live gjesteopplevelse." },
+    label: {
+      en: "48-hour setup",
+      ja: "48時間セットアップ",
+      zh: "48小时部署",
+    },
+    detail: {
+      en: "From itinerary sign-off to live guest experience.",
+      ja: "旅程承認からライブゲスト体験まで。",
+      zh: "从行程确认到实时客人体验。",
+    },
   },
   {
     icon: BarChart3,
-    label: { en: "Post-event insight", no: "Innsikt etter arrangementet" },
-    detail: { en: "Engagement data delivered after the event.",       no: "Engasjementsdata levert etter arrangementet." },
+    label: {
+      en: "Post-departure insight",
+      ja: "出発後インサイト",
+      zh: "出发后洞察",
+    },
+    detail: {
+      en: "Engagement data delivered after the departure.",
+      ja: "出発後にエンゲージメントデータを提供。",
+      zh: "出发后提供参与度数据。",
+    },
   },
 ]
 
 export function PilotPanel() {
   const { t, lang } = useLanguage()
+
+  const explorePath = lang !== "en" ? `/explore?lang=${lang}` : "/explore"
 
   return (
     <section
@@ -78,7 +113,7 @@ export function PilotPanel() {
             {includes[lang].map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <Check className="h-3.5 w-3.5 text-accent shrink-0" strokeWidth={2.5} />
-                <span className="font-sans" style={{ fontSize: "1.1875rem", color: "rgba(245,240,232,0.8)" }}>{item}</span>
+                <span className="font-sans" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.8)" }}>{item}</span>
               </div>
             ))}
           </div>
@@ -87,8 +122,8 @@ export function PilotPanel() {
               <div key={d.label.en} className="flex gap-4 items-start">
                 <d.icon className="h-4 w-4 text-accent shrink-0 mt-1" />
                 <div>
-                  <p className="font-sans font-medium" style={{ fontSize: "1.1875rem", color: "rgba(245,240,232,0.9)" }}>{d.label[lang]}</p>
-                  <p className="font-sans" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.5)" }}>{d.detail[lang]}</p>
+                  <p className="font-sans font-medium" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.9)" }}>{d.label[lang]}</p>
+                  <p className="font-sans" style={{ fontSize: "1rem", color: "rgba(245,240,232,0.5)" }}>{d.detail[lang]}</p>
                 </div>
               </div>
             ))}
@@ -118,7 +153,7 @@ export function PilotPanel() {
               {t("pilot_contact_body")}
             </p>
             <a
-              href="mailto:connect@hostatlas.guide?subject=Request%20a%20Conversation%20%E2%80%94%20The%20Host%20Atlas"
+              href="mailto:connect@hostatlas.guide?subject=Agency%20Enquiry%20%E2%80%94%20HostAtlas"
               className="inline-flex items-center justify-center w-full font-sans font-medium uppercase tracking-[0.12em] transition-all duration-300"
               style={{
                 fontSize: "0.8125rem",
@@ -146,7 +181,7 @@ export function PilotPanel() {
               </a>
             </p>
             <Link
-              href={lang === "no" ? "/explore?lang=no" : "/explore"}
+              href={explorePath}
               className="inline-block mt-5 font-sans font-medium uppercase transition-opacity duration-200 hover:opacity-70 w-full text-center"
               style={{ fontSize: "0.75rem", letterSpacing: "0.14em", color: "rgba(201,169,98,0.6)" }}
             >

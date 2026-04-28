@@ -1,18 +1,17 @@
 "use client"
 
 import Link from "next/link"
-import { Clock, Route, ArrowRight } from "lucide-react"
+import { Clock, Route, ArrowRight, Star, CloudRain } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { osloRoutes } from "@/lib/oslo-data"
 import { Badge } from "@/components/ui/badge"
 
 const themeColors: Record<string, string> = {
-  "banking-financial-history":   "#C9A962",
-  "fintech-startups":            "#7EB8A4",
-  "oslo-culture-highlights":     "#A8B89C",
-  "innovation-investment-trail": "#B8A0C8",
-  "corporate-innovation-hybrid": "#C9A962",
-  "oslo-essentials":             "#8FAAB8",
+  "first-evening-svolvaer":   "#C9A962",
+  "story-of-skrei":           "#7EB8A4",
+  "golden-hour-photo-walk":   "#C9A962",
+  "coastal-culture-craft":    "#A8B89C",
+  "weather-safe-short-walk":  "#8FAAB8",
 }
 
 export function OsloRoutesPanel() {
@@ -42,10 +41,11 @@ export function OsloRoutesPanel() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
           {osloRoutes.map((route, index) => {
             const accentColor = themeColors[route.id] ?? "#C9A962"
+            const langParam = lang !== "en" ? `?lang=${lang}` : ""
             return (
               <Link
                 key={route.id}
-                href={`/explore/${route.id}${lang === "no" ? "?lang=no" : ""}`}
+                href={`/explore/${route.id}${langParam}`}
                 className="group flex flex-col bg-card border border-accent/10 hover:border-accent/30 transition-all duration-300 hover:shadow-lg"
               >
                 {/* Route number bar */}
@@ -59,20 +59,38 @@ export function OsloRoutesPanel() {
                   >
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <div className="pt-1">
-                    <Badge
-                      className="font-sans uppercase text-[10px] tracking-[0.12em] mb-2"
-                      style={{
-                        backgroundColor: `${accentColor}18`,
-                        color: accentColor,
-                        border: `1px solid ${accentColor}30`,
-                        borderRadius: "2px",
-                        paddingTop: "2px",
-                        paddingBottom: "2px",
-                      }}
-                    >
-                      {route.theme[lang]}
-                    </Badge>
+                  <div className="pt-1 flex-1">
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <Badge
+                        className="font-sans uppercase text-[10px] tracking-[0.12em]"
+                        style={{
+                          backgroundColor: `${accentColor}18`,
+                          color: accentColor,
+                          border: `1px solid ${accentColor}30`,
+                          borderRadius: "2px",
+                          paddingTop: "2px",
+                          paddingBottom: "2px",
+                        }}
+                      >
+                        {route.theme[lang]}
+                      </Badge>
+                      {route.guideRecommended && (
+                        <Badge
+                          className="font-sans uppercase text-[10px] tracking-[0.12em] flex items-center gap-1"
+                          style={{
+                            backgroundColor: "rgba(31,74,58,0.08)",
+                            color: "#1f4a3a",
+                            border: "1px solid rgba(31,74,58,0.2)",
+                            borderRadius: "2px",
+                            paddingTop: "2px",
+                            paddingBottom: "2px",
+                          }}
+                        >
+                          <Star className="h-2.5 w-2.5" />
+                          Guide
+                        </Badge>
+                      )}
+                    </div>
                     <h3 className="font-serif text-foreground leading-[1.2]" style={{ fontSize: "1.1875rem", fontWeight: 500 }}>
                       {route.title[lang]}
                     </h3>
@@ -84,7 +102,16 @@ export function OsloRoutesPanel() {
                   <p className="font-sans flex-1 mb-5" style={{ fontSize: "1rem", lineHeight: 1.65, color: "rgba(28,43,30,0.70)" }}>
                     {route.summary[lang]}
                   </p>
-                  <div className="flex items-center gap-5 mb-5">
+
+                  {/* Return logic callout */}
+                  <p
+                    className="font-sans mb-5 text-xs italic"
+                    style={{ color: "rgba(28,43,30,0.5)", lineHeight: 1.5 }}
+                  >
+                    {route.returnLogic}
+                  </p>
+
+                  <div className="flex items-center gap-4 flex-wrap mb-5">
                     <div className="flex items-center gap-1.5" style={{ color: "rgba(28,43,30,0.5)" }}>
                       <Clock className="h-3.5 w-3.5" strokeWidth={1.5} />
                       <span className="font-sans" style={{ fontSize: "0.875rem" }}>{route.duration}</span>
@@ -96,6 +123,10 @@ export function OsloRoutesPanel() {
                     <span className="font-sans" style={{ fontSize: "0.875rem", color: "rgba(28,43,30,0.4)" }}>
                       {route.pois.length} {t("routes_stops")}
                     </span>
+                    <div className="flex items-center gap-1" style={{ color: "rgba(28,43,30,0.4)" }}>
+                      <CloudRain className="h-3 w-3" strokeWidth={1.5} />
+                      <span className="font-sans" style={{ fontSize: "0.75rem" }}>{route.weatherSuitability}</span>
+                    </div>
                   </div>
 
                   <div className="flex items-center gap-2 transition-opacity duration-200 group-hover:opacity-100 opacity-70">
@@ -115,7 +146,7 @@ export function OsloRoutesPanel() {
           <p className="font-sans" style={{ fontSize: "0.9375rem", color: "rgba(28,43,30,0.5)" }}>
             {t("routes_qr_label")}{" "}
             <span className="font-medium" style={{ color: "rgba(28,43,30,0.7)" }}>
-              corporate.hostatlas.guide/explore
+              agency.hostatlas.guide/explore
             </span>
           </p>
           <p className="font-sans mt-4 mx-auto max-w-[60ch]" style={{ fontSize: "0.8125rem", color: "rgba(28,43,30,0.45)", lineHeight: 1.6 }}>

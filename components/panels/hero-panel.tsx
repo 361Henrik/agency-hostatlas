@@ -11,8 +11,8 @@ export function HeroPanel() {
     <section data-section="hero" className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1673697967248-0a52621c991e?w=1920&q=85"
-          alt="Aerial view of Oslo city and the Oslofjord"
+          src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1920&q=85"
+          alt="Lofoten Islands, Norway — dramatic peaks and fishing village"
           fill
           priority
           className="object-cover hero-ken-burns saturate-[0.85]"
@@ -82,14 +82,14 @@ export function HeroPanel() {
 
           <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-start gap-4">
             <a
-              href="mailto:connect@hostatlas.guide"
+              href="mailto:connect@hostatlas.guide?subject=Agency%20Enquiry%20%E2%80%94%20HostAtlas"
               className="font-sans font-medium uppercase px-7 py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
               style={{ backgroundColor: "rgba(201,169,98,1)", color: "#1C2B1E", fontSize: "0.8rem", letterSpacing: "0.12em" }}
             >
               {t("cta_request_conversation")}
             </a>
             <Link
-              href={lang === "no" ? "/explore?lang=no" : "/explore"}
+              href={lang === "ja" ? "/explore?lang=ja" : lang === "zh" ? "/explore?lang=zh" : "/explore"}
               className="font-sans font-medium uppercase py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
               style={{ color: "rgba(201,169,98,0.85)", fontSize: "0.8rem", letterSpacing: "0.12em" }}
             >

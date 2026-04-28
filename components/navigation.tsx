@@ -5,7 +5,7 @@ import Image from "next/image"
 import { LanguageToggle } from "./language-toggle"
 import { useLanguage } from "@/lib/language-context"
 
-const NAV_SECTION_IDS = ["operators", "routes", "advantage"]
+const NAV_SECTION_IDS = ["agencies", "routes", "why-hostatlas"]
 const CTA_SECTION_ID = "contact"
 const lightSections = ["opportunity", "routes"]
 
@@ -75,7 +75,7 @@ export function Navigation() {
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-7 ml-8">
           {NAV_SECTION_IDS.map((sectionId, i) => {
-            const label = t(["nav_hosts", "nav_routes", "nav_advantage"][i] as any)
+            const label = t(["nav_agencies", "nav_routes", "nav_why"][i] as any)
             const isActive = activeSection === sectionId
             return (
               <button

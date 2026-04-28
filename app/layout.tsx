@@ -25,39 +25,38 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://corporate.hostatlas.guide"),
-  title: "The Host Atlas for Corporate Events",
+  metadataBase: new URL("https://agency.hostatlas.guide"),
+  title: "HostAtlas for Travel Agencies — Curated Experiences for Premium Group Travel in Norway",
   description:
-    "Turn unused event time into branded local discovery. Give your guests a curated, industry-relevant view of the city — combining local highlights with stories that connect to your event and brand.",
+    "Give your guests the confidence to explore. HostAtlas provides curated, multilingual, time-bound walking experiences for premium Asian group travelers in Norwegian destinations.",
   icons: {
     icon: "/icon.svg",
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "The Host Atlas for Corporate Events",
+    title: "HostAtlas for Travel Agencies",
     description:
-      "Turn unused event time into branded local discovery. Five curated Oslo routes for the Nordic Finance Summit — map view, live navigation, EN/NO language support.",
-    url: "https://corporate.hostatlas.guide",
+      "Give your guests the confidence to explore. Curated, multilingual, offline-ready routes for premium Asian group travelers in Lofoten.",
+    url: "https://agency.hostatlas.guide",
     type: "website",
     locale: "en_US",
-    siteName: "The Host Atlas",
+    siteName: "HostAtlas",
     images: [
       {
-        url: "/og-oslo.jpg",
+        url: "/og-lofoten.jpg",
         width: 1200,
         height: 630,
-        alt: "The Host Atlas for Corporate Events",
+        alt: "HostAtlas for Travel Agencies — Lofoten, Norway",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Host Atlas for Corporate Events",
+    title: "HostAtlas for Travel Agencies",
     description:
-      "Turn unused event time into branded local discovery.",
-    images: ["/og-oslo.jpg"],
+      "Give your guests the confidence to explore.",
+    images: ["/og-lofoten.jpg"],
   },
-  generator: 'v0.app'
 }
 
 export default function RootLayout({
