@@ -1,39 +1,51 @@
 "use client"
 
 import { useLanguage } from "@/lib/language-context"
+import type { Lang } from "@/lib/language-context"
 
-const pillars = [
+type L = Record<Lang, string>
+
+const pillars: Array<{ num: string; title: L; points: [L, L, L] }> = [
   {
     num: "01",
-    title: "Stronger Guest Satisfaction",
+    title: {
+      en: "Stronger Guest Satisfaction",
+      no: "Sterkere gjestetilfredshet",
+    },
     points: [
-      "Guests who walk the city return to the evening programme more engaged — not scattered.",
-      "A structured city experience reduces the aimless gap that erodes event satisfaction scores.",
-      "A city experience branded to your event makes the city feel like part of the programme.",
+      { en: "Guests who walk the city return to the evening programme more engaged — not scattered.",             no: "Gjester som går i byen, vender tilbake til kveldsprogrammet mer engasjert — ikke spredt." },
+      { en: "A structured city experience reduces the aimless gap that erodes event satisfaction scores.",        no: "En strukturert byopplevelse reduserer det formålsløse gapet som svekker tilfredshetsscore." },
+      { en: "A city experience branded to your event makes the city feel like part of the programme.",           no: "En byopplevelse merket til ditt arrangement gjør at byen føles som en del av programmet." },
     ],
   },
   {
     num: "02",
-    title: "Brand Continuity Beyond the Venue",
+    title: {
+      en: "Brand Continuity Beyond the Venue",
+      no: "Merkevarekontinuitet utover møtelokalet",
+    },
     points: [
-      "Your event brand travels with the guest into the city — on every street, at every stop.",
-      "Every point of interest carries your narrative framing, your tone, your identity.",
-      "Brand presence becomes continuous — not confined to the conference room or gala dinner.",
+      { en: "Your event brand travels with the guest into the city — on every street, at every stop.",           no: "Ditt arrangementsbrand følger gjesten ut i byen — på hver gate, ved hvert stopp." },
+      { en: "Every point of interest carries your narrative framing, your tone, your identity.",                  no: "Hvert interessepunkt bærer din narrative innramming, din tone, din identitet." },
+      { en: "Brand presence becomes continuous — not confined to the conference room or gala dinner.",            no: "Merkevaretilstedeværelsen blir kontinuerlig — ikke begrenset til konferanserommet eller gallamiddagen." },
     ],
   },
   {
     num: "03",
-    title: "Actionable Engagement Data",
+    title: {
+      en: "Actionable Engagement Data",
+      no: "Handlingsorienterte engasjementsdata",
+    },
     points: [
-      "Understand which topics resonate with your guests outside the formal programme.",
-      "Which routes were walked, which stops engaged, which themes sparked follow-up interest.",
-      "Intelligence that informs future event content, sponsor conversations, and city selection.",
+      { en: "Understand which topics resonate with your guests outside the formal programme.",                    no: "Forstå hvilke temaer som resonnerer med dine gjester utenfor det formelle programmet." },
+      { en: "Which routes were walked, which stops engaged, which themes sparked follow-up interest.",            no: "Hvilke ruter som ble gått, hvilke stopp som engasjerte, hvilke temaer som skapte videre interesse." },
+      { en: "Intelligence that informs future event content, sponsor conversations, and city selection.",         no: "Innsikt som former fremtidige arrangementer, sponsorsamtaler og valg av arrangementsby." },
     ],
   },
 ]
 
 export function StrategicValuePanel() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   return (
     <section
@@ -58,7 +70,7 @@ export function StrategicValuePanel() {
         {/* Three pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border">
           {pillars.map((pillar) => (
-            <div key={pillar.title} className="p-7 md:p-9 bg-card flex flex-col">
+            <div key={pillar.num} className="p-7 md:p-9 bg-card flex flex-col">
               <span
                 className="font-serif font-medium mb-6 block"
                 style={{ fontSize: "2.5rem", color: "#C9A962", letterSpacing: "-0.02em", lineHeight: 1 }}
@@ -66,13 +78,13 @@ export function StrategicValuePanel() {
                 {pillar.num}
               </span>
               <h3 className="font-serif mb-4 text-balance text-foreground leading-[1.2]" style={{ fontSize: "1.25rem", fontWeight: 500 }}>
-                {pillar.title}
+                {pillar.title[lang]}
               </h3>
               <ul className="space-y-3">
                 {pillar.points.map((point, i) => (
-                  <li key={point} className="flex gap-3">
+                  <li key={point.en} className="flex gap-3">
                     <span className="text-accent mt-0.5 shrink-0">{"—"}</span>
-                    <p className="font-sans" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.85)", fontWeight: i === 0 ? 500 : 400 }}>{point}</p>
+                    <p className="font-sans" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.85)", fontWeight: i === 0 ? 500 : 400 }}>{point[lang]}</p>
                   </li>
                 ))}
               </ul>

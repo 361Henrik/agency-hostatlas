@@ -2,23 +2,45 @@
 
 import { Clock, BarChart3, ShieldCheck, Check } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import type { Lang } from "@/lib/language-context"
 
-const includes = [
-  "Route Research & Content Creation",
-  "Industry Lens Curation",
-  "Hosted Guest Platform",
-  "QR / SMS / Email Deployment",
-  "Engagement Report",
-]
+const includes: Record<Lang, string[]> = {
+  en: [
+    "Route Research & Content Creation",
+    "Industry Lens Curation",
+    "Hosted Guest Platform",
+    "QR / SMS / Email Deployment",
+    "Engagement Report",
+  ],
+  no: [
+    "Ruteforskning og innholdsproduksjon",
+    "Kuratering av bransjeperspektiv",
+    "Vertsbasert gjesteplatform",
+    "Utrulling via QR / SMS / e-post",
+    "Engasjementsrapport",
+  ],
+}
 
 const projectDetails = [
-  { icon: ShieldCheck, label: "Defined scope",     detail: "One event city, one industry lens, full support." },
-  { icon: Clock,       label: "48-hour setup",     detail: "From sign-off to live guest experience." },
-  { icon: BarChart3,   label: "Post-event insight", detail: "Engagement data delivered after the event." },
+  {
+    icon: ShieldCheck,
+    label: { en: "Defined scope",      no: "Klart definert omfang" },
+    detail: { en: "One event city, one industry lens, full support.", no: "Én arrangementsby, én bransjlinse, full støtte." },
+  },
+  {
+    icon: Clock,
+    label: { en: "48-hour setup",      no: "48-timers oppstart" },
+    detail: { en: "From sign-off to live guest experience.",          no: "Fra godkjenning til live gjesteopplevelse." },
+  },
+  {
+    icon: BarChart3,
+    label: { en: "Post-event insight", no: "Innsikt etter arrangementet" },
+    detail: { en: "Engagement data delivered after the event.",       no: "Engasjementsdata levert etter arrangementet." },
+  },
 ]
 
 export function PilotPanel() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   return (
     <section
@@ -52,7 +74,7 @@ export function PilotPanel() {
             {t("pilot_includes_label")}
           </p>
           <div className="grid grid-cols-1 gap-y-3 mb-8">
-            {includes.map((item) => (
+            {includes[lang].map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <Check className="h-3.5 w-3.5 text-accent shrink-0" strokeWidth={2.5} />
                 <span className="font-sans" style={{ fontSize: "1.1875rem", color: "rgba(245,240,232,0.8)" }}>{item}</span>
@@ -61,11 +83,11 @@ export function PilotPanel() {
           </div>
           <div className="space-y-4">
             {projectDetails.map((d) => (
-              <div key={d.label} className="flex gap-4 items-start">
+              <div key={d.label.en} className="flex gap-4 items-start">
                 <d.icon className="h-4 w-4 text-accent shrink-0 mt-1" />
                 <div>
-                  <p className="font-sans font-medium" style={{ fontSize: "1.1875rem", color: "rgba(245,240,232,0.9)" }}>{d.label}</p>
-                  <p className="font-sans" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.5)" }}>{d.detail}</p>
+                  <p className="font-sans font-medium" style={{ fontSize: "1.1875rem", color: "rgba(245,240,232,0.9)" }}>{d.label[lang]}</p>
+                  <p className="font-sans" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.5)" }}>{d.detail[lang]}</p>
                 </div>
               </div>
             ))}
@@ -107,13 +129,13 @@ export function PilotPanel() {
               onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#b8944f" }}
               onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#C9A962" }}
             >
-              Request a Conversation
+              {t("cta_request_conversation")}
             </a>
             <p
               className="font-sans mt-4 text-center"
               style={{ fontSize: "0.875rem", color: "rgba(245,240,232,0.4)" }}
             >
-              or email{" "}
+              {t("cta_email_prefix")}{" "}
               <a
                 href="mailto:connect@hostatlas.guide"
                 className="transition-opacity hover:opacity-75"
@@ -127,7 +149,7 @@ export function PilotPanel() {
               className="inline-block mt-5 font-sans font-medium uppercase transition-opacity duration-200 hover:opacity-70 w-full text-center"
               style={{ fontSize: "0.75rem", letterSpacing: "0.14em", color: "rgba(201,169,98,0.6)" }}
             >
-              See the Oslo experience →
+              {t("cta_oslo_experience")}
             </a>
           </div>
         </div>

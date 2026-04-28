@@ -85,14 +85,14 @@ export function HeroPanel() {
               className="font-sans font-medium uppercase px-7 py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
               style={{ backgroundColor: "rgba(201,169,98,1)", color: "#1C2B1E", fontSize: "0.8rem", letterSpacing: "0.12em" }}
             >
-              Request a Conversation
+              {t("cta_request_conversation")}
             </a>
             <a
               href="/explore"
               className="font-sans font-medium uppercase py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
               style={{ color: "rgba(201,169,98,0.85)", fontSize: "0.8rem", letterSpacing: "0.12em" }}
             >
-              See the Oslo experience →
+              {t("cta_oslo_experience")}
             </a>
           </div>
         </div>

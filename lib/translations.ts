@@ -110,6 +110,25 @@ export const translations = {
     live_view_ar_badge: "AR · Coming in v2",
     live_view_camera_error: "Camera access denied. Enable camera permissions to use Live View.",
 
+    // Shared CTAs
+    cta_request_conversation: "Request a Conversation",
+    cta_oslo_experience: "See the Oslo experience →",
+    cta_email_prefix: "or email",
+
+    // Operator panel — section labels
+    operator_label_is: "What it is",
+    operator_label_is_not: "What it is not",
+
+    // Opportunity panel — callout
+    opp_callout_bold: "Accompanying partners and guests with independent time.",
+    opp_callout_body: "Give partners a purposeful way to experience the city while the formal programme continues. Same guide. No additional logistics.",
+
+    // What's Next panel
+    wnext_eyebrow: "Product direction",
+    wnext_heading: "Where this is going.",
+    wnext_intro: "The current product is focused and intentional. What follows is a transparent view of the capabilities we're building toward — for the clients and use cases where they make sense. Nothing here is a commitment or timeline. Everything here is grounded in real conversations with event teams, travel desks, and senior guests.",
+    wnext_callout: "We share this because the companies we work with are thinking about more than one event. If any of these directions are relevant to a conversation you're already having internally — that's a good reason to start the conversation with us now.",
+
     // Language toggle
     lang_toggle_label: "NO",
   },
@@ -224,6 +243,25 @@ export const translations = {
     // Live view
     live_view_ar_badge: "AR · Kommer i v2",
     live_view_camera_error: "Kameratilgang nektet. Aktiver kameratillatelser for å bruke livevisning.",
+
+    // Shared CTAs
+    cta_request_conversation: "Be om en samtale",
+    cta_oslo_experience: "Se Oslo-opplevelsen →",
+    cta_email_prefix: "eller på e-post",
+
+    // Operator panel — section labels
+    operator_label_is: "Hva det er",
+    operator_label_is_not: "Hva det ikke er",
+
+    // Opportunity panel — callout
+    opp_callout_bold: "Medfølgende partnere og gjester med selvstendig tid.",
+    opp_callout_body: "Gi partnere en formålsfull måte å oppleve byen på mens det formelle programmet pågår. Samme guide. Ingen ekstra logistikk.",
+
+    // What's Next panel
+    wnext_eyebrow: "Produktretning",
+    wnext_heading: "Dit dette er på vei.",
+    wnext_intro: "Det nåværende produktet er fokusert og gjennomtenkt. Det som følger er et transparent bilde av funksjonene vi bygger mot — for klientene og brukstilfellene der de gir mening. Ingenting her er en forpliktelse eller en tidslinje. Alt er forankret i reelle samtaler med arrangementsteam, reisedesker og seniorgjester.",
+    wnext_callout: "Vi deler dette fordi selskapene vi arbeider med tenker på mer enn ett arrangement. Dersom noen av disse retningene er relevante for en samtale du allerede har internt — er det god grunn til å starte samtalen med oss nå.",
 
     // Language toggle
     lang_toggle_label: "EN",
