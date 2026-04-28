@@ -1,10 +1,11 @@
 "use client"
 
 import Image from "next/image"
+import Link from "next/link"
 import { useLanguage } from "@/lib/language-context"
 
 export function HeroPanel() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
 
   return (
     <section data-section="hero" className="relative h-screen w-full overflow-hidden">
@@ -30,7 +31,7 @@ export function HeroPanel() {
           className="font-sans font-medium uppercase"
           style={{ fontSize: "0.625rem", letterSpacing: "0.25em", color: "rgba(201,169,98,0.75)" }}
         >
-          Scroll
+          {t("hero_scroll")}
         </span>
         <svg
           width="16"
@@ -87,13 +88,13 @@ export function HeroPanel() {
             >
               {t("cta_request_conversation")}
             </a>
-            <a
-              href="/explore"
+            <Link
+              href={lang === "no" ? "/explore?lang=no" : "/explore"}
               className="font-sans font-medium uppercase py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
               style={{ color: "rgba(201,169,98,0.85)", fontSize: "0.8rem", letterSpacing: "0.12em" }}
             >
               {t("cta_oslo_experience")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

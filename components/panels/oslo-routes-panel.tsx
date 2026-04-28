@@ -93,7 +93,7 @@ export function OsloRoutesPanel() {
                       <span className="font-sans" style={{ fontSize: "0.875rem" }}>{route.distance}</span>
                     </div>
                     <span className="font-sans" style={{ fontSize: "0.875rem", color: "rgba(28,43,30,0.4)" }}>
-                      {route.pois.length} stops
+                      {route.pois.length} {t("routes_stops")}
                     </span>
                   </div>
 

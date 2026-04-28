@@ -56,9 +56,6 @@ export function StrategicValuePanel() {
       <div className="max-w-6xl w-full">
         {/* Header */}
         <div className="text-center mb-14">
-          <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
-            {t("strategic_eyebrow")}
-          </p>
           <h2 className="font-serif text-balance text-foreground mb-6 leading-[1.06]" style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 500 }}>
             {t("strategic_heading")}
           </h2>

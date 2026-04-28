@@ -12,6 +12,7 @@ export const translations = {
     hero_h1_line2: "feel hosted.",
     hero_body: "A bespoke digital host layer for senior executives, VIP guests, and international delegations — curated around your event, your guests, and every moment your programme doesn't cover.",
     hero_tagline: "Curate · Experience · Insight · Branded",
+    hero_scroll: "Scroll",
 
     // Dead time panel
     dead_time_eyebrow: "The gap",
@@ -48,6 +49,7 @@ export const translations = {
     routes_start_route: "Start Route",
     routes_qr_label: "Guests access all routes at",
     routes_footnote: "Routes are built specifically for your event city and industry lens. Oslo is the live demonstration. Bergen, Stockholm, Copenhagen, and other Nordic cities available on request.",
+    routes_stops: "stops",
 
     // Operator panel
     operator_eyebrow: "For Event Organizers",
@@ -146,6 +148,7 @@ export const translations = {
     hero_h1_line2: "til en vertsopplevelse.",
     hero_body: "Et skreddersydd digitalt vertslag for toppledere, VIP-gjester og internasjonale delegasjoner — kuratert rundt arrangementet ditt, gjestene dine og hvert øyeblikk programmet ditt ikke dekker.",
     hero_tagline: "Kuratert · Opplevd · Innsikt · Merket",
+    hero_scroll: "Rull",
 
     // Dead time panel
     dead_time_eyebrow: "Gapet",
@@ -182,6 +185,7 @@ export const translations = {
     routes_start_route: "Start rute",
     routes_qr_label: "Gjester får tilgang til alle ruter på",
     routes_footnote: "Ruter bygges spesifikt for arrangementsbyen og bransjlinsen din. Oslo er live-demonstrasjonen. Bergen, Stockholm, København og andre nordiske byer tilgjengelig på forespørsel.",
+    routes_stops: "stopp",
 
     // Operator panel
     operator_eyebrow: "For arrangørene",

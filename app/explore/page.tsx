@@ -23,7 +23,7 @@ export default function ExplorePage() {
     <div className="min-h-screen" style={{ backgroundColor: "#0F1F15", color: "#F5F0E8" }}>
       {/* Header */}
       <header className="sticky top-0 z-50 px-5 py-4 flex items-center justify-between" style={{ backgroundColor: "rgba(15,31,21,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(201,169,98,0.12)" }}>
-        <div>
+        <Link href="/" aria-label="Back to main site">
           <Image
             src="/host-atlas-logo.png"
             alt="The Host Atlas"
@@ -31,7 +31,7 @@ export default function ExplorePage() {
             height={64}
             className="h-10 w-auto object-contain brightness-0 invert opacity-85"
           />
-        </div>
+        </Link>
         <LanguageToggle />
       </header>
 
@@ -112,7 +112,7 @@ export default function ExplorePage() {
                     <span className="font-sans" style={{ fontSize: "0.8125rem" }}>{route.distance}</span>
                   </div>
                   <span className="font-sans" style={{ fontSize: "0.8125rem", color: "rgba(245,240,232,0.3)" }}>
-                    {route.pois.length} stops
+                    {route.pois.length} {t("routes_stops")}
                   </span>
                 </div>
               </div>

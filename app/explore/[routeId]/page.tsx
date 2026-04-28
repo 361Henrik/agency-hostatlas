@@ -47,6 +47,15 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
           <ArrowLeft className="h-4 w-4" strokeWidth={1.5} />
           <span className="font-sans" style={{ fontSize: "0.875rem" }}>{t("explore_back")}</span>
         </Link>
+        <Link href="/" className="absolute left-1/2 -translate-x-1/2" aria-label="Back to main site">
+          <Image
+            src="/host-atlas-logo.png"
+            alt="The Host Atlas"
+            width={120}
+            height={48}
+            className="h-8 w-auto object-contain brightness-0 invert opacity-70"
+          />
+        </Link>
         <LanguageToggle />
       </header>
 
@@ -77,7 +86,7 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
           </div>
           <div className="flex items-center gap-1.5" style={{ color: "rgba(245,240,232,0.5)" }}>
             <MapPin className="h-3.5 w-3.5" strokeWidth={1.5} />
-            <span className="font-sans" style={{ fontSize: "0.875rem" }}>{route.pois.length} stops</span>
+            <span className="font-sans" style={{ fontSize: "0.875rem" }}>{route.pois.length} {t("routes_stops")}</span>
           </div>
         </div>
       </div>

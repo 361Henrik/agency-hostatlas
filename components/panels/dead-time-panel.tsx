@@ -29,13 +29,6 @@ export function DeadTimePanel() {
         className="w-full lg:w-2/5 flex flex-col justify-center px-8 md:px-12 lg:px-14 xl:px-16 py-20 lg:py-28"
         style={{ backgroundColor: "#F8F5EE", color: "#1C2B1E" }}
       >
-        <p
-          className="font-sans font-medium uppercase tracking-[0.2em] mb-6"
-          style={{ fontSize: "0.75rem", color: "rgba(196,154,92,1)" }}
-        >
-          {t("dead_time_eyebrow")}
-        </p>
-
         <h2
           className="font-serif text-balance mb-10 leading-[1.06]"
           style={{ fontSize: "clamp(1.875rem, 3vw, 3rem)", color: "#1C2B1E", fontWeight: 500 }}

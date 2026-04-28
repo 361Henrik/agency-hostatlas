@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Clock, BarChart3, ShieldCheck, Check } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import type { Lang } from "@/lib/language-context"
@@ -144,13 +145,13 @@ export function PilotPanel() {
                 connect@hostatlas.guide
               </a>
             </p>
-            <a
-              href="/explore"
+            <Link
+              href={lang === "no" ? "/explore?lang=no" : "/explore"}
               className="inline-block mt-5 font-sans font-medium uppercase transition-opacity duration-200 hover:opacity-70 w-full text-center"
               style={{ fontSize: "0.75rem", letterSpacing: "0.14em", color: "rgba(201,169,98,0.6)" }}
             >
               {t("cta_oslo_experience")}
-            </a>
+            </Link>
           </div>
         </div>
       </div>
