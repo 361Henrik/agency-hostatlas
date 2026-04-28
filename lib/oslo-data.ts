@@ -472,4 +472,162 @@ export const osloRoutes: OsloRoute[] = [
       },
     ],
   },
+  {
+    id: "oslo-essentials",
+    title: {
+      en: "Oslo — The Top 10",
+      no: "Oslo — De ti beste",
+    },
+    theme: { en: "Oslo Essentials", no: "Oslo grunnleggende" },
+    summary: {
+      en: "The ten places that define this city. Not a tourist checklist — a considered introduction for intelligent visitors with an afternoon to spend.",
+      no: "De ti stedene som definerer denne byen. Ikke en turistsjekkliste — en gjennomtenkt introduksjon for kloke besøkende med en ettermiddag til disposisjon.",
+    },
+    duration: "90 min",
+    distance: "3.8 km",
+    startCoords: [59.9080, 10.7325],
+    endCoords: [59.9233, 10.7531],
+    pois: [
+      {
+        id: "aker-brygge-essentials",
+        title: { en: "Aker Brygge", no: "Aker Brygge" },
+        description: {
+          en: "The old Akers Mekaniske Verksteder shipyard closed in 1982 after 150 years; within a decade, the waterfront had become Oslo's most animated public space. Restaurants, galleries, and residences occupy what were once dry docks and machine halls. This is where the city chose to spend its leisure time — and the choice says something about how Oslo sees itself.",
+          no: "Det gamle Akers Mekaniske Verksteder-verftet stengte i 1982 etter 150 år i drift; i løpet av et tiår hadde kaifronten blitt Oslos mest levende offentlige rom. Restauranter, gallerier og boliger fyller nå det som en gang var tørrdokker og maskinhaller. Her har byen valgt å tilbringe fritiden sin — og valget sier noe om hvordan Oslo ser på seg selv.",
+        },
+        type: "city_highlight",
+        coordinates: [59.9080, 10.7325],
+        followUpTopic: {
+          en: "Oslo's post-industrial waterfront transformation",
+          no: "Oslos post-industrielle kaifronttransformasjon",
+        },
+      },
+      {
+        id: "akershus-fortress",
+        title: { en: "Akershus Fortress", no: "Akershus Festning" },
+        description: {
+          en: "Built around 1300 to defend the city, Akershus has been a royal residence, a prison for political detainees, and the site of wartime executions during the German occupation. Seven centuries of Oslo history are compressed into one site on the waterfront peninsula. Stand on the ramparts and you have the fjord, the city, and its full arc of past in one frame.",
+          no: "Bygget rundt 1300 for å forsvare byen har Akershus tjent som kongelig residens, fengsel for politiske fanger og henrettelsessted under den tyske okkupasjonen. Sju hundre år med Oslos historie er komprimert på én kaifront. Stå på bastionene, og du har fjorden, byen og dens fulle historiske bue i ett bilde.",
+        },
+        type: "city_highlight",
+        coordinates: [59.9068, 10.7386],
+        followUpTopic: {
+          en: "Oslo under German occupation, 1940–1945",
+          no: "Oslo under tysk okkupasjon, 1940–1945",
+        },
+      },
+      {
+        id: "nobel-peace-center",
+        title: { en: "The Nobel Peace Center", no: "Nobels Fredssenter" },
+        description: {
+          en: "Oslo holds the unusual distinction of awarding one of the five Nobel Prizes — the Peace Prize — while Stockholm handles the others. The Nobel Peace Center, opened in 2005, makes that choice visible: who was honoured, and why, in each year since 1901. That Oslo was entrusted with this particular prize is not accidental — it reflects the city's long tradition of quiet diplomatic engagement.",
+          no: "Oslo innehar den uvanlige rettigheten å dele ut én av de fem Nobelprisene — Fredsprisen — mens Stockholm håndterer de øvrige. Nobels Fredssenter, åpnet i 2005, gjør dette valget synlig: hvem som ble hedret, og hvorfor, for hvert år siden 1901. At Oslo ble betrodd nettopp denne prisen er ikke tilfeldig — det gjenspeiler byens lange tradisjon for stille diplomatisk engasjement.",
+        },
+        type: "city_highlight",
+        coordinates: [59.9094, 10.7272],
+        followUpTopic: {
+          en: "The politics of the Nobel Peace Prize selection",
+          no: "Politikken bak utvelgelsen av Nobels fredspris",
+        },
+      },
+      {
+        id: "radhuset",
+        title: { en: "Rådhuset — City Hall", no: "Rådhuset" },
+        description: {
+          en: "Most visitors photograph Rådhuset from the waterfront and move on — a mistake. The interior, completed after 20 years of construction in 1950, is covered in murals and frescoes by the foremost Norwegian artists of the era, documenting the country's history and working life. This is where the Nobel Peace Prize ceremony takes place each 10th of December, which gives the building a global significance its exterior barely hints at.",
+          no: "De fleste besøkende fotograferer Rådhuset fra kaifronten og går videre — en feiltagelse. Interiøret, ferdigstilt etter 20 års bygging i 1950, er dekket av veggmalerier og fresker av tidens fremste norske kunstnere, som dokumenterer landets historie og arbeidsliv. Det er her Nobels fredsprisseremoni avholdes hvert 10. desember, noe som gir bygningen en global betydning dens eksteriør knapt antyder.",
+        },
+        type: "city_highlight",
+        coordinates: [59.9112, 10.7294],
+        followUpTopic: {
+          en: "Norwegian public art of the 20th century",
+          no: "Norsk offentlig kunst på 1900-tallet",
+        },
+      },
+      {
+        id: "karl-johans-gate",
+        title: { en: "Karl Johans gate", no: "Karl Johans gate" },
+        description: {
+          en: "Planned in the early 19th century as the city's ceremonial axis, Karl Johans gate runs in a deliberate straight line from the Royal Palace at one end to the Storting and the cathedral at the other. The geometry is a statement: monarchy, democracy, and faith arranged in a single line of sight. Oslo's parades, protests, and public moments happen here.",
+          no: "Planlagt på begynnelsen av 1800-tallet som byens seremonielle akse, strekker Karl Johans gate seg i en bevisst rett linje fra Slottet i den ene enden til Stortinget og domkirken i den andre. Geometrien er en erklæring: monarki, demokrati og tro arrangert i én siktlinje. Oslos parader, demonstrasjoner og offentlige øyeblikk utspiller seg her.",
+        },
+        type: "city_highlight",
+        coordinates: [59.9138, 10.7387],
+        followUpTopic: {
+          en: "Urban planning in 19th-century Christiania",
+          no: "Byplanlegging i 1800-tallets Christiania",
+        },
+      },
+      {
+        id: "royal-palace",
+        title: { en: "The Royal Palace & Palace Park", no: "Slottet og Slottsparken" },
+        description: {
+          en: "Built between 1825 and 1849, the palace was designed to project Scandinavian royal authority — and has ended up projecting something quite different: accessibility. The park surrounding it is open to the public every day, with no outer perimeter fence. Norwegians walk their dogs here, sit on the lawn, and largely ignore the palace with a democratic indifference the monarchy appears to have made peace with.",
+          no: "Bygget mellom 1825 og 1849 for å utstråle skandinavisk kongelig autoritet, har slottet endt opp med å formidle noe ganske annet: tilgjengelighet. Parken rundt det er åpen for alle hver dag, uten ytre gjerde. Osloborgere lufter hundene sine her, sitter på plenen og ignorerer slottet med en demokratisk likegyldighet monarkiet tilsynelatende har gjort fred med.",
+        },
+        type: "city_highlight",
+        coordinates: [59.9197, 10.7269],
+        followUpTopic: {
+          en: "Nordic constitutional monarchies",
+          no: "Nordiske konstitusjonelle monarkier",
+        },
+      },
+      {
+        id: "national-museum",
+        title: { en: "The National Museum", no: "Nasjonalmuseet" },
+        description: {
+          en: "Opened in 2022 after uniting four separate institutions, the National Museum is now the largest art museum in the Nordic countries. Edvard Munch's The Scream is here — the 1893 tempera version, in a room designed specifically around it. The building itself, by Kleihues + Schuwerk, is worth the visit independently: a considered Nordic structure that respects its waterfront setting without trying to compete with it.",
+          no: "Åpnet i 2022 etter å ha samlet fire separate institusjoner, er Nasjonalmuseet nå det største kunstmuseet i Norden. Edvard Munchs Skrik er her — 1893-versjonen i tempera, i et rom spesielt utformet rundt det. Selve bygningen, av Kleihues + Schuwerk, er verdt besøket i seg selv: en gjennomtenkt nordisk konstruksjon som respekterer kaifrontomgivelsene uten å forsøke å konkurrere med dem.",
+        },
+        type: "city_highlight",
+        coordinates: [59.9121, 10.7257],
+        followUpTopic: {
+          en: "Edvard Munch and Norwegian expressionism",
+          no: "Edvard Munch og norsk ekspresjonisme",
+        },
+      },
+      {
+        id: "storting-eidsvoll",
+        title: { en: "Eidsvoll plass & the Storting", no: "Eidsvoll plass og Stortinget" },
+        description: {
+          en: "The Norwegian constitution was signed at Eidsvoll in 1814, just 110 kilometres north of this square — the document established one of the most liberal democracies of its era. The Storting that upholds it has sat on this square since 1866, facing Karl Johans gate across a space still used for public assembly. This is where Norwegian democracy has a permanent, physical address.",
+          no: "Den norske grunnloven ble undertegnet på Eidsvoll i 1814, bare 110 kilometer nord for dette torget — dokumentet etablerte et av sin tids mest liberale demokratier. Stortinget som ivaretar den har hatt tilhold på denne plassen siden 1866, vendt mot Karl Johans gate over et rom som fremdeles brukes til folkemøter. Her har norsk demokrati sin permanente, fysiske adresse.",
+        },
+        type: "city_highlight",
+        coordinates: [59.9143, 10.7379],
+        followUpTopic: {
+          en: "The Eidsvoll constitution and Norwegian independence",
+          no: "Eidsvollgrunnloven og norsk selvstendighet",
+        },
+      },
+      {
+        id: "tjuvholmen",
+        title: { en: "Tjuvholmen", no: "Tjuvholmen" },
+        description: {
+          en: "Tjuvholmen — 'thief's islet' — was once where Oslo executed its criminals. Today it is the most architecturally deliberate development in the city: a carefully planned mixed waterfront neighbourhood completed in 2010, with the Astrup Fearnley Museum of Modern Art at its tip. The contrast between the name's history and the present reality is quintessential Oslo — thoughtful, unsentimental, forward.",
+          no: "Tjuvholmen var en gang stedet der Oslo henrettet sine kriminelle. I dag er det den mest arkitektonisk bevisste utbyggingen i byen: et nøye planlagt blandet kaifrontstrøk fullført i 2010, med Astrup Fearnley Museet for moderne kunst ytterst på pynten. Kontrasten mellom navnets historie og den nåværende virkeligheten er typisk Oslo — gjennomtenkt, uten sentimentalitet, fremtidsrettet.",
+        },
+        type: "city_highlight",
+        coordinates: [59.9063, 10.7292],
+        followUpTopic: {
+          en: "Contemporary Nordic architecture and waterfront urban design",
+          no: "Samtidig nordisk arkitektur og urban kaifrontutforming",
+        },
+      },
+      {
+        id: "mathallen-oslo",
+        title: { en: "Mathallen Oslo", no: "Mathallen Oslo" },
+        description: {
+          en: "Opened in 2012 in the Vulkan development, Mathallen is a covered food market with around 30 vendors operating under one roof: fishmongers, cheesemakers, a butcher specialising in game, a baker, a coffee roaster. It reflects what Oslo has become in the last decade — a city with a confident, locally-rooted food culture that no longer needs to explain itself to international visitors. Come late morning for the full picture.",
+          no: "Åpnet i 2012 i Vulkan-utbyggingen er Mathallen et overdekket matmarked med rundt 30 leverandører under ett tak: fiskehandlere, osteprodusenter, en slakter spesialisert på vilt, en baker, en kaffebrenner. Det speiler hva Oslo har blitt det siste tiåret — en by med en selvsikker, lokalt forankret matkultur som ikke lenger trenger å forklare seg for internasjonale besøkende. Kom sent på formiddagen for det fulle bildet.",
+        },
+        type: "host_narrative",
+        coordinates: [59.9233, 10.7531],
+        followUpTopic: {
+          en: "New Nordic food culture and Oslo's restaurant scene",
+          no: "Ny nordisk matkultur og Oslos restaurantscene",
+        },
+      },
+    ],
+  },
 ]

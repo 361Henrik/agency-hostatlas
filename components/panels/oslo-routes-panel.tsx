@@ -12,6 +12,7 @@ const themeColors: Record<string, string> = {
   "oslo-culture-highlights":     "#A8B89C",
   "innovation-investment-trail": "#B8A0C8",
   "corporate-innovation-hybrid": "#C9A962",
+  "oslo-essentials":             "#8FAAB8",
 }
 
 export function OsloRoutesPanel() {
