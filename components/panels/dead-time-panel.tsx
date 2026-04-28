@@ -15,8 +15,8 @@ export function DeadTimePanel() {
       {/* Left — image */}
       <div className="relative w-full lg:w-3/5 min-h-[56vw] lg:min-h-0">
         <Image
-          src="https://images.unsplash.com/photo-1763823304566-9cc831f1e4df?w=1200&q=85"
-          alt="Two guests walking a city waterfront promenade between sessions"
+          src="https://images.unsplash.com/photo-1612372794762-9db112b83783?w=1200&q=85"
+          alt="People seated in a modern Oslo public interior space"
           fill
           className="object-cover"
           style={{ objectPosition: "50% 30%" }}
