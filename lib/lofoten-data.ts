@@ -82,7 +82,7 @@ export const lofotenRoutes: LofotenRoute[] = [
         },
         type: "city_highlight",
         coordinates: [68.2343, 14.5671],
-        imageUrl: "https://images.unsplash.com/photo-1578500494374-7e79a3b3c22f?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1761237177405-76fd06acc8b5?w=800&q=80",
       },
       {
         id: "svolvaer-harbour-light",
@@ -98,7 +98,7 @@ export const lofotenRoutes: LofotenRoute[] = [
         },
         type: "photo_moment",
         coordinates: [68.2348, 14.5658],
-        imageUrl: "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1761237319657-5d2d43494dc9?w=800&q=80",
         followUpTopic: {
           en: "Best light times for photography in Lofoten",
           ja: "ロフォーテンでの写真撮影の最適な時間",
@@ -224,7 +224,7 @@ export const lofotenRoutes: LofotenRoute[] = [
         },
         type: "photo_moment",
         coordinates: [68.2200, 14.4950],
-        imageUrl: "https://images.unsplash.com/photo-1601439678777-b2b5c7965ed0?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1554072453-c8e38bb22ca6?w=800&q=80",
       },
       {
         id: "kabelvag-village",
@@ -298,7 +298,7 @@ export const lofotenRoutes: LofotenRoute[] = [
         },
         type: "photo_moment",
         coordinates: [68.2348, 14.5660],
-        imageUrl: "https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1771683989435-e6b2fb7e3f38?w=800&q=80",
         followUpTopic: {
           en: "Camera settings for low-light Lofoten photography",
           ja: "ロフォーテン低光撮影のカメラ設定",
@@ -478,7 +478,7 @@ export const lofotenRoutes: LofotenRoute[] = [
         },
         type: "city_highlight",
         coordinates: [68.2340, 14.5680],
-        imageUrl: "https://images.unsplash.com/photo-1578500494374-7e79a3b3c22f?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1761237177405-76fd06acc8b5?w=800&q=80",
       },
       {
         id: "weather-lofoten-museum",

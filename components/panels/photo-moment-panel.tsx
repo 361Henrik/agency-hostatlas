@@ -16,8 +16,8 @@ export function PhotoMomentPanel() {
       {/* Left — image */}
       <div className="relative w-full lg:w-1/2 min-h-[50vw] lg:min-h-0">
         <Image
-          src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?w=1200&q=85"
-          alt="Golden hour photography in Lofoten — harbour reflection"
+          src="https://images.unsplash.com/photo-1771683989435-e6b2fb7e3f38?w=1200&q=85"
+          alt="Town lights reflecting on calm water with Norwegian mountain backdrop"
           fill
           className="object-cover"
           style={{ objectPosition: "50% 60%" }}

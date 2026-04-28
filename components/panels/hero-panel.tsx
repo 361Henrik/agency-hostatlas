@@ -11,7 +11,7 @@ export function HeroPanel() {
     <section data-section="hero" className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=1920&q=85"
+          src="https://images.unsplash.com/photo-1554072453-c8e38bb22ca6?w=1920&q=85"
           alt="Lofoten Islands, Norway — dramatic peaks and fishing village"
           fill
           priority
