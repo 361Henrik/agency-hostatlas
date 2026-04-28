@@ -384,8 +384,8 @@ export const osloRoutes: OsloRoute[] = [
     },
     theme: { en: "Corporate Innovation", no: "Bedriftsinnovasjon" },
     summary: {
-      en: "A curated blend — Oslo's best city highlights alongside the innovation and finance stories most relevant to corporate event delegates.",
-      no: "En kuratert blanding — Oslos beste byhøydepunkter kombinert med innovasjons- og finanshistoriene mest relevante for bedriftsdelegatene.",
+      en: "A curated blend — Oslo's best city highlights alongside the innovation and finance stories most relevant to corporate event guests.",
+      no: "En kuratert blanding — Oslos beste byhøydepunkter kombinert med innovasjons- og finanshistoriene mest relevante for bedriftens gjester.",
     },
     duration: "90 min",
     distance: "4.0 km",
@@ -396,7 +396,7 @@ export const osloRoutes: OsloRoute[] = [
         id: "city-hall-hybrid",
         title: { en: "Oslo City Hall — A Statement of Intent", no: "Oslo Rådhus — En intensjonserklæring" },
         description: {
-          en: "Oslo City Hall was 20 years in the making, delayed by wars and economic downturns, but its completion in 1950 announced a city confident in its future. The murals inside are extraordinary — a 2,000 square metre narrative of Norwegian working life, industry, and democratic values. For corporate delegates, the hall represents what can be built when institutions commit to a long-term vision.",
+          en: "Oslo City Hall was 20 years in the making, delayed by wars and economic downturns, but its completion in 1950 announced a city confident in its future. The murals inside are extraordinary — a 2,000 square metre narrative of Norwegian working life, industry, and democratic values. For corporate guests, the hall represents what can be built when institutions commit to a long-term vision.",
           no: "Oslo Rådhus var 20 år underveis, forsinket av kriger og økonomiske nedgangstider, men fullførelsen i 1950 annonserte en by trygg på sin fremtid. Muralene innenfor er ekstraordinære.",
         },
         type: "city_highlight",
