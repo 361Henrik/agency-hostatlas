@@ -16,7 +16,7 @@ export function DeadTimePanel() {
       <div className="relative w-full lg:w-3/5 min-h-[56vw] lg:min-h-0">
         <Image
           src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=1200&q=85"
-          alt="Conference corridor with event delegates between sessions — an opportunity for curated city discovery"
+          alt="Conference corridor with guests between sessions — an opportunity for curated city hospitality"
           fill
           className="object-cover"
           style={{ objectPosition: "50% 30%" }}
@@ -52,9 +52,6 @@ export function DeadTimePanel() {
           </p>
           <p className="font-sans" style={{ fontSize: "clamp(1rem, 2.5vw, 1.1875rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.75)" }}>
             {t("dead_time_p3")}
-          </p>
-          <p className="font-sans font-medium" style={{ fontSize: "clamp(1rem, 2.5vw, 1.1875rem)", lineHeight: 1.6, color: "#1C2B1E" }}>
-            {t("dead_time_stat")}
           </p>
         </div>
       </div>

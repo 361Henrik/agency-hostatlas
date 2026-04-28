@@ -8,6 +8,7 @@ import { ThreeLayerPanel } from "@/components/panels/three-layer-panel"
 import { OsloRoutesPanel } from "@/components/panels/oslo-routes-panel"
 import { OperatorPanel } from "@/components/panels/operator-panel"
 import { StrategicValuePanel } from "@/components/panels/strategic-value-panel"
+import { WhatsNextPanel } from "@/components/panels/whats-next-panel"
 import { PilotPanel } from "@/components/panels/pilot-panel"
 import { FooterPanel } from "@/components/panels/footer-panel"
 
@@ -23,6 +24,7 @@ export default function Page() {
         <OsloRoutesPanel />
         <OperatorPanel />
         <StrategicValuePanel />
+        <WhatsNextPanel />
         <PilotPanel />
         <FooterPanel />
       </main>

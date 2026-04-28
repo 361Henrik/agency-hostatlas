@@ -79,16 +79,22 @@ export function HeroPanel() {
             {t("hero_body")}
           </p>
 
-          <p
-            className="tagline-reveal font-sans font-medium mt-10 md:mt-14 uppercase"
-            style={{
-              fontSize: "clamp(0.75rem, 1vw, 0.9rem)",
-              letterSpacing: "0.22em",
-              color: "rgba(201,169,98,0.9)",
-            }}
-          >
-            {t("hero_tagline")}
-          </p>
+          <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-start gap-4">
+            <a
+              href="mailto:connect@hostatlas.guide"
+              className="font-sans font-medium uppercase px-7 py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
+              style={{ backgroundColor: "rgba(201,169,98,1)", color: "#1C2B1E", fontSize: "0.8rem", letterSpacing: "0.12em" }}
+            >
+              Request a Conversation
+            </a>
+            <a
+              href="/explore"
+              className="font-sans font-medium uppercase py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
+              style={{ color: "rgba(201,169,98,0.85)", fontSize: "0.8rem", letterSpacing: "0.12em" }}
+            >
+              See the Oslo experience →
+            </a>
+          </div>
         </div>
       </div>
     </section>

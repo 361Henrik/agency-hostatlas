@@ -7,8 +7,8 @@ const pillars = [
     num: "01",
     title: "Stronger Guest Satisfaction",
     points: [
-      "Guests who explore the city return to the evening programme more engaged — not scattered.",
-      "Structured discovery reduces the aimless gap that erodes event satisfaction scores.",
+      "Guests who walk the city return to the evening programme more engaged — not scattered.",
+      "A structured city experience reduces the aimless gap that erodes event satisfaction scores.",
       "A city experience branded to your event makes the city feel like part of the programme.",
     ],
   },
@@ -25,7 +25,7 @@ const pillars = [
     num: "03",
     title: "Actionable Engagement Data",
     points: [
-      "Understand which topics resonate with your delegates outside the formal programme.",
+      "Understand which topics resonate with your guests outside the formal programme.",
       "Which routes were walked, which stops engaged, which themes sparked follow-up interest.",
       "Intelligence that informs future event content, sponsor conversations, and city selection.",
     ],
@@ -47,9 +47,12 @@ export function StrategicValuePanel() {
           <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
             {t("strategic_eyebrow")}
           </p>
-          <h2 className="font-serif text-balance text-foreground mb-5 leading-[1.06]" style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 500 }}>
+          <h2 className="font-serif text-balance text-foreground mb-6 leading-[1.06]" style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 500 }}>
             {t("strategic_heading")}
           </h2>
+          <p className="font-sans text-pretty mx-auto max-w-[52ch]" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.72)", fontWeight: 500 }}>
+            {t("strategic_intro")}
+          </p>
         </div>
 
         {/* Three pillars */}

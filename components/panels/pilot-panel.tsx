@@ -122,6 +122,13 @@ export function PilotPanel() {
                 connect@hostatlas.guide
               </a>
             </p>
+            <a
+              href="/explore"
+              className="inline-block mt-5 font-sans font-medium uppercase transition-opacity duration-200 hover:opacity-70 w-full text-center"
+              style={{ fontSize: "0.75rem", letterSpacing: "0.14em", color: "rgba(201,169,98,0.6)" }}
+            >
+              See the Oslo experience →
+            </a>
           </div>
         </div>
       </div>

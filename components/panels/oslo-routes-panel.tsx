@@ -117,6 +117,9 @@ export function OsloRoutesPanel() {
               corporate.hostatlas.guide/explore
             </span>
           </p>
+          <p className="font-sans mt-4 mx-auto max-w-[60ch]" style={{ fontSize: "0.8125rem", color: "rgba(28,43,30,0.45)", lineHeight: 1.6 }}>
+            {t("routes_footnote")}
+          </p>
         </div>
       </div>
     </section>

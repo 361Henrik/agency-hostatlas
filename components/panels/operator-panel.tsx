@@ -1,5 +1,6 @@
 "use client"
 
+import { Check } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 const steps = [
@@ -29,16 +30,34 @@ const steps = [
   },
   {
     num: "05",
-    title: "Guests Discover the City",
+    title: "Guests Experience the City",
     lines: ["Self-guided, branded walking routes with map view and live navigation.", "Each stop tells a story connecting the city to your event's themes."],
-    note: "Guests explore at their own pace — in English or Norwegian.",
+    note: "Guests move at their own pace — in English or Norwegian.",
   },
   {
     num: "06",
     title: "You Receive the Insight",
-    lines: ["Which routes were walked. Which stops captured attention.", "Which topics sparked follow-up interest from your delegates."],
+    lines: ["Which routes were walked. Which stops captured attention.", "Which topics sparked follow-up interest from your guests."],
     note: "Engagement intelligence delivered after the event — not guesswork.",
   },
+]
+
+const itIs = [
+  "A premium digital host layer",
+  "A bespoke city narrative for your guests",
+  "A curated, host-branded recommendation experience",
+  "A way to extend hospitality beyond the programme",
+  "Fast to deploy, with no new logistics or staffing",
+  "Measurable — with engagement data after the event",
+]
+
+const itIsNot = [
+  "A live tour operation or guide service",
+  "A logistics or transport platform",
+  "A generic city guide or tourist app",
+  "A restaurant marketplace or booking platform",
+  "A replacement for your event team",
+  "A mass-market event app for general attendees",
 ]
 
 export function OperatorPanel() {
@@ -84,6 +103,39 @@ export function OperatorPanel() {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* What it is / What it is not */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-accent/10 border border-accent/10">
+          {/* Left */}
+          <div className="p-8 lg:p-10 bg-card">
+            <p className="font-sans font-medium uppercase tracking-[0.18em] mb-6" style={{ fontSize: "0.6875rem", color: "rgba(196,154,92,1)" }}>
+              What it is
+            </p>
+            <ul className="space-y-3">
+              {itIs.map((item) => (
+                <li key={item} className="flex gap-3 items-start">
+                  <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-[0.3em]" strokeWidth={2.5} />
+                  <span className="font-sans" style={{ fontSize: "clamp(1rem, 2vw, 1.0625rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.8)" }}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Right */}
+          <div className="p-8 lg:p-10 bg-card" style={{ borderLeft: "1px solid rgba(196,154,92,0.1)" }}>
+            <p className="font-sans font-medium uppercase tracking-[0.18em] mb-6" style={{ fontSize: "0.6875rem", color: "rgba(28,43,30,0.45)" }}>
+              What it is not
+            </p>
+            <ul className="space-y-3">
+              {itIsNot.map((item) => (
+                <li key={item} className="flex gap-3 items-start">
+                  <span className="shrink-0 font-sans font-medium mt-[0.05em]" style={{ color: "rgba(28,43,30,0.3)", fontSize: "1rem" }}>−</span>
+                  <span className="font-sans" style={{ fontSize: "clamp(1rem, 2vw, 1.0625rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.55)" }}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </section>
