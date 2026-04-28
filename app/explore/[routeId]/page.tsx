@@ -2,6 +2,7 @@
 
 import { use } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import dynamic from "next/dynamic"
 import { notFound } from "next/navigation"
 import { ArrowLeft, Clock, Route, MapPin, Play } from "lucide-react"
