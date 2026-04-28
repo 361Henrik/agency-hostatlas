@@ -11,8 +11,8 @@ import { LanguageToggle } from "@/components/language-toggle"
 import { osloRoutes } from "@/lib/oslo-data"
 import { Badge } from "@/components/ui/badge"
 
-const OsloMap = dynamic(
-  () => import("@/components/oslo-map").then((m) => m.OsloMap),
+const LofotenMap = dynamic(
+  () => import("@/components/lofoten-map").then((m) => m.LofotenMap),
   {
     ssr: false,
     loading: () => (
@@ -96,7 +96,7 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
 
       {/* Map preview */}
       <div className="mx-4 mb-6 overflow-hidden rounded-sm" style={{ height: "220px", border: "1px solid rgba(201,169,98,0.15)" }}>
-        <OsloMap route={route} interactive={false} className="w-full h-full" />
+        <LofotenMap route={route} interactive={false} className="w-full h-full" />
       </div>
 
       {/* Start CTA */}

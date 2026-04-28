@@ -25,8 +25,8 @@ export interface LofotenRoute {
   duration: string
   distance: string
   difficulty: string
-  weatherSuitability: string
-  returnLogic: string
+  weatherSuitability: LocalizedString
+  returnLogic: LocalizedString
   guideRecommended: boolean
   startCoords: [number, number]
   endCoords: [number, number]
@@ -54,8 +54,16 @@ export const lofotenRoutes: LofotenRoute[] = [
     duration: "30 min",
     distance: "1.2 km",
     difficulty: "Easy",
-    weatherSuitability: "All conditions",
-    returnLogic: "Return to Torget square — visible from every point on this route",
+    weatherSuitability: {
+      en: "All conditions",
+      ja: "全天候対応",
+      zh: "全天候适用",
+    },
+    returnLogic: {
+      en: "Return to Torget square — visible from every point on this route",
+      ja: "トルゲット広場に戻る — このルートのどこからでも見えます",
+      zh: "返回托尔盖特广场 — 此路线每个点均可见",
+    },
     guideRecommended: true,
     startCoords: [68.2343, 14.5671],
     endCoords: [68.2338, 14.5686],
@@ -151,8 +159,16 @@ export const lofotenRoutes: LofotenRoute[] = [
     duration: "60 min",
     distance: "2.4 km",
     difficulty: "Moderate",
-    weatherSuitability: "Best in dry weather",
-    returnLogic: "Return path marked at each stop — follow the orange markers back to Torget harbour",
+    weatherSuitability: {
+      en: "Best in dry weather",
+      ja: "晴天時が最適",
+      zh: "晴天最佳",
+    },
+    returnLogic: {
+      en: "Return path marked at each stop — follow the orange markers back to Torget harbour",
+      ja: "各停留地で帰路が表示されます — オレンジのマーカーに従ってトルゲット港へ",
+      zh: "每个停留点标有返回路径 — 跟随橙色标记返回托尔盖特港口",
+    },
     guideRecommended: true,
     startCoords: [68.2343, 14.5671],
     endCoords: [68.2156, 14.4891],
@@ -254,8 +270,16 @@ export const lofotenRoutes: LofotenRoute[] = [
     duration: "45 min",
     distance: "1.8 km",
     difficulty: "Easy",
-    weatherSuitability: "Clear or partly cloudy — reschedule in heavy rain",
-    returnLogic: "All three viewpoints are within 900m of Torget — return at any point, always downhill to harbour",
+    weatherSuitability: {
+      en: "Clear or partly cloudy — reschedule in heavy rain",
+      ja: "晴れまたは薄曇り — 大雨の場合は変更を",
+      zh: "晴天或多云 — 大雨时重新安排",
+    },
+    returnLogic: {
+      en: "All three viewpoints are within 900m of Torget — return at any point, always downhill to harbour",
+      ja: "3つの展望地点はすべてトルゲットから900m以内 — いつでも港へ下り坂で戻れます",
+      zh: "三处观景点均在距托尔盖特900米以内 — 随时可沿下坡路返回港口",
+    },
     guideRecommended: true,
     startCoords: [68.2343, 14.5671],
     endCoords: [68.2310, 14.5720],
@@ -336,8 +360,16 @@ export const lofotenRoutes: LofotenRoute[] = [
     duration: "90 min",
     distance: "3.1 km",
     difficulty: "Moderate",
-    weatherSuitability: "All conditions — studios are indoor destinations",
-    returnLogic: "Final studio is 1.5km from Torget — timed return markers shown at 30 and 15 minutes before departure",
+    weatherSuitability: {
+      en: "All conditions — studios are indoor destinations",
+      ja: "全天候対応 — スタジオは屋内施設",
+      zh: "全天候适用 — 工作室为室内目的地",
+    },
+    returnLogic: {
+      en: "Final studio is 1.5km from Torget — timed return markers shown at 30 and 15 minutes before departure",
+      ja: "最後のスタジオはトルゲットから1.5km — 出発30分・15分前に帰路マーカーが表示されます",
+      zh: "最后一个工作室距托尔盖特1.5公里 — 出发前30分钟和15分钟显示计时返回标记",
+    },
     guideRecommended: false,
     startCoords: [68.2343, 14.5671],
     endCoords: [68.2210, 14.5000],
@@ -418,8 +450,16 @@ export const lofotenRoutes: LofotenRoute[] = [
     duration: "30 min",
     distance: "1.0 km",
     difficulty: "Easy",
-    weatherSuitability: "All conditions including heavy rain and wind",
-    returnLogic: "Circular route — ends at starting point. Never more than 500m from Torget harbour and the bus",
+    weatherSuitability: {
+      en: "All conditions including heavy rain and wind",
+      ja: "大雨・強風を含む全天候対応",
+      zh: "全天候适用，包括大雨和强风",
+    },
+    returnLogic: {
+      en: "Circular route — ends at starting point. Never more than 500m from Torget harbour and the bus",
+      ja: "循環ルート — 出発地点に戻ります。トルゲット港とバスから500m以内",
+      zh: "环形路线 — 在起点结束。始终在距托尔盖特港口和巴士500米以内",
+    },
     guideRecommended: true,
     startCoords: [68.2343, 14.5671],
     endCoords: [68.2343, 14.5671],

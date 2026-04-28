@@ -35,7 +35,7 @@ function PositionTracker({ position }: { position: [number, number] }) {
   return null
 }
 
-interface OsloMapProps {
+interface LofotenMapProps {
   route: OsloRoute
   currentPosition?: [number, number] | null
   activePOIId?: string | null
@@ -45,7 +45,7 @@ interface OsloMapProps {
   className?: string
 }
 
-export function OsloMap({
+export function LofotenMap({
   route,
   currentPosition,
   activePOIId,
@@ -53,7 +53,7 @@ export function OsloMap({
   interactive = true,
   trackPosition = false,
   className = "w-full h-full",
-}: OsloMapProps) {
+}: LofotenMapProps) {
   const center = route.startCoords
   const routeLine = route.pois.map((p) => p.coordinates)
 

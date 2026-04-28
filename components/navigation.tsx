@@ -123,8 +123,20 @@ export function Navigation() {
           </button>
         </div>
 
+        {/* Mobile CTA — visible below md */}
+        <button
+          onClick={() => scrollToSection(CTA_SECTION_ID)}
+          className="md:hidden ml-auto mr-3 font-sans font-medium uppercase px-4 py-1.5 text-[11px] tracking-[0.10em] transition-opacity duration-200 hover:opacity-80"
+          style={{
+            backgroundColor: "rgba(201,169,98,1)",
+            color: "#1C2B1E",
+          }}
+        >
+          {t("nav_contact")}
+        </button>
+
         {/* Language toggle — far right */}
-        <div className="ml-auto">
+        <div className="md:ml-auto">
           <LanguageToggle onLight={onLight} />
         </div>
       </div>

@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     icon: "/icon.svg",
     apple: "/apple-icon.png",
   },
+  alternates: {
+    canonical: "https://agency.hostatlas.guide",
+  },
   openGraph: {
     title: "HostAtlas for Travel Agencies",
     description:

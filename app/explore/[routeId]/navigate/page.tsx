@@ -32,8 +32,8 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer"
 
-const OsloMap = dynamic(
-  () => import("@/components/oslo-map").then((m) => m.OsloMap),
+const LofotenMap = dynamic(
+  () => import("@/components/lofoten-map").then((m) => m.LofotenMap),
   {
     ssr: false,
     loading: () => <div className="w-full h-full animate-pulse" style={{ backgroundColor: "#1a2b1f" }} />,
@@ -148,7 +148,7 @@ export default function NavigatePage({ params }: { params: Promise<{ routeId: st
       <Tabs defaultValue="map" className="flex-1 flex flex-col overflow-hidden">
         <div className="flex-1 overflow-hidden relative">
           <TabsContent value="map" className="absolute inset-0 m-0">
-            <OsloMap
+            <LofotenMap
               route={route}
               currentPosition={position}
               activePOIId={activePOI?.id}

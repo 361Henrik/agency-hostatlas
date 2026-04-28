@@ -108,7 +108,7 @@ export function OsloRoutesPanel() {
                     className="font-sans mb-5 text-xs italic"
                     style={{ color: "rgba(28,43,30,0.5)", lineHeight: 1.5 }}
                   >
-                    {route.returnLogic}
+                    {route.returnLogic[lang]}
                   </p>
 
                   <div className="flex items-center gap-4 flex-wrap mb-5">
@@ -125,7 +125,7 @@ export function OsloRoutesPanel() {
                     </span>
                     <div className="flex items-center gap-1" style={{ color: "rgba(28,43,30,0.4)" }}>
                       <CloudRain className="h-3 w-3" strokeWidth={1.5} />
-                      <span className="font-sans" style={{ fontSize: "0.75rem" }}>{route.weatherSuitability}</span>
+                      <span className="font-sans" style={{ fontSize: "0.75rem" }}>{route.weatherSuitability[lang]}</span>
                     </div>
                   </div>
 
