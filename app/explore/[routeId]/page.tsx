@@ -41,14 +41,14 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
         style={{ backgroundColor: "rgba(15,31,21,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(201,169,98,0.12)" }}
       >
         <Link
-          href="/explore"
+          href={`/explore${lang === "no" ? "?lang=no" : ""}`}
           className="flex items-center gap-2 transition-opacity hover:opacity-70"
           style={{ color: "rgba(245,240,232,0.7)" }}
         >
           <ArrowLeft className="h-4 w-4" strokeWidth={1.5} />
           <span className="font-sans" style={{ fontSize: "0.875rem" }}>{t("explore_back")}</span>
         </Link>
-        <Link href="/" className="absolute left-1/2 -translate-x-1/2" aria-label="Back to main site">
+        <Link href={lang === "no" ? "/?lang=no" : "/"} className="absolute left-1/2 -translate-x-1/2" aria-label="Back to main site">
           <Image
             src="/host-atlas-logo.png"
             alt="The Host Atlas"
@@ -100,7 +100,7 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
       {/* Start CTA */}
       <div className="px-4 mb-8">
         <Link
-          href={`/explore/${routeId}/navigate`}
+          href={`/explore/${routeId}/navigate${lang === "no" ? "?lang=no" : ""}`}
           className="flex items-center justify-center gap-3 w-full py-4 font-sans font-medium uppercase transition-opacity hover:opacity-85 active:scale-[0.98]"
           style={{
             backgroundColor: "#C9A962",
@@ -126,37 +126,50 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
             return (
               <div
                 key={poi.id}
-                className="flex gap-4 py-4"
+                className="py-4"
                 style={{ borderBottom: "1px solid rgba(201,169,98,0.08)" }}
               >
-                {/* Number */}
-                <span
-                  className="font-serif shrink-0 w-7 pt-0.5"
-                  style={{ fontSize: "1.25rem", lineHeight: 1.1, color: "rgba(201,169,98,0.6)", fontWeight: 500 }}
-                >
-                  {index + 1}
-                </span>
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="flex items-start justify-between gap-2 mb-1">
-                    <h3 className="font-serif leading-[1.2]" style={{ fontSize: "1.0625rem", fontWeight: 500, color: "#F5F0E8" }}>
-                      {poi.title[lang]}
-                    </h3>
-                    <Badge
-                      className="font-sans uppercase text-[9px] tracking-[0.08em] shrink-0"
-                      style={{
-                        backgroundColor: "rgba(201,169,98,0.08)",
-                        color: "rgba(201,169,98,0.65)",
-                        border: "1px solid rgba(201,169,98,0.15)",
-                        borderRadius: "2px",
-                      }}
-                    >
-                      {typeLabel}
-                    </Badge>
+                {poi.imageUrl && (
+                  <div className="relative w-full mb-3 overflow-hidden rounded-sm" style={{ height: "160px" }}>
+                    <Image
+                      src={poi.imageUrl}
+                      alt={poi.title[lang]}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 600px"
+                    />
                   </div>
-                  <p className="font-sans line-clamp-2" style={{ fontSize: "0.9375rem", lineHeight: 1.55, color: "rgba(245,240,232,0.5)" }}>
-                    {poi.description[lang]}
-                  </p>
+                )}
+                <div className="flex gap-4">
+                  {/* Number */}
+                  <span
+                    className="font-serif shrink-0 w-7 pt-0.5"
+                    style={{ fontSize: "1.25rem", lineHeight: 1.1, color: "rgba(201,169,98,0.6)", fontWeight: 500 }}
+                  >
+                    {index + 1}
+                  </span>
+                  {/* Content */}
+                  <div className="flex-1">
+                    <div className="flex items-start justify-between gap-2 mb-1">
+                      <h3 className="font-serif leading-[1.2]" style={{ fontSize: "1.0625rem", fontWeight: 500, color: "#F5F0E8" }}>
+                        {poi.title[lang]}
+                      </h3>
+                      <Badge
+                        className="font-sans uppercase text-[9px] tracking-[0.08em] shrink-0"
+                        style={{
+                          backgroundColor: "rgba(201,169,98,0.08)",
+                          color: "rgba(201,169,98,0.65)",
+                          border: "1px solid rgba(201,169,98,0.15)",
+                          borderRadius: "2px",
+                        }}
+                      >
+                        {typeLabel}
+                      </Badge>
+                    </div>
+                    <p className="font-sans line-clamp-2" style={{ fontSize: "0.9375rem", lineHeight: 1.55, color: "rgba(245,240,232,0.5)" }}>
+                      {poi.description[lang]}
+                    </p>
+                  </div>
                 </div>
               </div>
             )

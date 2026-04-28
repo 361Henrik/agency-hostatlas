@@ -45,7 +45,7 @@ export function OsloRoutesPanel() {
             return (
               <Link
                 key={route.id}
-                href={`/explore/${route.id}`}
+                href={`/explore/${route.id}${lang === "no" ? "?lang=no" : ""}`}
                 className="group flex flex-col bg-card border border-accent/10 hover:border-accent/30 transition-all duration-300 hover:shadow-lg"
               >
                 {/* Route number bar */}

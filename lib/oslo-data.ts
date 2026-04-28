@@ -239,7 +239,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9175, 10.7278],
-        imageUrl: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1761773849911-ff40e5c20213?w=800&q=80",
       },
       {
         id: "nasjonaltheatret",
@@ -260,7 +260,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9080, 10.7325],
-        imageUrl: "https://images.unsplash.com/photo-1589308154706-a27d6a4dc8c7?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1671036903272-124e56198536?w=800&q=80",
       },
       {
         id: "oslo-opera-house",
@@ -271,7 +271,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9075, 10.7530],
-        imageUrl: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1561794047-cc8f58725bdd?w=800&q=80",
         followUpTopic: {
           en: "Nordic architecture and urban regeneration",
           no: "Nordisk arkitektur og byfornyelse",
@@ -286,6 +286,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9135, 10.7400],
+        imageUrl: "https://images.unsplash.com/photo-1729101508362-b5c2f28b67d0?w=800&q=80",
       },
     ],
   },
@@ -315,7 +316,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9059, 10.7258],
-        imageUrl: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1621694357865-ad6fa877bc36?w=800&q=80",
         followUpTopic: {
           en: "Art as an asset class and Nordic cultural investment",
           no: "Kunst som aktivaklasse og nordisk kulturinvestering",
@@ -401,7 +402,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9112, 10.7294],
-        imageUrl: "https://images.unsplash.com/photo-1589308154706-a27d6a4dc8c7?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1745496510440-83fa4a0e429d?w=800&q=80",
       },
       {
         id: "innovation-norway-hq",
@@ -454,7 +455,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9075, 10.7530],
-        imageUrl: "https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1561794047-cc8f58725bdd?w=800&q=80",
         followUpTopic: {
           en: "Oslo's Fjord City masterplan and urban waterfront strategy",
           no: "Oslos Fjordbyen-masterplan og urban strandpromenadet-strategi",
@@ -497,6 +498,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9080, 10.7325],
+        imageUrl: "https://images.unsplash.com/photo-1671036903272-124e56198536?w=800&q=80",
         followUpTopic: {
           en: "Oslo's post-industrial waterfront transformation",
           no: "Oslos post-industrielle kaifronttransformasjon",
@@ -511,6 +513,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9068, 10.7386],
+        imageUrl: "https://images.unsplash.com/photo-1715614178628-e82806bd1f7e?w=800&q=80",
         followUpTopic: {
           en: "Oslo under German occupation, 1940–1945",
           no: "Oslo under tysk okkupasjon, 1940–1945",
@@ -539,6 +542,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9112, 10.7294],
+        imageUrl: "https://images.unsplash.com/photo-1745496510440-83fa4a0e429d?w=800&q=80",
         followUpTopic: {
           en: "Norwegian public art of the 20th century",
           no: "Norsk offentlig kunst på 1900-tallet",
@@ -553,6 +557,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9138, 10.7387],
+        imageUrl: "https://images.unsplash.com/photo-1729101508362-b5c2f28b67d0?w=800&q=80",
         followUpTopic: {
           en: "Urban planning in 19th-century Christiania",
           no: "Byplanlegging i 1800-tallets Christiania",
@@ -567,6 +572,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9197, 10.7269],
+        imageUrl: "https://images.unsplash.com/photo-1761773849911-ff40e5c20213?w=800&q=80",
         followUpTopic: {
           en: "Nordic constitutional monarchies",
           no: "Nordiske konstitusjonelle monarkier",
@@ -581,6 +587,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9121, 10.7257],
+        imageUrl: "https://images.unsplash.com/photo-1661709009562-cdca7d858b40?w=800&q=80",
         followUpTopic: {
           en: "Edvard Munch and Norwegian expressionism",
           no: "Edvard Munch og norsk ekspresjonisme",
@@ -595,6 +602,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9143, 10.7379],
+        imageUrl: "https://images.unsplash.com/photo-1743434106434-6171634b7900?w=800&q=80",
         followUpTopic: {
           en: "The Eidsvoll constitution and Norwegian independence",
           no: "Eidsvollgrunnloven og norsk selvstendighet",
@@ -609,6 +617,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "city_highlight",
         coordinates: [59.9063, 10.7292],
+        imageUrl: "https://images.unsplash.com/photo-1621694357865-ad6fa877bc36?w=800&q=80",
         followUpTopic: {
           en: "Contemporary Nordic architecture and waterfront urban design",
           no: "Samtidig nordisk arkitektur og urban kaifrontutforming",
@@ -623,6 +632,7 @@ export const osloRoutes: OsloRoute[] = [
         },
         type: "host_narrative",
         coordinates: [59.9233, 10.7531],
+        imageUrl: "https://images.unsplash.com/photo-1635008690770-26e82887ec3a?w=800&q=80",
         followUpTopic: {
           en: "New Nordic food culture and Oslo's restaurant scene",
           no: "Ny nordisk matkultur og Oslos restaurantscene",

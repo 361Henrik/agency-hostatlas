@@ -1,6 +1,7 @@
 "use client"
 
 import { use, useState, useCallback } from "react"
+import Image from "next/image"
 import dynamic from "next/dynamic"
 import { useRouter } from "next/navigation"
 import { notFound } from "next/navigation"
@@ -223,6 +224,17 @@ export default function NavigatePage({ params }: { params: Promise<{ routeId: st
         >
           {activePOI && (
             <div className="overflow-y-auto pb-safe">
+              {activePOI.imageUrl && (
+                <div className="relative w-full overflow-hidden" style={{ height: "200px" }}>
+                  <Image
+                    src={activePOI.imageUrl}
+                    alt={activePOI.title[lang]}
+                    fill
+                    className="object-cover"
+                    sizes="100vw"
+                  />
+                </div>
+              )}
               <DrawerHeader className="px-5 pt-5 pb-3">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">

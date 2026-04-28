@@ -43,7 +43,7 @@ export const translations = {
 
     // Routes panel
     routes_eyebrow: "The Guest Experience",
-    routes_heading: "Five routes. One city. One lens.",
+    routes_heading: "Six routes. One city. One lens.",
     routes_intro: "Each route is framed through the specific industry and purpose of the event — not generic tourism. Guests arrive already understanding why these walks were chosen for them.",
     routes_view_route: "View Route",
     routes_start_route: "Start Route",
@@ -78,7 +78,7 @@ export const translations = {
     // Explore / guest app
     explore_eyebrow: "Nordic Finance Summit · Oslo 2026",
     explore_heading: "Explore Oslo",
-    explore_subheading: "Five curated routes. Your industry lens. Your pace.",
+    explore_subheading: "Six curated routes. Your industry lens. Your pace.",
     explore_select_prompt: "Choose a route to begin",
     explore_powered_by: "Powered by The Host Atlas",
     explore_start: "Start Walking",
@@ -148,7 +148,7 @@ export const translations = {
     hero_h1_line2: "til en vertsopplevelse.",
     hero_body: "Et skreddersydd digitalt vertslag for toppledere, VIP-gjester og internasjonale delegasjoner — kuratert rundt arrangementet ditt, gjestene dine og hvert øyeblikk programmet ditt ikke dekker.",
     hero_tagline: "Kuratert · Opplevd · Innsikt · Merket",
-    hero_scroll: "Rull",
+    hero_scroll: "Scroll",
 
     // Dead time panel
     dead_time_eyebrow: "Gapet",
@@ -179,7 +179,7 @@ export const translations = {
 
     // Routes panel
     routes_eyebrow: "Gjesteopplevelsen",
-    routes_heading: "Fem ruter. Én by. Én linse.",
+    routes_heading: "Seks ruter. Én by. Én linse.",
     routes_intro: "Hver rute er innrammet gjennom den spesifikke bransjen og formålet med arrangementet — ikke generisk turisme. Gjester ankommer med forståelse for hvorfor disse rutene ble valgt for dem.",
     routes_view_route: "Se rute",
     routes_start_route: "Start rute",
@@ -214,7 +214,7 @@ export const translations = {
     // Explore / guest app
     explore_eyebrow: "Nordic Finance Summit · Oslo 2026",
     explore_heading: "Utforsk Oslo",
-    explore_subheading: "Fem kuraterte ruter. Din bransjlinse. Ditt tempo.",
+    explore_subheading: "Seks kuraterte ruter. Din bransjlinse. Ditt tempo.",
     explore_select_prompt: "Velg en rute for å begynne",
     explore_powered_by: "Drevet av The Host Atlas",
     explore_start: "Begynn å gå",

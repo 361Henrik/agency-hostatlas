@@ -1,10 +1,12 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { Suspense } from "react"
 
 import { Analytics } from "@vercel/analytics/next"
 import { Lexend, Playfair_Display, Geist_Mono as V0_Font_Geist_Mono } from 'next/font/google'
 import { Toaster } from "@/components/ui/sonner"
 import { LanguageProvider } from "@/lib/language-context"
+import { LangSync } from "@/components/lang-sync"
 
 const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
 
@@ -71,6 +73,9 @@ export default function RootLayout({
       </head>
       <body className={`${lexend.variable} ${playfair.variable} font-sans antialiased bg-background`}>
         <LanguageProvider>
+          <Suspense fallback={null}>
+            <LangSync />
+          </Suspense>
           {children}
           <Toaster />
           <Analytics />

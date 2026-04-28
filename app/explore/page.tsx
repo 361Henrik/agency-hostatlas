@@ -24,7 +24,7 @@ export default function ExplorePage() {
     <div className="min-h-screen" style={{ backgroundColor: "#0F1F15", color: "#F5F0E8" }}>
       {/* Header */}
       <header className="sticky top-0 z-50 px-5 py-4 flex items-center justify-between" style={{ backgroundColor: "rgba(15,31,21,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(201,169,98,0.12)" }}>
-        <Link href="/" aria-label="Back to main site">
+        <Link href={lang === "no" ? "/?lang=no" : "/"} aria-label="Back to main site">
           <Image
             src="/host-atlas-logo.png"
             alt="The Host Atlas"
@@ -64,7 +64,7 @@ export default function ExplorePage() {
           return (
             <Link
               key={route.id}
-              href={`/explore/${route.id}`}
+              href={`/explore/${route.id}${lang === "no" ? "?lang=no" : ""}`}
               className="group flex gap-4 p-5 transition-all duration-200 hover:opacity-90 active:scale-[0.99]"
               style={{
                 backgroundColor: "rgba(255,255,255,0.04)",
