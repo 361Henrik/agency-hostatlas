@@ -28,14 +28,16 @@ export function ConfidenceGapPanel() {
       {/* Left — image (mobile: appears above copy via flex-col order) */}
       <div className="relative w-full lg:w-3/5 min-h-[56vw] lg:min-h-0 order-1 reveal-scale">
         <Image
-          src="/whats-that-over-there.jpg"
-          alt="Travelers on a Norwegian coastal viewpoint pointing toward the Lofoten mountains"
+          src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1600&q=80"
+          alt="A quiet Lofoten village street — the destination is right there, and almost no one walks into it"
           fill
           className="object-cover"
           style={{ objectPosition: "50% 40%" }}
           sizes="(max-width: 1024px) 100vw, 60vw"
         />
-        {/* TODO(phase-8): replace with S2 directed-capture cluster shot — plan §3 */}
+        {/* TODO(phase-8): replace with S2 directed-capture cluster shot (guests clustered
+            near the coach, empty street behind) — plan §3. Interim: real Unsplash village
+            photo; the previous local asset was a cruise-deck couple (wrong vertical). */}
       </div>
 
       {/* Right — copy */}
