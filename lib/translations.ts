@@ -153,7 +153,7 @@ export const translations = {
 
     // Shared CTAs
     cta_request_conversation: "Request a Demo",
-    cta_oslo_experience: "See the Lofoten experience →",
+    cta_lofoten_experience: "See the Lofoten experience →",
     cta_email_prefix: "or email",
 
     // Operator panel — section labels
@@ -328,7 +328,7 @@ export const translations = {
 
     // Shared CTAs
     cta_request_conversation: "デモをリクエスト",
-    cta_oslo_experience: "ロフォーテン体験を見る →",
+    cta_lofoten_experience: "ロフォーテン体験を見る →",
     cta_email_prefix: "またはメール",
 
     // Operator panel — section labels
@@ -503,7 +503,7 @@ export const translations = {
 
     // Shared CTAs
     cta_request_conversation: "申请演示",
-    cta_oslo_experience: "查看罗弗敦体验 →",
+    cta_lofoten_experience: "查看罗弗敦体验 →",
     cta_email_prefix: "或发送邮件至",
 
     // Operator panel — section labels

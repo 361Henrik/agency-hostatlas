@@ -10,7 +10,7 @@ import { toast } from "sonner"
 import { useLanguage } from "@/lib/language-context"
 import { useGeolocation } from "@/hooks/use-geolocation"
 import { useNearestPoi } from "@/hooks/use-nearest-poi"
-import { osloRoutes, type POI } from "@/lib/oslo-data"
+import { lofotenRoutes, type POI } from "@/lib/lofoten-data"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -62,7 +62,7 @@ export default function NavigatePage({ params }: { params: Promise<{ routeId: st
   const { routeId } = use(params)
   const { lang, t } = useLanguage()
   const router = useRouter()
-  const route = osloRoutes.find((r) => r.id === routeId)
+  const route = lofotenRoutes.find((r) => r.id === routeId)
   if (!route) notFound()
 
   const { position, error: geoError } = useGeolocation()

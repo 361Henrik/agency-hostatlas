@@ -1,7 +1,7 @@
 "use client"
 
 import { useMemo } from "react"
-import type { POI } from "@/lib/oslo-data"
+import type { POI } from "@/lib/lofoten-data"
 
 function haversineMetres(a: [number, number], b: [number, number]): number {
   const R = 6371000

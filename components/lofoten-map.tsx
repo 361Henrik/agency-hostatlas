@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import { MapContainer, TileLayer, Polyline, Marker, Circle, useMap } from "react-leaflet"
 import L from "leaflet"
-import type { OsloRoute } from "@/lib/oslo-data"
+import type { LofotenRoute } from "@/lib/lofoten-data"
 
 // Fix Leaflet default icon issue in Next.js
 if (typeof window !== "undefined") {
@@ -36,7 +36,7 @@ function PositionTracker({ position }: { position: [number, number] }) {
 }
 
 interface LofotenMapProps {
-  route: OsloRoute
+  route: LofotenRoute
   currentPosition?: [number, number] | null
   activePOIId?: string | null
   onPoiClick?: (poiId: string) => void
@@ -96,12 +96,12 @@ export function LofotenMap({
           <Circle
             center={currentPosition}
             radius={5}
-            pathOptions={{ color: "#3B82F6", fillColor: "#3B82F6", fillOpacity: 1, weight: 2 }}
+            pathOptions={{ color: "#1f4a3a", fillColor: "#c9a962", fillOpacity: 1, weight: 2 }}
           />
           <Circle
             center={currentPosition}
             radius={20}
-            pathOptions={{ color: "#3B82F6", fillColor: "#3B82F6", fillOpacity: 0.15, weight: 0 }}
+            pathOptions={{ color: "#1f4a3a", fillColor: "#1f4a3a", fillOpacity: 0.15, weight: 0 }}
           />
         </>
       )}

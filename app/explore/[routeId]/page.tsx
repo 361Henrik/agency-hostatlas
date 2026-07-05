@@ -8,7 +8,7 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, Clock, Route, MapPin, Play } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { LanguageToggle } from "@/components/language-toggle"
-import { osloRoutes } from "@/lib/oslo-data"
+import { lofotenRoutes } from "@/lib/lofoten-data"
 import { Badge } from "@/components/ui/badge"
 
 const LofotenMap = dynamic(
@@ -32,7 +32,7 @@ const poiTypeLabels: Record<string, { en: string; ja: string; zh: string }> = {
 export default function RouteDetailPage({ params }: { params: Promise<{ routeId: string }> }) {
   const { routeId } = use(params)
   const { lang, t } = useLanguage()
-  const route = osloRoutes.find((r) => r.id === routeId)
+  const route = lofotenRoutes.find((r) => r.id === routeId)
   if (!route) notFound()
 
   return (

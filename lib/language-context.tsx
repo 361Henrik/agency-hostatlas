@@ -1,9 +1,15 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
 import { translations, type TranslationKey } from "./translations"
 
 export type Lang = "en" | "ja" | "zh"
+
+const LANG_STORAGE_KEY = "hostatlas-lang"
+
+function isLang(value: string | null): value is Lang {
+  return value === "en" || value === "ja" || value === "zh"
+}
 
 interface LanguageContextValue {
   lang: Lang
@@ -14,7 +20,19 @@ interface LanguageContextValue {
 const LanguageContext = createContext<LanguageContextValue | null>(null)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>("en")
+  const [lang, setLangState] = useState<Lang>("en")
+
+  // Read persisted language after mount only — avoids SSR/CSR hydration mismatch.
+  useEffect(() => {
+    const stored = window.localStorage.getItem(LANG_STORAGE_KEY)
+    if (isLang(stored)) setLangState(stored)
+  }, [])
+
+  const setLang = (l: Lang) => {
+    setLangState(l)
+    window.localStorage.setItem(LANG_STORAGE_KEY, l)
+  }
+
   const t = (key: TranslationKey): string => translations[lang][key] ?? key
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>

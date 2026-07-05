@@ -519,7 +519,3 @@ export const lofotenRoutes: LofotenRoute[] = [
     ],
   },
 ]
-
-// Backwards compatibility alias used by explore pages
-export const osloRoutes = lofotenRoutes
-export type OsloRoute = LofotenRoute

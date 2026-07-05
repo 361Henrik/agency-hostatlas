@@ -1,11 +1,3 @@
-Gemini
-Alpha
-Ask about your files
-Summarize this folder
-Analyze each file in this folder
-What can Gemini do with folders in Google Drive
-Gemini in Workspace can make mistakes. Learn more
-
 # CLAUDE.md — agency.hostatlas.guide
 
 ## What this is
@@ -146,7 +138,7 @@ HostAtlas solves for **confidence**, not just content.
 
 4. **Offline capability** — dedicated feature callout. "Works with no signal. Lofoten has connectivity dead zones. HostAtlas doesn't."
 
-5. **Language section** — EN / 日本語 / 简体不文- Frame as cultural tone adaptation, not direct translation.
+5. **Language section** — EN / 日本語 / 简体中文 - Frame as cultural tone adaptation, not direct translation.
 
 6. **Guide control layer** — agencies activate routes for specific time windows. Guests only see what's relevant. "controlled freedom."
 

@@ -93,7 +93,7 @@ export function HeroPanel() {
               className="font-sans font-medium uppercase py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
               style={{ color: "rgba(201,169,98,0.85)", fontSize: "0.8rem", letterSpacing: "0.12em" }}
             >
-              {t("cta_oslo_experience")}
+              {t("cta_lofoten_experience")}
             </Link>
           </div>
         </div>

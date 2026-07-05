@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Clock, Route, ArrowRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { LanguageToggle } from "@/components/language-toggle"
-import { osloRoutes } from "@/lib/oslo-data"
+import { lofotenRoutes } from "@/lib/lofoten-data"
 import { Badge } from "@/components/ui/badge"
 
 const themeColors: Record<string, string> = {
@@ -58,7 +58,7 @@ export default function ExplorePage() {
           {t("explore_select_prompt")}
         </p>
 
-        {osloRoutes.map((route, index) => {
+        {lofotenRoutes.map((route, index) => {
           const accentColor = themeColors[route.id] ?? "#C9A962"
           return (
             <Link

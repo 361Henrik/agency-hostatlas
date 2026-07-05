@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { Clock, Route, ArrowRight, Star, CloudRain } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
-import { osloRoutes } from "@/lib/oslo-data"
+import { lofotenRoutes } from "@/lib/lofoten-data"
 import { Badge } from "@/components/ui/badge"
 
 const themeColors: Record<string, string> = {
@@ -14,7 +14,7 @@ const themeColors: Record<string, string> = {
   "weather-safe-short-walk":  "#8FAAB8",
 }
 
-export function OsloRoutesPanel() {
+export function LofotenRoutesPanel() {
   const { lang, t } = useLanguage()
 
   return (
@@ -39,7 +39,7 @@ export function OsloRoutesPanel() {
 
         {/* Route cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-          {osloRoutes.map((route, index) => {
+          {lofotenRoutes.map((route, index) => {
             const accentColor = themeColors[route.id] ?? "#C9A962"
             const langParam = lang !== "en" ? `?lang=${lang}` : ""
             return (

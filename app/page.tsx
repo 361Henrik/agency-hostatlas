@@ -2,10 +2,10 @@
 
 import { Navigation } from "@/components/navigation"
 import { HeroPanel } from "@/components/panels/hero-panel"
-import { DeadTimePanel } from "@/components/panels/dead-time-panel"
+import { ConfidenceGapPanel } from "@/components/panels/confidence-gap-panel"
 import { OpportunityTextPanel } from "@/components/panels/opportunity-text-panel"
 import { ThreeLayerPanel } from "@/components/panels/three-layer-panel"
-import { OsloRoutesPanel } from "@/components/panels/oslo-routes-panel"
+import { LofotenRoutesPanel } from "@/components/panels/lofoten-routes-panel"
 import { MeetingPointPanel } from "@/components/panels/meeting-point-panel"
 import { OfflinePanel } from "@/components/panels/offline-panel"
 import { PhotoMomentPanel } from "@/components/panels/photo-moment-panel"
@@ -22,10 +22,10 @@ export default function Page() {
       <Navigation />
       <main>
         <HeroPanel />
-        <DeadTimePanel />
+        <ConfidenceGapPanel />
         <OpportunityTextPanel />
         <ThreeLayerPanel />
-        <OsloRoutesPanel />
+        <LofotenRoutesPanel />
         <MeetingPointPanel />
         <OfflinePanel />
         <PhotoMomentPanel />

@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { useLanguage } from "@/lib/language-context"
 
-export function DeadTimePanel() {
+export function ConfidenceGapPanel() {
   const { t } = useLanguage()
 
   return (

@@ -16,95 +16,87 @@
   --atlas-border: #ccc4b8;
 }
 
-/* Agency site — dark editorial base */
+/* Agency site — ATLASdesign editorial base (re-derived from --atlas-* tokens) */
 :root {
-  /* Deep midnight sapphire — primary, hero, dark sections */
-  --background: oklch(0.12 0.03 255);
-  --foreground: oklch(0.92 0.01 85);
+  --background: var(--atlas-canvas);
+  --foreground: var(--atlas-charcoal);
 
-  /* Cards use a slightly lighter navy */
-  --card: oklch(0.15 0.025 255);
-  --card-foreground: oklch(0.92 0.01 85);
-  --popover: oklch(0.15 0.025 255);
-  --popover-foreground: oklch(0.92 0.01 85);
+  --card: #fdfbf7;
+  --card-foreground: var(--atlas-charcoal);
+  --popover: #fdfbf7;
+  --popover-foreground: var(--atlas-charcoal);
 
-  /* Primary = deep sapphire */
-  --primary: oklch(0.14 0.03 255);
-  --primary-foreground: oklch(0.92 0.01 85);
+  --primary: var(--atlas-green);
+  --primary-foreground: var(--atlas-canvas);
 
-  /* Secondary = rich forest */
-  --secondary: oklch(0.18 0.04 255);
-  --secondary-foreground: oklch(0.90 0.01 85);
+  --secondary: var(--atlas-stone);
+  --secondary-foreground: var(--atlas-charcoal);
 
-  /* Muted = dark navy-grey */
-  --muted: oklch(0.20 0.02 255);
-  --muted-foreground: oklch(0.62 0.01 85);
+  --muted: var(--atlas-stone);
+  --muted-foreground: var(--atlas-muted);
 
-  /* Accent = muted antique gold */
-  --accent: oklch(0.72 0.10 75);
-  --accent-foreground: oklch(0.12 0.03 255);
+  --accent: var(--atlas-bronze);
+  --accent-foreground: var(--atlas-charcoal);
 
-  /* Destructive */
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
+  --destructive: var(--atlas-terracotta);
+  --destructive-foreground: var(--atlas-canvas);
 
-  /* Borders = very subtle */
-  --border: oklch(0.25 0.015 255);
-  --input: oklch(0.22 0.02 255);
-  --ring: oklch(0.72 0.10 75);
+  --border: var(--atlas-border);
+  --input: var(--atlas-border);
+  --ring: var(--atlas-green);
 
   /* Charts */
-  --chart-1: oklch(0.72 0.10 75);
-  --chart-2: oklch(0.55 0.06 255);
-  --chart-3: oklch(0.65 0.08 85);
-  --chart-4: oklch(0.50 0.05 200);
-  --chart-5: oklch(0.60 0.04 220);
+  --chart-1: var(--atlas-green);
+  --chart-2: var(--atlas-bronze);
+  --chart-3: var(--atlas-terracotta);
+  --chart-4: var(--atlas-muted);
+  --chart-5: var(--atlas-stone);
   --radius: 0.875rem;
 
   /* Sidebar */
-  --sidebar: oklch(0.14 0.03 255);
-  --sidebar-foreground: oklch(0.92 0.01 85);
-  --sidebar-primary: oklch(0.72 0.10 75);
-  --sidebar-primary-foreground: oklch(0.12 0.03 255);
-  --sidebar-accent: oklch(0.20 0.02 255);
-  --sidebar-accent-foreground: oklch(0.92 0.01 85);
-  --sidebar-border: oklch(0.25 0.015 255);
-  --sidebar-ring: oklch(0.72 0.10 75);
+  --sidebar: var(--atlas-canvas);
+  --sidebar-foreground: var(--atlas-charcoal);
+  --sidebar-primary: var(--atlas-green);
+  --sidebar-primary-foreground: var(--atlas-canvas);
+  --sidebar-accent: var(--atlas-bronze);
+  --sidebar-accent-foreground: var(--atlas-charcoal);
+  --sidebar-border: var(--atlas-border);
+  --sidebar-ring: var(--atlas-green);
 }
 
 .dark {
-  --background: oklch(0.10 0.03 255);
-  --foreground: oklch(0.92 0.01 85);
-  --card: oklch(0.13 0.025 255);
-  --card-foreground: oklch(0.92 0.01 85);
-  --popover: oklch(0.13 0.025 255);
-  --popover-foreground: oklch(0.92 0.01 85);
-  --primary: oklch(0.92 0.01 85);
-  --primary-foreground: oklch(0.12 0.03 255);
-  --secondary: oklch(0.20 0.04 255);
-  --secondary-foreground: oklch(0.90 0.01 85);
-  --muted: oklch(0.22 0.02 255);
-  --muted-foreground: oklch(0.58 0.01 85);
-  --accent: oklch(0.68 0.10 75);
-  --accent-foreground: oklch(0.92 0.01 85);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.22 0.015 255);
-  --input: oklch(0.22 0.015 255);
-  --ring: oklch(0.60 0.08 75);
-  --chart-1: oklch(0.60 0.10 75);
-  --chart-2: oklch(0.50 0.06 255);
-  --chart-3: oklch(0.58 0.08 85);
-  --chart-4: oklch(0.48 0.05 200);
-  --chart-5: oklch(0.55 0.04 220);
-  --sidebar: oklch(0.12 0.03 255);
-  --sidebar-foreground: oklch(0.92 0.01 85);
-  --sidebar-primary: oklch(0.60 0.10 75);
-  --sidebar-primary-foreground: oklch(0.92 0.01 85);
-  --sidebar-accent: oklch(0.22 0.02 255);
-  --sidebar-accent-foreground: oklch(0.92 0.01 85);
-  --sidebar-border: oklch(0.22 0.015 255);
-  --sidebar-ring: oklch(0.439 0 0);
+  --background: var(--atlas-charcoal);
+  --foreground: var(--atlas-canvas);
+  --card: #212721;
+  --card-foreground: var(--atlas-canvas);
+  --popover: #212721;
+  --popover-foreground: var(--atlas-canvas);
+  --primary: var(--atlas-bronze);
+  --primary-foreground: var(--atlas-charcoal);
+  --secondary: #2a312a;
+  --secondary-foreground: var(--atlas-canvas);
+  --muted: #2a312a;
+  --muted-foreground: #a9a493;
+  --accent: var(--atlas-bronze);
+  --accent-foreground: var(--atlas-charcoal);
+  --destructive: var(--atlas-terracotta);
+  --destructive-foreground: var(--atlas-canvas);
+  --border: rgba(246,243,238,0.15);
+  --input: rgba(246,243,238,0.15);
+  --ring: var(--atlas-bronze);
+  --chart-1: var(--atlas-bronze);
+  --chart-2: var(--atlas-green);
+  --chart-3: var(--atlas-terracotta);
+  --chart-4: #a9a493;
+  --chart-5: #2a312a;
+  --sidebar: var(--atlas-charcoal);
+  --sidebar-foreground: var(--atlas-canvas);
+  --sidebar-primary: var(--atlas-bronze);
+  --sidebar-primary-foreground: var(--atlas-charcoal);
+  --sidebar-accent: var(--atlas-bronze);
+  --sidebar-accent-foreground: var(--atlas-charcoal);
+  --sidebar-border: rgba(246,243,238,0.15);
+  --sidebar-ring: var(--atlas-bronze);
 }
 
 @theme inline {
