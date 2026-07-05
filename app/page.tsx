@@ -1,6 +1,7 @@
 "use client"
 
 import { Navigation } from "@/components/navigation"
+import { useScrollReveal } from "@/hooks/use-scroll-reveal"
 import { HeroPanel } from "@/components/panels/hero-panel"
 import { ConfidenceGapPanel } from "@/components/panels/confidence-gap-panel"
 import { OpportunityTextPanel } from "@/components/panels/opportunity-text-panel"
@@ -15,6 +16,7 @@ import { StrategicValuePanel } from "@/components/panels/strategic-value-panel"
 import { PilotPanel } from "@/components/panels/pilot-panel"
 
 export default function Page() {
+  useScrollReveal()
   return (
     <>
       <Navigation />

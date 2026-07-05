@@ -226,14 +226,26 @@
 .reveal-stagger > .reveal:nth-child(4) { animation-delay: 300ms; }
 .reveal-stagger > .reveal:nth-child(5) { animation-delay: 400ms; }
 
-/* Hero Ken Burns */
+/* Hero Ken Burns — softened (composes with parallax translate on the wrapper) */
 @keyframes kenBurns {
   from { transform: scale(1); }
-  to { transform: scale(1.06); }
+  to { transform: scale(1.04); }
 }
 
 .hero-ken-burns {
   animation: kenBurns 35s ease-out forwards;
+}
+
+/* Hero content one-time load stagger (above the fold — not scroll-dependent).
+   Delays are set inline per item: eyebrow → headline → body → CTAs. */
+@keyframes heroIntro {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-intro {
+  opacity: 0;
+  animation: heroIntro 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Editorial image hover */
@@ -326,4 +338,42 @@
 
 .scroll-indicator-fade {
   animation: scrollIndicatorFade 1s ease-out 2s both;
+}
+
+/* =============================================================
+   GLOBAL REDUCED-MOTION BLOCK — single source of truth.
+   Other phases rely on this block existing; add motion opt-outs here.
+   Disables Ken Burns, parallax (the hook already no-ops), scroll-indicator
+   bounces, and forces all reveal utilities to their final resting state.
+   ============================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .hero-ken-burns {
+    animation: none;
+    transform: none;
+  }
+
+  .hero-intro {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal,
+  .reveal-fade,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+
+  .tagline-reveal {
+    animation: none;
+    opacity: 1;
+  }
+
+  .scroll-indicator,
+  .scroll-chevron {
+    animation: none;
+  }
 }

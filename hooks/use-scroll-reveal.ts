@@ -4,6 +4,14 @@ import { useEffect } from "react"
 
 export function useScrollReveal() {
   useEffect(() => {
+    const elements = document.querySelectorAll(".reveal, .reveal-fade, .reveal-scale")
+
+    // Reduced motion: show everything immediately, no observer.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      for (const el of elements) el.classList.add("visible")
+      return
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -16,7 +24,6 @@ export function useScrollReveal() {
       { threshold: 0.12, rootMargin: "0px 0px -30px 0px" },
     )
 
-    const elements = document.querySelectorAll(".reveal, .reveal-fade, .reveal-scale")
     for (const el of elements) {
       observer.observe(el)
     }

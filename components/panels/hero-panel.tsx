@@ -3,13 +3,19 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useLanguage } from "@/lib/language-context"
+import { useParallax } from "@/hooks/use-parallax"
 
 export function HeroPanel() {
   const { t, lang } = useLanguage()
+  // Parallax on the image wrapper (translate); Ken Burns scale lives on the
+  // <img> itself, so the two transforms compose without jumping.
+  const parallaxRef = useParallax<HTMLDivElement>(0.15)
 
   return (
     <section data-section="hero" className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0">
+      {/* Parallax wrapper — slightly taller than viewport so the drift never exposes an edge */}
+      <div ref={parallaxRef} className="absolute inset-x-0 -top-[10vh] h-[120vh] will-change-transform">
+        {/* TODO(phase-8): replace with S1 licensed hero — plan §3 */}
         <Image
           src="https://images.unsplash.com/photo-1554072453-c8e38bb22ca6?w=1920&q=85"
           alt="Lofoten Islands, Norway — dramatic peaks and fishing village"
@@ -17,10 +23,12 @@ export function HeroPanel() {
           priority
           className="object-cover hero-ken-burns saturate-[0.85]"
         />
+        {/* Dual scrim: top ~35% + bottom ~55%, anchored where the bottom-set text sits */}
         <div
           className="absolute inset-0"
           style={{
-            background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.65) 100%)",
+            background:
+              "linear-gradient(to bottom, rgba(26,31,26,0.55) 0%, rgba(26,31,26,0) 35%, rgba(26,31,26,0) 45%, rgba(26,31,26,0.65) 100%)",
           }}
         />
       </div>
@@ -50,19 +58,20 @@ export function HeroPanel() {
       <div className="relative z-10 flex h-full flex-col justify-end px-6 md:px-16 lg:px-24 pb-[12vh] md:pb-[14vh]">
         <div className="w-full">
           <p
-            className="font-sans font-medium uppercase mb-6"
-            style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(201,169,98,0.85)" }}
+            className="hero-intro font-sans font-medium uppercase mb-6"
+            style={{ fontSize: "0.75rem", letterSpacing: "0.22em", color: "rgba(201,169,98,0.85)", animationDelay: "120ms" }}
           >
             {t("hero_eyebrow")}
           </p>
 
           <h1
-            className="font-serif font-medium"
+            className="hero-intro font-serif font-medium"
             style={{
               lineHeight: 1.05,
               letterSpacing: "-0.015em",
               color: "#F4F1EA",
               fontSize: "clamp(2rem, 7vw, 5.5rem)",
+              animationDelay: "260ms",
             }}
           >
             <span className="block">{t("hero_h1_line1")}</span>
@@ -70,17 +79,18 @@ export function HeroPanel() {
           </h1>
 
           <p
-            className="font-sans font-normal md:font-medium text-pretty mt-8 md:mt-12 max-w-[48ch]"
+            className="hero-intro font-sans font-normal md:font-medium text-pretty mt-8 md:mt-12 max-w-[48ch]"
             style={{
               fontSize: "clamp(0.9375rem, 1.8vw, 1.375rem)",
               lineHeight: 1.7,
               color: "rgba(255,255,255,0.90)",
+              animationDelay: "400ms",
             }}
           >
             {t("hero_body")}
           </p>
 
-          <div className="mt-10 md:mt-14 flex flex-col sm:flex-row items-start gap-4">
+          <div className="hero-intro mt-10 md:mt-14 flex flex-col sm:flex-row items-start gap-4" style={{ animationDelay: "540ms" }}>
             <a
               href="mailto:connect@hostatlas.guide?subject=Agency%20Enquiry%20%E2%80%94%20HostAtlas"
               className="font-sans font-medium uppercase px-7 py-3 transition-opacity duration-200 hover:opacity-80 inline-block"

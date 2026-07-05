@@ -1,9 +1,33 @@
 "use client"
 
-import { useLanguage } from "@/lib/language-context"
+import { useLanguage, type Lang } from "@/lib/language-context"
+
+const CARDS: { code: string; name: string; sub: string; sample: string; lang: Lang }[] = [
+  {
+    code: "EN",
+    name: "English",
+    sub: "International baseline",
+    sample: "The Lofoten Wall rises almost vertically from the sea — a 100km ridge of jagged peaks that has guided fishermen home for a thousand years.",
+    lang: "en",
+  },
+  {
+    code: "日本語",
+    name: "Japanese",
+    sub: "文化的トーン適応",
+    sample: "千年の間、漁師たちを導いてきたロフォーテン・ウォール。海からほぼ垂直に立ち上がる100kmの尾根は、訪れる者すべてに圧倒的な存在感を示します。",
+    lang: "ja",
+  },
+  {
+    code: "中文",
+    name: "简体中文",
+    sub: "文化语气适配",
+    sample: "罗弗敦墙几乎从海面垂直升起——一条100公里长的锯齿状山脊，千年来一直引领渔民归家。它的壮观令每一位到访者叹为观止。",
+    lang: "zh",
+  },
+]
 
 export function LanguagePanel() {
-  const { t } = useLanguage()
+  const { t, lang, setLang } = useLanguage()
 
   return (
     <section
@@ -35,77 +59,71 @@ export function LanguagePanel() {
           </p>
         </div>
 
-        {/* Language cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
-          {[
-            {
-              code: "EN",
-              name: "English",
-              sub: "International baseline",
-              sample: "The Lofoten Wall rises almost vertically from the sea — a 100km ridge of jagged peaks that has guided fishermen home for a thousand years.",
-              active: true,
-            },
-            {
-              code: "日本語",
-              name: "Japanese",
-              sub: "文化的トーン適応",
-              sample: "千年の間、漁師たちを導いてきたロフォーテン・ウォール。海からほぼ垂直に立ち上がる100kmの尾根は、訪れる者すべてに圧倒的な存在感を示します。",
-              active: false,
-            },
-            {
-              code: "中文",
-              name: "简体中文",
-              sub: "文化语气适配",
-              sample: "罗弗敦墙几乎从海面垂直升起——一条100公里长的锯齿状山脊，千年来一直引领渔民归家。它的壮观令每一位到访者叹为观止。",
-              active: false,
-            },
-          ].map(({ code, name, sub, sample, active }) => (
-            <div
-              key={code}
-              className="flex flex-col p-7"
-              style={{
-                backgroundColor: active ? "#1f4a3a" : "transparent",
-                border: `1px solid ${active ? "rgba(201,169,98,0.3)" : "rgba(28,43,30,0.12)"}`,
-              }}
-            >
-              <div className="flex items-start justify-between mb-5">
-                <div>
-                  <span
-                    className="font-serif font-medium block mb-1"
-                    style={{ fontSize: "1.5rem", color: active ? "#C9A962" : "#1C2B1E" }}
-                  >
-                    {code}
-                  </span>
-                  <span
-                    className="font-sans"
-                    style={{ fontSize: "0.8125rem", color: active ? "rgba(245,240,232,0.55)" : "rgba(28,43,30,0.5)" }}
-                  >
-                    {sub}
-                  </span>
-                </div>
-                <span
-                  className="font-sans font-medium uppercase"
-                  style={{ fontSize: "0.6875rem", letterSpacing: "0.12em", color: active ? "rgba(201,169,98,0.6)" : "rgba(28,43,30,0.35)" }}
-                >
-                  {name}
-                </span>
-              </div>
-
-              <blockquote
-                className="font-sans italic flex-1"
+        {/* Language cards — 150ms stagger, click switches site language */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14 reveal-stagger">
+          {CARDS.map(({ code, name, sub, sample, lang: cardLang }, i) => {
+            const active = lang === cardLang
+            return (
+              <button
+                key={code}
+                type="button"
+                role="button"
+                tabIndex={0}
+                aria-pressed={active}
+                onClick={() => setLang(cardLang)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault()
+                    setLang(cardLang)
+                  }
+                }}
+                className="flex flex-col p-7 text-left reveal cursor-pointer"
                 style={{
-                  fontSize: "0.9375rem",
-                  lineHeight: 1.65,
-                  color: active ? "rgba(245,240,232,0.75)" : "rgba(28,43,30,0.65)",
-                  borderLeft: `2px solid ${active ? "rgba(201,169,98,0.4)" : "rgba(28,43,30,0.15)"}`,
-                  paddingLeft: "14px",
-                  fontStyle: "normal",
+                  backgroundColor: active ? "#1f4a3a" : "transparent",
+                  border: `1px solid ${active ? "rgba(201,169,98,0.3)" : "rgba(28,43,30,0.12)"}`,
+                  animationDelay: `${i * 150}ms`,
+                  transition: "background-color 400ms ease-out, border-color 400ms ease-out",
                 }}
               >
-                {sample}
-              </blockquote>
-            </div>
-          ))}
+                <div className="flex items-start justify-between mb-5">
+                  <div>
+                    <span
+                      className="font-serif font-medium block mb-1"
+                      style={{ fontSize: "1.5rem", color: active ? "#C9A962" : "#1C2B1E" }}
+                    >
+                      {code}
+                    </span>
+                    <span
+                      className="font-sans"
+                      style={{ fontSize: "0.8125rem", color: active ? "rgba(245,240,232,0.55)" : "rgba(28,43,30,0.5)" }}
+                    >
+                      {sub}
+                    </span>
+                  </div>
+                  <span
+                    className="font-sans font-medium uppercase"
+                    style={{ fontSize: "0.6875rem", letterSpacing: "0.12em", color: active ? "rgba(201,169,98,0.6)" : "rgba(28,43,30,0.35)" }}
+                  >
+                    {name}
+                  </span>
+                </div>
+
+                <blockquote
+                  className="font-sans italic flex-1"
+                  style={{
+                    fontSize: "0.9375rem",
+                    lineHeight: 1.65,
+                    color: active ? "rgba(245,240,232,0.75)" : "rgba(28,43,30,0.65)",
+                    borderLeft: `2px solid ${active ? "rgba(201,169,98,0.4)" : "rgba(28,43,30,0.15)"}`,
+                    paddingLeft: "14px",
+                    fontStyle: "normal",
+                  }}
+                >
+                  {sample}
+                </blockquote>
+              </button>
+            )
+          })}
         </div>
 
         {/* Feature chips */}

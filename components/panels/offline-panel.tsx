@@ -1,13 +1,44 @@
 "use client"
 
-import { WifiOff, Download, Check } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import Image from "next/image"
+import { WifiOff, Check } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export function OfflinePanel() {
   const { t } = useLanguage()
+  const sectionRef = useRef<HTMLElement>(null)
+  const [revealed, setRevealed] = useState(false)
+
+  // One-time trigger for the step sequence + bronze underline draw.
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setRevealed(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setRevealed(true)
+            observer.unobserve(entry.target)
+          }
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section
+      ref={sectionRef}
       data-section="offline"
       className="w-full py-28 md:py-36"
       style={{ backgroundColor: "#F8F5EE", color: "#1C2B1E" }}
@@ -15,13 +46,20 @@ export function OfflinePanel() {
       <div className="px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
 
-          {/* Left — icon + stat */}
+          {/* Left — photographic strip (remoteness carries the section) */}
           <div className="w-full lg:w-2/5 flex flex-col items-start">
             <div
-              className="w-20 h-20 flex items-center justify-center mb-10"
-              style={{ backgroundColor: "rgba(31,74,58,0.08)", border: "1px solid rgba(31,74,58,0.15)" }}
+              className="relative mb-8 reveal-scale -mx-6 w-[calc(100%+3rem)] md:-mx-12 md:w-[calc(100%+6rem)] lg:mx-0 lg:w-full"
+              style={{ aspectRatio: "21 / 9", overflow: "hidden" }}
             >
-              <WifiOff className="h-9 w-9" strokeWidth={1.5} style={{ color: "#1f4a3a" }} />
+              {/* TODO(phase-8): replace with S7 empty island road — plan §3 */}
+              <Image
+                src="/cinematic-norwegian-fjord-landscape-with-steep-mou.jpg"
+                alt="Remote Norwegian island road with mountains closing in, no connectivity"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 40vw"
+              />
             </div>
 
             <p
@@ -39,8 +77,9 @@ export function OfflinePanel() {
 
             <div
               className="px-6 py-5 flex items-start gap-4"
-              style={{ backgroundColor: "rgba(195,92,60,0.06)", borderLeft: "3px solid rgba(195,92,60,0.5)" }}
+              style={{ backgroundColor: "rgba(195,92,60,0.08)", borderLeft: "3px solid #c35c3c" }}
             >
+              <WifiOff className="h-5 w-5 shrink-0 mt-0.5" strokeWidth={1.5} style={{ color: "#c35c3c" }} />
               <p
                 className="font-sans font-medium"
                 style={{ fontSize: "0.9375rem", lineHeight: 1.6, color: "rgba(28,43,30,0.75)" }}
@@ -59,17 +98,22 @@ export function OfflinePanel() {
               {t("offline_body")}
             </p>
 
-            {/* How it works */}
+            {/* How it works — sequential reveal, 300ms apart */}
             <div className="space-y-0">
               {[
                 { step: "01", label: "Guest scans QR code at destination", sub: "All route content pre-loaded in one moment" },
-                { step: "02", label: "Phone goes into a dead zone", sub: "No signal. No problem. Content already cached." },
+                { step: "02", label: "Phone goes into a dead zone", sub: "No signal. No problem. Content already cached.", underline: true },
                 { step: "03", label: "Route continues without interruption", sub: "Map, narration, photos, return logic — all offline" },
-              ].map(({ step, label, sub }) => (
+              ].map(({ step, label, sub, underline }, i) => (
                 <div
                   key={step}
                   className="flex items-start gap-5 py-6"
-                  style={{ borderBottom: "1px solid rgba(28,43,30,0.08)" }}
+                  style={{
+                    borderBottom: "1px solid rgba(28,43,30,0.08)",
+                    opacity: revealed ? 1 : 0,
+                    transform: revealed ? "translateY(0)" : "translateY(20px)",
+                    transition: `opacity 600ms ease-out ${i * 300}ms, transform 600ms ease-out ${i * 300}ms`,
+                  }}
                 >
                   <div className="flex items-center gap-3 shrink-0">
                     <div
@@ -94,7 +138,20 @@ export function OfflinePanel() {
                     </p>
                     <p
                       className="font-sans"
-                      style={{ fontSize: "0.9375rem", color: "rgba(28,43,30,0.55)", lineHeight: 1.5 }}
+                      style={{
+                        fontSize: "0.9375rem",
+                        color: "rgba(28,43,30,0.55)",
+                        lineHeight: 1.5,
+                        display: "inline",
+                        backgroundImage: underline
+                          ? "linear-gradient(#c9a962, #c9a962)"
+                          : "none",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "0 100%",
+                        backgroundSize: underline ? (revealed ? "100% 2px" : "0% 2px") : undefined,
+                        transition: underline ? "background-size 700ms ease-out 900ms" : undefined,
+                        paddingBottom: underline ? "2px" : undefined,
+                      }}
                     >
                       {sub}
                     </p>
