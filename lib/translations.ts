@@ -22,11 +22,11 @@ export const translations = {
     dead_time_p3: "HostAtlas solves for confidence, not content. A time-bound route with clear return logic, multilingual narration, and offline capability transforms 90 unstructured minutes into something a guest can actually enter — and a photo they can actually take.",
     dead_time_stat: "~50% of Chinese visitors to Norway leave dissatisfied — despite the highest per-person spend of any nationality.",
 
-    // Opportunity panel
-    opportunity_eyebrow: "The agency advantage",
-    opportunity_heading_line1: "Structured freedom.",
-    opportunity_heading_line2: "At every destination.",
-    opportunity_body: "Your guests paid €4,000–8,000+ for this trip. The moments between your scheduled stops define whether they recommend your programme to others. HostAtlas gives you operational control over those moments without adding logistics.",
+    // Opportunity panel — reframed as "The 90-Minute Window" (the recurring gap, not the solution)
+    opportunity_eyebrow: "The recurring gap",
+    opportunity_heading_line1: "The gap is on every itinerary.",
+    opportunity_heading_line2: "Four times.",
+    opportunity_body: "Not once. Not by accident. The same unstructured window opens on every premium Norway itinerary — at arrival, mid-tour, departure, and every time the group changes destination. Each time, it plays out the same way unless something changes it.",
 
     // Three layer panel
     three_layer_eyebrow: "How It Works",
@@ -165,9 +165,9 @@ export const translations = {
     operator_label_is: "What it is",
     operator_label_is_not: "What it is not",
 
-    // Opportunity panel — callout
-    opp_callout_bold: "Free time between stops — when your guide steps away.",
-    opp_callout_body: "Give every guest a purposeful way to experience the destination during unstructured time. No additional logistics. No dependency on the guide.",
+    // Opportunity panel — callout (bridge into the routes section)
+    opp_callout_bold: "The gap is structural, not incidental.",
+    opp_callout_body: "Here is where it turns into a route your guests can actually walk.",
 
     // What's Next panel
     wnext_eyebrow: "Product direction",
@@ -202,11 +202,11 @@ export const translations = {
     dead_time_p3: "HostAtlasはコンテンツではなく、自信のために設計されています。明確な帰還ロジック、多言語ナレーション、オフライン機能を備えたタイムバウンドルートが、90分の非構造時間を実際に楽しめる体験に変えます。",
     dead_time_stat: "ノルウェーを訪れる中国人旅行者の約50%が不満を感じて帰国 — 一人当たりの支出が最も高い国籍にもかかわらず。",
 
-    // Opportunity panel
-    opportunity_eyebrow: "旅行会社の優位性",
-    opportunity_heading_line1: "構造化された自由。",
-    opportunity_heading_line2: "すべての目的地で。",
-    opportunity_body: "お客様はこの旅行に€4,000〜8,000以上を投資しました。スケジュールされた停車地の間の瞬間が、あなたのプログラムを他の人に勧めるかどうかを決めます。",
+    // Opportunity panel — reframed as "The 90-Minute Window" (the recurring gap, not the solution)
+    opportunity_eyebrow: "繰り返される課題",
+    opportunity_heading_line1: "その課題は、すべての旅程に現れます。",
+    opportunity_heading_line2: "4回、同じように。",
+    opportunity_body: "一度きりではありません。偶然でもありません。プレミアムなノルウェー旅程では、同じ構造化されていない時間が必ず生まれます — 到着時、ツアー中盤、出発時、そして訪問地が変わるたびに。何かが変えない限り、その都度、同じ展開になります。",
 
     // Three layer panel
     three_layer_eyebrow: "仕組み",
@@ -345,9 +345,9 @@ export const translations = {
     operator_label_is: "それが何であるか",
     operator_label_is_not: "それが何でないか",
 
-    // Opportunity panel — callout
-    opp_callout_bold: "ストップ間の自由時間 — ガイドが離れるとき。",
-    opp_callout_body: "非構造時間中に目的地を体験する目的のある方法をすべてのゲストに提供します。追加のロジスティクスは不要です。",
+    // Opportunity panel — callout (bridge into the routes section)
+    opp_callout_bold: "この課題は、偶然ではなく構造によるものです。",
+    opp_callout_body: "ここから、ゲストが実際に歩けるルートへと変わっていきます。",
 
     // What's Next panel
     wnext_eyebrow: "製品の方向性",
@@ -382,11 +382,11 @@ export const translations = {
     dead_time_p3: "HostAtlas解决的是信心问题，而非内容问题。具有清晰返回逻辑、多语言解说和离线功能的限时路线，将90分钟的非结构化时间转化为客人真正能够享受的体验。",
     dead_time_stat: "约50%前往挪威的中国游客带着不满离开——尽管人均消费在所有国籍中最高。",
 
-    // Opportunity panel
-    opportunity_eyebrow: "旅行社的优势",
-    opportunity_heading_line1: "有结构的自由。",
-    opportunity_heading_line2: "在每个目的地。",
-    opportunity_body: "您的客人为这次旅行投入了€4,000–8,000以上。计划行程停留点之间的时刻，决定了他们是否会向他人推荐您的行程。",
+    // Opportunity panel — reframed as "The 90-Minute Window" (the recurring gap, not the solution)
+    opportunity_eyebrow: "反复出现的空白",
+    opportunity_heading_line1: "每一份行程都存在这个空白。",
+    opportunity_heading_line2: "而且出现四次。",
+    opportunity_body: "不是一次偶然。在每一份高端挪威行程中，同样的非结构化时间窗口都会出现——抵达时、行程中段、出发前，以及每次更换目的地时。除非有所改变，否则每一次都会重演同样的情况。",
 
     // Three layer panel
     three_layer_eyebrow: "工作原理",
@@ -525,9 +525,9 @@ export const translations = {
     operator_label_is: "它是什么",
     operator_label_is_not: "它不是什么",
 
-    // Opportunity panel — callout
-    opp_callout_bold: "停留点之间的自由时间——当导游离开时。",
-    opp_callout_body: "在非结构化时间内，为每位宾客提供一种有目的地体验目的地的方式。无需额外的物流支持。",
+    // Opportunity panel — callout (bridge into the routes section)
+    opp_callout_bold: "这个空白源于结构性问题，而非偶然。",
+    opp_callout_body: "从这里开始，它将转化为客人真正可以走完的路线。",
 
     // What's Next panel
     wnext_eyebrow: "产品方向",

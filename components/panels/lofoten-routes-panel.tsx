@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Link from "next/link"
 import { Clock, Route, ArrowRight, Star, CloudRain } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
@@ -37,17 +38,39 @@ export function LofotenRoutesPanel() {
           </p>
         </div>
 
-        {/* Route cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+        {/* Route cards — horizontal snap carousel on mobile, grid at md+ */}
+        <style>{`
+          .routes-track::-webkit-scrollbar { display: none; }
+        `}</style>
+        <div
+          className="routes-track reveal-stagger mb-14 flex overflow-x-auto snap-x snap-mandatory gap-6 -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible md:snap-none"
+          style={{ scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}
+        >
           {lofotenRoutes.map((route, index) => {
             const accentColor = themeColors[route.id] ?? "#C9A962"
             const langParam = lang !== "en" ? `?lang=${lang}` : ""
+            const thumbnail = route.pois[0]?.imageUrl
             return (
               <Link
                 key={route.id}
                 href={`/explore/${route.id}${langParam}`}
-                className="group flex flex-col bg-card border border-accent/10 hover:border-accent/30 transition-all duration-300 hover:shadow-lg"
+                className="reveal group flex flex-col bg-card border border-accent/10 hover:border-accent/30 transition-all duration-300 hover:shadow-lg shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
               >
+                {/* Photographic thumbnail */}
+                {thumbnail && (
+                  /* TODO(phase-8): replace with licensed S4a–e route thumbnails — plan §3 */
+                  <div className="editorial-image relative w-full aspect-[3/2]">
+                    <Image
+                      src={thumbnail}
+                      alt={route.title[lang]}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+
                 {/* Route number bar */}
                 <div
                   className="px-6 pt-6 pb-4 flex items-start gap-4"

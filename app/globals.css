@@ -377,3 +377,61 @@
     animation: none;
   }
 }
+
+/* =============================================================
+   Photo Moment golden-hour — the site's signature motion moment.
+   On panel entry (JS toggles .is-golden on the section) the light
+   "turns golden" once, over ~1.2s: a bronze soft-light overlay eases
+   0 → 0.12 and the base scrim eases from a neutral charcoal toward a
+   warm amber. The badge fades in 400ms after the transition starts.
+   Blend/scrim rationale:
+   - soft-light (not multiply): against a blue dusk photo, multiply
+     crushes the shadows into mud; soft-light lifts warm mids and gently
+     warms the highlights — it reads as light shifting golden, not as a
+     dark filter dropping over the frame.
+   - scrim warms neutral rgba(26,31,26,0.35) → rgba(60,42,20,0.28):
+     slightly lighter and warmer so the whole frame relaxes into gold
+     rather than staying legibility-scrim grey.
+   Everything is opacity/background only (GPU-composited), eases out,
+   fires once, never loops.
+   ============================================================= */
+.photo-moment-scrim {
+  background-color: rgba(26, 31, 26, 0.35);
+  transition: background-color 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-moment-glow {
+  background-color: #c9a962;
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-moment-badge {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  transition-delay: 0s;
+}
+
+.photo-moment.is-golden .photo-moment-scrim {
+  background-color: rgba(60, 42, 20, 0.28);
+}
+
+.photo-moment.is-golden .photo-moment-glow {
+  opacity: 0.12;
+}
+
+.photo-moment.is-golden .photo-moment-badge {
+  opacity: 1;
+  /* Fade in 400ms after the golden-hour transition starts. */
+  transition-delay: 0.4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Land on the final warm state immediately — no easing. */
+  .photo-moment-scrim,
+  .photo-moment-glow,
+  .photo-moment-badge {
+    transition: none;
+  }
+}

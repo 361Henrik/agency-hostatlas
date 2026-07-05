@@ -82,10 +82,15 @@ export function PilotPanel() {
   return (
     <section
       data-section="contact"
-      className="w-full flex flex-col items-center"
+      className="w-full flex flex-col items-center relative"
       style={{ backgroundColor: "#1F3528", color: "#F5F0E8" }}
     >
-      <div className="w-full flex flex-col items-center px-6 md:px-10 lg:px-20 pt-28 md:pt-40 pb-20 md:pb-28">
+      {/* TODO(phase-8): replace with S9 blue-hour harbour — plan §3.
+          Backdrop skipped for now: public/fjord-with-atlas.jpg has map-pin UI
+          graphics (POI labels/markers) baked into the photo itself — it reads
+          as a product mockup, not a calm harbour photograph, so it fails the
+          "near-abstract at low opacity" bar. Source S9 in Phase 8 instead. */}
+      <div className="w-full flex flex-col items-center px-6 md:px-10 lg:px-20 pt-28 md:pt-40 pb-20 md:pb-28 relative z-10">
         {/* Section label */}
         <p className="font-sans font-medium uppercase tracking-[0.25em] text-accent mb-10" style={{ fontSize: "0.75rem" }}>
           {t("pilot_eyebrow")}
@@ -106,34 +111,76 @@ export function PilotPanel() {
 
         {/* Two-column details */}
         <div className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 mb-20">
-          {/* Left — includes */}
-          <div>
-            <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
-              {t("pilot_includes_label")}
-            </p>
-            <div className="grid grid-cols-1 gap-y-3 mb-8">
-              {includes[lang].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <Check className="h-3.5 w-3.5 text-accent shrink-0" strokeWidth={2.5} />
-                  <span className="font-sans" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.8)" }}>{item}</span>
+          {/* Left — includes (mobile: collapses to accordion, renders after contact box) */}
+          <div className="order-2 md:order-1">
+            {/* Mobile accordion */}
+            <details className="md:hidden group" style={{ borderTop: "1px solid var(--atlas-border)" }}>
+              <summary
+                className="flex items-center justify-between py-5 cursor-pointer list-none font-sans font-medium uppercase tracking-[0.2em] text-accent"
+                style={{ fontSize: "0.75rem" }}
+              >
+                {t("pilot_includes_label")}
+                <svg
+                  className="h-3 w-3 shrink-0 text-accent transition-transform duration-300 group-open:rotate-180"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path d="M2 4L6 8L10 4" stroke="#C9A962" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </summary>
+              <div className="pb-8" style={{ borderBottom: "1px solid var(--atlas-border)" }}>
+                <div className="grid grid-cols-1 gap-y-3 mb-8">
+                  {includes[lang].map((item) => (
+                    <div key={item} className="flex items-center gap-3">
+                      <Check className="h-3.5 w-3.5 text-accent shrink-0" strokeWidth={2.5} />
+                      <span className="font-sans" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.8)" }}>{item}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div className="space-y-4">
-              {projectDetails.map((d) => (
-                <div key={d.label.en} className="flex gap-4 items-start">
-                  <d.icon className="h-4 w-4 text-accent shrink-0 mt-1" />
-                  <div>
-                    <p className="font-sans font-medium" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.9)" }}>{d.label[lang]}</p>
-                    <p className="font-sans" style={{ fontSize: "1rem", color: "rgba(245,240,232,0.5)" }}>{d.detail[lang]}</p>
+                <div className="space-y-4">
+                  {projectDetails.map((d) => (
+                    <div key={d.label.en} className="flex gap-4 items-start">
+                      <d.icon className="h-4 w-4 text-accent shrink-0 mt-1" />
+                      <div>
+                        <p className="font-sans font-medium" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.9)" }}>{d.label[lang]}</p>
+                        <p className="font-sans" style={{ fontSize: "1rem", color: "rgba(245,240,232,0.5)" }}>{d.detail[lang]}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </details>
+
+            {/* Desktop — unchanged, always expanded */}
+            <div className="hidden md:block">
+              <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
+                {t("pilot_includes_label")}
+              </p>
+              <div className="grid grid-cols-1 gap-y-3 mb-8">
+                {includes[lang].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <Check className="h-3.5 w-3.5 text-accent shrink-0" strokeWidth={2.5} />
+                    <span className="font-sans" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.8)" }}>{item}</span>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <div className="space-y-4">
+                {projectDetails.map((d) => (
+                  <div key={d.label.en} className="flex gap-4 items-start">
+                    <d.icon className="h-4 w-4 text-accent shrink-0 mt-1" />
+                    <div>
+                      <p className="font-sans font-medium" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.9)" }}>{d.label[lang]}</p>
+                      <p className="font-sans" style={{ fontSize: "1rem", color: "rgba(245,240,232,0.5)" }}>{d.detail[lang]}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Right — working with us + contact */}
-          <div className="flex flex-col justify-between gap-10">
+          {/* Right — working with us + contact (mobile: renders first) */}
+          <div className="flex flex-col justify-between gap-10 order-1 md:order-2">
             <div>
               <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
                 {t("pilot_working_label")}
@@ -143,9 +190,9 @@ export function PilotPanel() {
               </p>
             </div>
 
-            {/* Contact block */}
+            {/* Contact block — reveal-scale, the ask stays still */}
             <div
-              className="p-7"
+              className="p-7 reveal-scale"
               style={{ border: "1px solid rgba(201,169,98,0.35)", backgroundColor: "rgba(255,255,255,0.04)" }}
             >
               <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-4" style={{ fontSize: "0.75rem" }}>

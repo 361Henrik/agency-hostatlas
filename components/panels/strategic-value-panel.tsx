@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useRef, useState } from "react"
 import { useLanguage } from "@/lib/language-context"
 import type { Lang } from "@/lib/language-context"
 
@@ -85,9 +86,38 @@ const pillars: Array<{ num: string; title: L; points: [L, L, L] }> = [
 
 export function StrategicValuePanel() {
   const { t, lang } = useLanguage()
+  const sectionRef = useRef<HTMLElement>(null)
+  const [revealed, setRevealed] = useState(false)
+
+  // One-time trigger for the pillar stagger-reveal + bronze underline draw.
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setRevealed(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setRevealed(true)
+            observer.unobserve(entry.target)
+          }
+        }
+      },
+      { threshold: 0.2 },
+    )
+
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section
+      ref={sectionRef}
       data-section="why-hostatlas"
       className="w-full flex items-center justify-center px-6 md:px-12 lg:px-20 py-28 md:py-36 panel-green"
       style={{ backgroundColor: "#1F3528", color: "#F5F0E8" }}
@@ -103,19 +133,31 @@ export function StrategicValuePanel() {
           </p>
         </div>
 
-        {/* Three pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border">
-          {pillars.map((pillar) => (
-            <div key={pillar.num} className="p-7 md:p-9 bg-card flex flex-col">
-              <span
-                className="font-serif font-medium mb-6 block"
-                style={{ fontSize: "2.5rem", color: "#C9A962", letterSpacing: "-0.02em", lineHeight: 1 }}
+        {/* Three pillars — stagger-reveal, each draws a bronze underline under numeral + title */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border border border-border reveal-stagger">
+          {pillars.map((pillar, idx) => (
+            <div key={pillar.num} className="p-7 md:p-9 bg-card flex flex-col reveal">
+              <div
+                className="inline-block mb-6 self-start"
+                style={{
+                  backgroundImage: "linear-gradient(#c9a962, #c9a962)",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "0 100%",
+                  backgroundSize: revealed ? "100% 2px" : "0% 2px",
+                  transition: `background-size 700ms ease-out ${200 + idx * 200}ms`,
+                  paddingBottom: "0.75rem",
+                }}
               >
-                {pillar.num}
-              </span>
-              <h3 className="font-serif mb-4 text-balance text-foreground leading-[1.2]" style={{ fontSize: "1.25rem", fontWeight: 500 }}>
-                {pillar.title[lang]}
-              </h3>
+                <span
+                  className="font-serif font-medium block"
+                  style={{ fontSize: "2.5rem", color: "#C9A962", letterSpacing: "-0.02em", lineHeight: 1 }}
+                >
+                  {pillar.num}
+                </span>
+                <h3 className="font-serif mt-3 text-balance text-foreground leading-[1.2]" style={{ fontSize: "1.25rem", fontWeight: 500 }}>
+                  {pillar.title[lang]}
+                </h3>
+              </div>
               <ul className="space-y-3">
                 {pillar.points.map((point, i) => (
                   <li key={point.en} className="flex gap-3">
