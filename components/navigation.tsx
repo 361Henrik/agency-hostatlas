@@ -5,9 +5,22 @@ import Image from "next/image"
 import { LanguageToggle } from "./language-toggle"
 import { useLanguage } from "@/lib/language-context"
 
-const NAV_SECTION_IDS = ["agencies", "routes", "why-hostatlas"]
+// Nav labels map to section anchors by data-section id. "For Agencies" now scrolls to
+// the Confidence Gap panel (position 2) — the buyer's problem recognition moment —
+// rather than the Managed Service panel (position 10, formerly OperatorPanel's
+// "agencies" anchor), per the re-sequenced 12-section arc.
+const NAV_SECTION_IDS = ["confidence-gap", "routes", "why-hostatlas"]
 const CTA_SECTION_ID = "contact"
-const lightSections = ["opportunity", "routes"]
+// Sections rendered on the light --atlas-canvas (#F8F5EE) background, used to invert
+// nav link color while scrolled past the top. Verified against each panel's own
+// backgroundColor after the re-sequence (new 12-section order): confidence-gap (2),
+// opportunity (3), routes (4), offline (7), language-layer (8), and the light half of
+// the merged Managed Service panel (10, data-section="agencies") are all --atlas-canvas.
+// Everything else (hero, meeting-point, photo-moment, guide-control, why-hostatlas,
+// contact) is dark. Previously this list only had ["opportunity", "routes"], which
+// under-covered confidence-gap/offline/language-layer even before this re-sequence —
+// fixed here since the file was already being touched for the arc change.
+const lightSections = ["confidence-gap", "opportunity", "routes", "offline", "language-layer", "agencies"]
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false)

@@ -41,6 +41,11 @@ export const translations = {
     three_layer_03_title: "Insight",
     three_layer_03_body: "Engagement data shows which routes were walked, which stops captured attention, and how guests used their free time. Intelligence that makes your next departure smarter.",
 
+    // Managed Service panel — condensed 3-up strip (merged Three Layer + Operator)
+    managed_service_curation_condensed: "We build time-bound walking routes aligned to your itinerary and group profile. You review and approve before your guests arrive.",
+    managed_service_experience_condensed: "Guests scan a QR code and walk at their own pace, guided in their language — with departure countdowns and return navigation built in.",
+    managed_service_insight_condensed: "Engagement data shows which routes were walked and how guests used their free time. Intelligence that makes your next departure smarter.",
+
     // Routes panel
     routes_eyebrow: "Lofoten Routes",
     routes_heading: "Five routes. One destination. Total confidence.",
@@ -216,6 +221,11 @@ export const translations = {
     three_layer_03_title: "インサイト",
     three_layer_03_body: "どのルートが歩かれたか、どの停車地が注目を集めたかを示すエンゲージメントデータ。次の出発をより賢くするインテリジェンスです。",
 
+    // Managed Service panel — condensed 3-up strip (merged Three Layer + Operator)
+    managed_service_curation_condensed: "旅程とグループプロファイルに合わせたタイムバウンドウォーキングルートを構築します。ゲストが到着する前に確認・承認できます。",
+    managed_service_experience_condensed: "ゲストはQRコードをスキャンし、自分のペースで歩きます — 母国語で案内され、出発カウントダウンと帰還ナビゲーションが組み込まれています。",
+    managed_service_insight_condensed: "どのルートが歩かれたか、ゲストが自由時間をどう使ったかを示すエンゲージメントデータ。次の出発をより賢くするインテリジェンスです。",
+
     // Routes panel
     routes_eyebrow: "ロフォーテンルート",
     routes_heading: "5つのルート。1つの目的地。完全な自信。",
@@ -390,6 +400,11 @@ export const translations = {
     three_layer_02_body: "客人扫描二维码或打开行程中的链接即可开始。按自己的节奏行走，全程以母语引导，随时显示出发倒计时和返回导航。",
     three_layer_03_title: "洞察",
     three_layer_03_body: "参与度数据显示哪些路线被行走、哪些停留点引发关注。让您的下次出发更加智慧。",
+
+    // Managed Service panel — condensed 3-up strip (merged Three Layer + Operator)
+    managed_service_curation_condensed: "我们构建与您的行程和团队特征相匹配的限时步行路线。客人抵达前，您可以审阅并批准。",
+    managed_service_experience_condensed: "客人扫描二维码，按自己的节奏行走——以母语引导，内置出发倒计时和返回导航。",
+    managed_service_insight_condensed: "参与度数据显示哪些路线被行走、客人如何使用自由时间。让您的下次出发更加智慧。",
 
     // Routes panel
     routes_eyebrow: "罗弗敦路线",

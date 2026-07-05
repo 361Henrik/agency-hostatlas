@@ -6,6 +6,12 @@ import type { Lang } from "@/lib/language-context"
 
 type L = Record<Lang, string>
 
+const layers = [
+  { number: "01", titleKey: "three_layer_01_title" as const, bodyKey: "managed_service_curation_condensed" as const },
+  { number: "02", titleKey: "three_layer_02_title" as const, bodyKey: "managed_service_experience_condensed" as const },
+  { number: "03", titleKey: "three_layer_03_title" as const, bodyKey: "managed_service_insight_condensed" as const },
+]
+
 const steps: Array<{ num: string; title: L; lines: [L, L]; note: L }> = [
   {
     num: "01",
@@ -81,78 +87,124 @@ const itIsNot: L[] = [
   { en: "An AI concierge or recommendation engine",                              ja: "AIコンシェルジュまたはレコメンデーションエンジン",                 zh: "AI礼宾服务或推荐引擎" },
 ]
 
-export function OperatorPanel() {
+export function ManagedServicePanel() {
   const { t, lang } = useLanguage()
 
   return (
-    <section
-      data-section="agencies"
-      className="w-full flex flex-col items-center px-6 md:px-10 lg:px-16 py-28 md:py-36 panel-white"
-      style={{ backgroundColor: "#F8F5EE", color: "#1C2B1E" }}
-    >
-      <div className="max-w-6xl w-full">
-        {/* Header */}
-        <div className="text-center mb-14">
+    <section data-section="agencies" className="w-full flex flex-col items-center">
+      {/* (a) Dark-green intro band — condensed Curate / Experience / Insight strip */}
+      <div
+        className="w-full flex flex-col items-center px-6 md:px-12 lg:px-20 py-24 lg:py-28 panel-green"
+        style={{ backgroundColor: "#1F3528", color: "#F5F0E8" }}
+      >
+        <div className="text-center mb-10 max-w-3xl mx-auto">
           <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
-            {t("operator_eyebrow")}
+            {t("three_layer_eyebrow")}
           </p>
-          <h2 className="font-serif text-balance mb-5 leading-[1.06] text-accent" style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 500 }}>
-            {t("operator_heading")}
+          <h2
+            className="font-serif leading-[1.06] mb-8"
+            style={{ color: "#C9A962", fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 500 }}
+          >
+            {t("three_layer_heading_line1")}
           </h2>
-          <p className="font-sans max-w-[48ch] mx-auto text-pretty" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(28,43,30,0.75)" }}>
-            {t("operator_intro")}
+          <p style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,243,239,0.88)", fontWeight: 500 }} className="font-sans max-w-2xl mx-auto">
+            {t("three_layer_intro1")}
           </p>
         </div>
 
-        {/* 6-step grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px bg-accent/10 border border-accent/10">
-          {steps.map((step) => (
-            <div key={step.num} className="p-6 lg:p-7 bg-card flex flex-col">
-              <span className="uppercase tracking-[0.15em] mb-3 font-serif" style={{ fontSize: "2.5rem", color: "#C9A962" }}>
-                {step.num}
+        {/* Condensed 3-up strip */}
+        <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 lg:gap-16 mt-6">
+          {layers.map((layer) => (
+            <div key={layer.number} className="flex flex-col">
+              <span
+                className="font-serif font-medium mb-3 md:mb-4"
+                style={{
+                  fontSize: "clamp(40px, 6vw, 72px)",
+                  lineHeight: 1,
+                  letterSpacing: "-0.02em",
+                  color: "#C9A962",
+                }}
+              >
+                {layer.number}
               </span>
-              <h4 className="font-serif mb-2 text-foreground leading-[1.2]" style={{ fontSize: "1.25rem", fontWeight: 500 }}>
-                {step.title[lang]}
-              </h4>
-              <div className="mb-3 space-y-1">
-                {step.lines.map((line, i) => (
-                  <p key={i} className="font-sans" style={{ fontSize: "1.0625rem", lineHeight: 1.6, color: "rgba(28,43,30,0.78)", fontWeight: i === 0 ? 500 : 400 }}>{line[lang]}</p>
-                ))}
-              </div>
-              <p className="font-sans italic mt-auto" style={{ fontSize: "1rem", lineHeight: 1.6, color: "rgba(28,43,30,0.6)" }}>
-                {step.note[lang]}
+              <h3 className="font-serif text-[#F5F3EF] leading-[1.15] mb-3" style={{ fontSize: "clamp(1.25rem, 1.8vw, 1.5rem)", fontWeight: 500 }}>
+                {t(layer.titleKey)}
+              </h3>
+              <p className="font-sans" style={{ fontSize: "1.0625rem", lineHeight: 1.6, color: "rgba(245,243,239,0.85)", fontWeight: 500 }}>
+                {t(layer.bodyKey)}
               </p>
             </div>
           ))}
         </div>
+      </div>
 
-        {/* What it is / What it is not */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-accent/10 border border-accent/10">
-          <div className="p-8 lg:p-10 bg-card">
-            <p className="font-sans font-medium uppercase tracking-[0.18em] mb-6" style={{ fontSize: "0.6875rem", color: "rgba(196,154,92,1)" }}>
-              {t("operator_label_is")}
+      {/* (b) Light section — 6-step "From Tour Itinerary to Guest Experience" grid */}
+      <div
+        className="w-full flex flex-col items-center px-6 md:px-10 lg:px-16 py-28 md:py-36 panel-white"
+        style={{ backgroundColor: "#F8F5EE", color: "#1C2B1E" }}
+      >
+        <div className="max-w-6xl w-full">
+          <div className="text-center mb-14">
+            <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-6" style={{ fontSize: "0.75rem" }}>
+              {t("operator_eyebrow")}
             </p>
-            <ul className="space-y-3">
-              {itIs.map((item) => (
-                <li key={item.en} className="flex gap-3 items-start">
-                  <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-[0.3em]" strokeWidth={2.5} />
-                  <span className="font-sans" style={{ fontSize: "clamp(1rem, 2vw, 1.0625rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.8)" }}>{item[lang]}</span>
-                </li>
-              ))}
-            </ul>
+            <h2 className="font-serif text-balance mb-5 leading-[1.06] text-accent" style={{ fontSize: "clamp(2rem, 5vw, 3.75rem)", fontWeight: 500 }}>
+              {t("operator_heading")}
+            </h2>
+            <p className="font-sans max-w-[48ch] mx-auto text-pretty" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(28,43,30,0.75)" }}>
+              {t("operator_intro")}
+            </p>
           </div>
-          <div className="p-8 lg:p-10 bg-card" style={{ borderLeft: "1px solid rgba(196,154,92,0.1)" }}>
-            <p className="font-sans font-medium uppercase tracking-[0.18em] mb-6" style={{ fontSize: "0.6875rem", color: "rgba(28,43,30,0.45)" }}>
-              {t("operator_label_is_not")}
-            </p>
-            <ul className="space-y-3">
-              {itIsNot.map((item) => (
-                <li key={item.en} className="flex gap-3 items-start">
-                  <span className="shrink-0 font-sans font-medium mt-[0.05em]" style={{ color: "rgba(28,43,30,0.3)", fontSize: "1rem" }}>−</span>
-                  <span className="font-sans" style={{ fontSize: "clamp(1rem, 2vw, 1.0625rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.55)" }}>{item[lang]}</span>
-                </li>
-              ))}
-            </ul>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-px bg-accent/10 border border-accent/10">
+            {steps.map((step) => (
+              <div key={step.num} className="p-6 lg:p-7 bg-card flex flex-col">
+                <span className="uppercase tracking-[0.15em] mb-3 font-serif" style={{ fontSize: "2.5rem", color: "#C9A962" }}>
+                  {step.num}
+                </span>
+                <h4 className="font-serif mb-2 text-foreground leading-[1.2]" style={{ fontSize: "1.25rem", fontWeight: 500 }}>
+                  {step.title[lang]}
+                </h4>
+                <div className="mb-3 space-y-1">
+                  {step.lines.map((line, i) => (
+                    <p key={i} className="font-sans" style={{ fontSize: "1.0625rem", lineHeight: 1.6, color: "rgba(28,43,30,0.78)", fontWeight: i === 0 ? 500 : 400 }}>{line[lang]}</p>
+                  ))}
+                </div>
+                <p className="font-sans italic mt-auto" style={{ fontSize: "1rem", lineHeight: 1.6, color: "rgba(28,43,30,0.6)" }}>
+                  {step.note[lang]}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* (c) What it is / What it is not — kept verbatim */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-accent/10 border border-accent/10">
+            <div className="p-8 lg:p-10 bg-card">
+              <p className="font-sans font-medium uppercase tracking-[0.18em] mb-6" style={{ fontSize: "0.6875rem", color: "rgba(196,154,92,1)" }}>
+                {t("operator_label_is")}
+              </p>
+              <ul className="space-y-3">
+                {itIs.map((item) => (
+                  <li key={item.en} className="flex gap-3 items-start">
+                    <Check className="h-3.5 w-3.5 text-accent shrink-0 mt-[0.3em]" strokeWidth={2.5} />
+                    <span className="font-sans" style={{ fontSize: "clamp(1rem, 2vw, 1.0625rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.8)" }}>{item[lang]}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="p-8 lg:p-10 bg-card" style={{ borderLeft: "1px solid rgba(196,154,92,0.1)" }}>
+              <p className="font-sans font-medium uppercase tracking-[0.18em] mb-6" style={{ fontSize: "0.6875rem", color: "rgba(28,43,30,0.45)" }}>
+                {t("operator_label_is_not")}
+              </p>
+              <ul className="space-y-3">
+                {itIsNot.map((item) => (
+                  <li key={item.en} className="flex gap-3 items-start">
+                    <span className="shrink-0 font-sans font-medium mt-[0.05em]" style={{ color: "rgba(28,43,30,0.3)", fontSize: "1rem" }}>−</span>
+                    <span className="font-sans" style={{ fontSize: "clamp(1rem, 2vw, 1.0625rem)", lineHeight: 1.6, color: "rgba(28,43,30,0.55)" }}>{item[lang]}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
