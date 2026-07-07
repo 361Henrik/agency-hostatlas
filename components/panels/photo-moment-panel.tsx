@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from "react"
 import { Sun, Eye, Aperture } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
-// Phase 8 will enable the S5b guest-composing inset. Until that directed
-// capture exists, the inset slot stays off (plan §3). Flipping this to `true`
-// activates the 4:5 portrait inset on desktop and the stacked second frame on mobile.
-const INSET_ENABLED = false
+// Inset live with an interim AI-composited product shot (real app UI on the
+// screen, generated scene — approved 2026-07). The Phase 8 S5b directed capture
+// (guest composing a photograph) remains the target replacement (plan §3).
+const INSET_ENABLED = true
 
 export function PhotoMomentPanel() {
   const { t } = useLanguage()
@@ -91,22 +91,23 @@ export function PhotoMomentPanel() {
 
         {INSET_ENABLED && (
           <>
-            {/* TODO(phase-8): enable inset with S5b guest-composing shot — plan §3 */}
-            {/* Desktop: 4:5 portrait inset overlapping the main frame's lower-right corner by ~15% */}
+            {/* TODO(phase-8): replace with S5b guest-composing directed capture — plan §3 */}
+            {/* Desktop: 4:5 portrait inset bridging the image/copy seam — breaks the grid
+                into the copy panel's padding, stays vertically inside the frame */}
             <div
               className="photo-moment-inset hidden lg:block absolute z-10 overflow-hidden"
               style={{
-                width: "26%",
+                width: "28%",
                 aspectRatio: "4 / 5",
-                right: "8%",
-                bottom: "-15%",
+                right: "-6%",
+                bottom: "9%",
                 border: "4px solid var(--atlas-canvas, #f6f3ee)",
-                boxShadow: "0 12px 40px rgba(0,0,0,0.35)",
+                boxShadow: "0 12px 40px rgba(0,0,0,0.45)",
               }}
             >
               <Image
-                src="/lofoten/s5b-guest-composing.jpg"
-                alt="Guest composing a photograph toward the golden-hour light"
+                src="/lofoten/photo-moment-guest-countdown.jpg"
+                alt="A guest's hands holding a phone showing the HostAtlas departure countdown, golden-hour harbour behind"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 60vw, 14vw"
@@ -118,8 +119,8 @@ export function PhotoMomentPanel() {
               style={{ aspectRatio: "4 / 5", borderTop: "4px solid var(--atlas-canvas, #f6f3ee)" }}
             >
               <Image
-                src="/lofoten/s5b-guest-composing.jpg"
-                alt="Guest composing a photograph toward the golden-hour light"
+                src="/lofoten/photo-moment-guest-countdown.jpg"
+                alt="A guest's hands holding a phone showing the HostAtlas departure countdown, golden-hour harbour behind"
                 fill
                 className="object-cover"
                 sizes="100vw"
