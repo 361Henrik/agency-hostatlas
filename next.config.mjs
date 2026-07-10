@@ -11,10 +11,6 @@ const nextConfig = {
         protocol: "https",
         hostname: "unpkg.com",
       },
-      {
-        protocol: "https",
-        hostname: "hebbkx1anhila5yf.public.blob.vercel-storage.com",
-      },
     ],
   },
 }
