@@ -18,9 +18,10 @@ export const translations = {
     dead_time_eyebrow: "The Confidence Gap",
     dead_time_heading: "Your guests want to explore. They just don't enter.",
     dead_time_p1: "Watch any free-time window on a premium group itinerary and you'll see it: guests clustered within sight of the coach, or drifting no further than the hotel entrance. Not because they're bored. Because no confidence framework exists to make exploring feel safe. The destination is right there — and almost no one walks into it.",
-    dead_time_p2: "Nearly half of Chinese visitors to Norway leave dissatisfied — the highest dissatisfaction rate of any nationality, despite spending the most per person. Crowds converge on the same two or three visible spots. Every other part of Lofoten goes unvisited during free time. Photography — the primary deliverable of the trip — goes unmade.",
+    dead_time_p2: "Only about half of Chinese visitors to Norway rate their trip highly satisfying — the lowest satisfaction level of any major visitor nationality, despite the highest per-person spend. Crowds converge on the same two or three visible spots. Every other part of Lofoten goes unvisited during free time. Photography — the primary deliverable of the trip — goes unmade.",
     dead_time_p3: "HostAtlas solves for confidence, not content. A time-bound route with clear return logic, multilingual narration, and offline capability transforms 90 unstructured minutes into something a guest can actually enter — and a photo they can actually take.",
-    dead_time_stat: "~50% of Chinese visitors to Norway leave dissatisfied — despite the highest per-person spend of any nationality.",
+    dead_time_stat: "~50% of Chinese visitors to Norway leave less than highly satisfied — the lowest of any major nationality, despite the highest per-person spend.",
+    dead_time_source: "Source: Innovation Norway visitor satisfaction survey",
 
     // Opportunity panel — reframed as "The 90-Minute Window" (the recurring gap, not the solution)
     opportunity_eyebrow: "The recurring gap",
@@ -198,9 +199,10 @@ export const translations = {
     dead_time_eyebrow: "コンフィデンスギャップ",
     dead_time_heading: "お客様は探索したい。でも、踏み出せない。",
     dead_time_p1: "自由時間になると、よく見かける光景があります。お客様がバスの近くや、ホテルの玄関先から離れずにいる光景です。退屈しているのではありません。探索を安全に感じさせる自信の枠組みが、まだそこに存在しないだけです。目的地はすぐそこにあるのに、ほとんど誰も足を踏み入れません。",
-    dead_time_p2: "ノルウェーを訪れる中国人旅行者の約半数が不満を感じて帰国します。これは一人当たりの支出が最も高い国籍にもかかわらず、最高の不満率です。人々は同じ2〜3箇所に集中し、自由時間中にロフォーテンの他の場所はほとんど訪れられません。",
+    dead_time_p2: "ノルウェーを訪れる中国人旅行者のうち、旅を「非常に満足」と評価する方は約半数にとどまります — 一人当たりの支出は最も高いにもかかわらず、満足度は主要な訪問国籍の中で最も低い水準です。人々は同じ2〜3箇所に集中し、自由時間中にロフォーテンの他の場所はほとんど訪れられません。",
     dead_time_p3: "HostAtlasはコンテンツではなく、自信のために設計されています。明確な帰還ロジック、多言語ナレーション、オフライン機能を備えたタイムバウンドルートが、90分の非構造時間を実際に楽しめる体験に変えます。",
-    dead_time_stat: "ノルウェーを訪れる中国人旅行者の約50%が不満を感じて帰国 — 一人当たりの支出が最も高い国籍にもかかわらず。",
+    dead_time_stat: "ノルウェーを訪れる中国人旅行者の約50%が「非常に満足」には至らず帰国 — 一人当たりの支出は最も高いにもかかわらず、主要国籍の中で最も低い満足度です。",
+    dead_time_source: "出典：イノベーション・ノルウェー 訪問者満足度調査",
 
     // Opportunity panel — reframed as "The 90-Minute Window" (the recurring gap, not the solution)
     opportunity_eyebrow: "繰り返される課題",
@@ -378,9 +380,10 @@ export const translations = {
     dead_time_eyebrow: "信心差距",
     dead_time_heading: "您的客人想要探索，却迟迟不迈出第一步。",
     dead_time_p1: "留意一下任何一次团组的自由活动时间，都能看到同样的画面：客人聚在巴士周围，或者不敢走出酒店大门太远。这不是因为无聊，而是因为团里还没有一套让大家敢于探索的信心机制。目的地近在眼前，却几乎没有人真正走进去——这直接关系到整个团的体验和口碑。",
-    dead_time_p2: "近一半前往挪威的中国游客带着不满离开——尽管人均消费最高，却是所有国籍中不满意率最高的。人群集中在相同的两三个著名景点。自由活动时间里，罗弗敦的其他地方几乎无人涉足。",
+    dead_time_p2: "前往挪威的中国游客中，只有约一半将旅程评为「非常满意」——尽管人均消费在所有国籍中最高，满意度却是主要客源国中最低的。人群集中在相同的两三个著名景点，自由活动时间里，罗弗敦的其他地方几乎无人涉足。",
     dead_time_p3: "HostAtlas解决的是信心问题，而非内容问题。具有清晰返回逻辑、多语言解说和离线功能的限时路线，将90分钟的非结构化时间转化为客人真正能够享受的体验。",
-    dead_time_stat: "约50%前往挪威的中国游客带着不满离开——尽管人均消费在所有国籍中最高。",
+    dead_time_stat: "约50%前往挪威的中国游客未能给出「非常满意」的评价——尽管人均消费在所有国籍中最高，满意度却是主要客源国中最低。",
+    dead_time_source: "数据来源：Innovation Norway 游客满意度调查",
 
     // Opportunity panel — reframed as "The 90-Minute Window" (the recurring gap, not the solution)
     opportunity_eyebrow: "反复出现的空白",

@@ -28,16 +28,19 @@ export function ConfidenceGapPanel() {
       {/* Left — image (mobile: appears above copy via flex-col order) */}
       <div className="relative w-full lg:w-3/5 min-h-[56vw] lg:min-h-0 order-1 reveal-scale">
         <Image
-          src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=1600&q=80"
-          alt="A quiet Lofoten village street — the destination is right there, and almost no one walks into it"
+          src="https://images.unsplash.com/photo-1554072453-c8e38bb22ca6?w=1600&q=80"
+          alt="A quiet Lofoten village of red rorbu cabins on still water — the destination is right there, and almost no one walks into it"
           fill
           className="object-cover"
           style={{ objectPosition: "50% 40%" }}
           sizes="(max-width: 1024px) 100vw, 60vw"
         />
         {/* TODO(phase-8): replace with S2 directed-capture cluster shot (guests clustered
-            near the coach, empty street behind) — plan §3. Interim: real Unsplash village
-            photo; the previous local asset was a cruise-deck couple (wrong vertical). */}
+            near the coach, empty street behind) — plan §3. Interim fixed 2026-07-10: the
+            prior Unsplash ID (1509316785289) actually resolves to Monument Valley, Utah —
+            wrong continent, not just generic stock — caught in a live buyer-persona
+            walkthrough. Swapped to a verified Lofoten rorbu-cabin shot already used
+            correctly as the hero background. */}
       </div>
 
       {/* Right — copy */}
@@ -89,6 +92,12 @@ export function ConfidenceGapPanel() {
               {statPrefix}{statValue}%
             </span>
             {statAfter}
+          </p>
+          <p
+            className="font-sans"
+            style={{ fontSize: "0.75rem", lineHeight: 1.4, color: "rgba(28,43,30,0.55)", marginTop: "0.5rem" }}
+          >
+            {t("dead_time_source")}
           </p>
         </div>
       </div>

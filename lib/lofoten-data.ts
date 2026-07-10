@@ -240,7 +240,7 @@ export const lofotenRoutes: LofotenRoute[] = [
         },
         type: "cultural_story",
         coordinates: [68.2156, 14.4891],
-        imageUrl: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1554072453-c8e38bb22ca6?w=800&q=80",
         followUpTopic: {
           en: "The role of the Lofoten fishing industry in Norwegian state formation",
           ja: "ノルウェー国家形成におけるロフォーテン漁業の役割",
@@ -494,7 +494,7 @@ export const lofotenRoutes: LofotenRoute[] = [
         },
         type: "cultural_story",
         coordinates: [68.2348, 14.5659],
-        imageUrl: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800&q=80",
+        imageUrl: "https://images.unsplash.com/photo-1554072453-c8e38bb22ca6?w=800&q=80",
         followUpTopic: {
           en: "The Allied commando raids on Lofoten in 1941–42",
           ja: "1941〜42年のロフォーテンへの連合軍コマンド作戦",
