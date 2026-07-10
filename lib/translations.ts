@@ -55,6 +55,8 @@ export const translations = {
     routes_start_route: "Start Route",
     routes_qr_label: "Guests access all routes at",
     routes_footnote: "Routes shown are the Lofoten demonstration set. Custom routes built for your specific destinations and itinerary within 48 hours.",
+    routes_live_preview_label: "Try it — live guest preview",
+    routes_live_preview_hint: "This is the real guest experience, not a mockup. Scroll and tap inside.",
     routes_stops: "stops",
 
     // Meeting point panel
@@ -107,9 +109,10 @@ export const translations = {
     strategic_intro: "Premium hospitality that generates measurable data — and a tour programme that looks like it thought about every moment, not just the scheduled stops.",
 
     // Pilot / CTA panel
-    pilot_eyebrow: "Request a Demo",
+    pilot_eyebrow: "Apply for the Pilot Cohort",
     pilot_heading: "See it live. Run it on your next departure.",
-    pilot_body: "We work directly with tour operators, product leads, and experience managers to configure and deploy a fully curated destination experience — within 48 hours of receiving your itinerary. One conversation is enough.",
+    pilot_body: "We're working with a small number of agencies each season — configuring and deploying a fully curated destination experience within 48 hours of receiving your itinerary. One conversation is enough.",
+    pilot_credibility_line: "The guest platform behind this isn't a mockup — it's real, offline-first infrastructure already in active development.",
     pilot_includes_label: "Each Deployment Includes",
     pilot_working_label: "Working With Us",
     pilot_working_body: "We work directly with your product and operations team to build, configure, and activate the right routes for your destinations. No technical overhead. No new logistics. One brief.",
@@ -158,7 +161,7 @@ export const translations = {
     live_view_camera_error: "Camera access denied. Enable camera permissions to use Live View.",
 
     // Shared CTAs
-    cta_request_conversation: "Request a Demo",
+    cta_request_conversation: "Apply for the Pilot Cohort",
     cta_lofoten_experience: "See the Lofoten experience →",
     cta_email_prefix: "or email",
 
@@ -236,6 +239,8 @@ export const translations = {
     routes_start_route: "ルートを開始",
     routes_qr_label: "ゲストはこちらですべてのルートにアクセスできます",
     routes_footnote: "表示されているルートはロフォーテンのデモセットです。48時間以内にカスタムルートを構築します。",
+    routes_live_preview_label: "実際に試す — ライブゲストプレビュー",
+    routes_live_preview_hint: "これはモックアップではなく、実際のゲスト体験です。中でスクロールしてタップしてみてください。",
     routes_stops: "ストップ",
 
     // Meeting point panel
@@ -288,9 +293,10 @@ export const translations = {
     strategic_intro: "測定可能なデータを生成するプレミアムホスピタリティ — スケジュールされたストップだけでなく、すべての瞬間を考えたツアープログラム。",
 
     // Pilot / CTA panel
-    pilot_eyebrow: "デモをリクエスト",
+    pilot_eyebrow: "パイロット参加を申し込む",
     pilot_heading: "ライブで見てください。次の出発で実行しましょう。",
-    pilot_body: "旅程を受け取ってから48時間以内に設定・展開します。一度の会話で十分です。",
+    pilot_body: "各シーズン、少数の旅行会社様と共に — 旅程を受け取ってから48時間以内に、完全にキュレーションされた目的地体験を設定・展開します。一度のご相談で十分です。",
+    pilot_credibility_line: "この基盤となるゲストプラットフォームはモックアップではありません — オフラインファーストの実際のインフラが、すでに開発段階にあります。",
     pilot_includes_label: "各デプロイメントに含まれるもの",
     pilot_working_label: "私たちと一緒に",
     pilot_working_body: "あなたのプロダクトおよびオペレーションチームと直接協力して、目的地に適したルートを構築・設定・アクティベートします。",
@@ -339,7 +345,7 @@ export const translations = {
     live_view_camera_error: "カメラアクセスが拒否されました。ライブビューを使用するにはカメラの許可を有効にしてください。",
 
     // Shared CTAs
-    cta_request_conversation: "デモをリクエスト",
+    cta_request_conversation: "パイロット参加を申し込む",
     cta_lofoten_experience: "ロフォーテン体験を見る →",
     cta_email_prefix: "またはメール",
 
@@ -417,6 +423,8 @@ export const translations = {
     routes_start_route: "开始路线",
     routes_qr_label: "客人可通过以下链接访问所有路线",
     routes_footnote: "所示路线为罗弗敦演示集。48小时内为您的特定目的地和行程定制路线。",
+    routes_live_preview_label: "立即体验 — 实时客人预览",
+    routes_live_preview_hint: "这不是模型演示，而是真实的客人体验。可在其中滚动和点击。",
     routes_stops: "站点",
 
     // Meeting point panel
@@ -469,9 +477,10 @@ export const translations = {
     strategic_intro: "产生可量化数据的高端接待服务——一个不仅考虑计划停留点，而是思考每个时刻的旅游项目。",
 
     // Pilot / CTA panel
-    pilot_eyebrow: "申请演示",
+    pilot_eyebrow: "申请加入试点",
     pilot_heading: "现场观看。在下次出发时运行。",
-    pilot_body: "收到您的行程后48小时内完成配置和部署。一次对话就足够了。",
+    pilot_body: "我们每季仅与少数旅行社合作——在收到您的行程后48小时内，完成一场完全定制的目的地体验的配置与部署。一次对话就足够了。",
+    pilot_credibility_line: "背后的客人平台并非模型演示——而是真实的离线优先基础设施，目前正在积极开发中。",
     pilot_includes_label: "每次部署包含",
     pilot_working_label: "与我们合作",
     pilot_working_body: "直接与您的产品和运营团队合作，构建、配置和激活适合您目的地的路线。",
@@ -520,7 +529,7 @@ export const translations = {
     live_view_camera_error: "相机访问被拒绝。请启用相机权限以使用实景功能。",
 
     // Shared CTAs
-    cta_request_conversation: "申请演示",
+    cta_request_conversation: "申请加入试点",
     cta_lofoten_experience: "查看罗弗敦体验 →",
     cta_email_prefix: "或发送邮件至",
 

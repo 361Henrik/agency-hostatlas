@@ -164,6 +164,42 @@ export function LofotenRoutesPanel() {
           })}
         </div>
 
+        {/* Live guest-app preview — the demo is load-bearing, not a link-out */}
+        <div className="flex flex-col items-center mb-16">
+          <p
+            className="font-sans font-medium uppercase tracking-[0.18em] mb-2"
+            style={{ fontSize: "0.75rem", color: "rgba(196,154,92,1)" }}
+          >
+            {t("routes_live_preview_label")}
+          </p>
+          <p
+            className="font-sans mb-8 text-center max-w-[42ch]"
+            style={{ fontSize: "0.9375rem", color: "rgba(28,43,30,0.55)", lineHeight: 1.5 }}
+          >
+            {t("routes_live_preview_hint")}
+          </p>
+          <div
+            className="relative overflow-hidden reveal-scale"
+            style={{
+              width: "min(390px, 92vw)",
+              height: "760px",
+              maxHeight: "78vh",
+              borderRadius: "36px",
+              border: "6px solid #1f4a3a",
+              boxShadow: "0 24px 64px rgba(28,43,30,0.22)",
+              backgroundColor: "#0F1F15",
+            }}
+          >
+            <iframe
+              src={`/explore${lang !== "en" ? `?lang=${lang}` : ""}`}
+              title="HostAtlas guest app — live preview"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full border-0"
+              style={{ borderRadius: "30px" }}
+            />
+          </div>
+        </div>
+
         {/* Guest access note */}
         <div className="text-center">
           <p className="font-sans" style={{ fontSize: "0.9375rem", color: "rgba(28,43,30,0.5)" }}>

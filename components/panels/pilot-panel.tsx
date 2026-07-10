@@ -107,6 +107,12 @@ export function PilotPanel() {
           <p className="font-sans text-pretty" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.82)", fontWeight: 500 }}>
             {t("pilot_body")}
           </p>
+          <p
+            className="font-sans text-pretty mt-6"
+            style={{ fontSize: "0.9375rem", lineHeight: 1.6, color: "rgba(201,169,98,0.75)", fontStyle: "italic" }}
+          >
+            {t("pilot_credibility_line")}
+          </p>
         </div>
 
         {/* Two-column details */}
