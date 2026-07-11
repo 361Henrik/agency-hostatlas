@@ -28,19 +28,19 @@ export function ConfidenceGapPanel() {
       {/* Left — image (mobile: appears above copy via flex-col order) */}
       <div className="relative w-full lg:w-3/5 min-h-[56vw] lg:min-h-0 order-1 reveal-scale">
         <Image
-          src="https://images.unsplash.com/photo-1554072453-c8e38bb22ca6?w=1600&q=80"
-          alt="A quiet Lofoten village of red rorbu cabins on still water — the destination is right there, and almost no one walks into it"
+          src="https://images.unsplash.com/photo-1755916265534-7338a85c22c3?w=1600&q=85"
+          alt="A snowy Lofoten harbour — a small group of guests stands at the waterfront while the destination stretches out beyond them"
           fill
           className="object-cover"
           style={{ objectPosition: "50% 40%" }}
           sizes="(max-width: 1024px) 100vw, 60vw"
         />
         {/* TODO(phase-8): replace with S2 directed-capture cluster shot (guests clustered
-            near the coach, empty street behind) — plan §3. Interim fixed 2026-07-10: the
-            prior Unsplash ID (1509316785289) actually resolves to Monument Valley, Utah —
-            wrong continent, not just generic stock — caught in a live buyer-persona
-            walkthrough. Swapped to a verified Lofoten rorbu-cabin shot already used
-            correctly as the hero background. */}
+            near the coach, empty street behind) — plan §3. Interim adopted 2026-07-11 from
+            the April build (origin/main): snowy Lofoten harbour with people clustered at
+            the waterfront — the closest existing match to the S2 concept. Replaces two
+            earlier interims: a Monument Valley mismatch, then a rorbu-village shot that
+            duplicated the hero image. */}
       </div>
 
       {/* Right — copy */}
