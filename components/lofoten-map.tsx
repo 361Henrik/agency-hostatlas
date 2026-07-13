@@ -5,17 +5,6 @@ import { MapContainer, TileLayer, Polyline, Marker, Circle, useMap } from "react
 import L from "leaflet"
 import type { LofotenRoute } from "@/lib/lofoten-data"
 
-// Fix Leaflet default icon issue in Next.js
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  delete (L.Icon.Default.prototype as any)._getIconUrl
-  L.Icon.Default.mergeOptions({
-    iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-    iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-    shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-  })
-}
-
 // Meeting-point flag — always distinguishable from numbered POI markers so the
 // return anchor reads at a glance ("if you can see the flag, you can get back").
 function makeMeetingPointIcon() {
@@ -84,9 +73,13 @@ export function LofotenMap({
       scrollWheelZoom={false}
       style={{ background: "#1a2b1f" }}
     >
+      {/* crossOrigin: without CORS mode, tiles are opaque responses that the
+          service worker can still cache but that browsers pad enormously in
+          storage-quota accounting (~7 MB per entry). OSM sends ACAO: *. */}
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        crossOrigin="anonymous"
       />
 
       {/* Route line */}

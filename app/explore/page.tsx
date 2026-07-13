@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Clock, Route, ArrowRight } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { LanguageToggle } from "@/components/language-toggle"
+import { OfflineReady } from "@/components/offline-ready"
 import { lofotenRoutes } from "@/lib/lofoten-data"
 import { Badge } from "@/components/ui/badge"
 
@@ -50,6 +51,9 @@ export default function ExplorePage() {
         <p className="font-sans" style={{ fontSize: "1.0625rem", color: "rgba(245,240,232,0.65)", lineHeight: 1.5 }}>
           {t("explore_subheading")}
         </p>
+        <div className="mt-4">
+          <OfflineReady />
+        </div>
       </div>
 
       {/* Route list */}
