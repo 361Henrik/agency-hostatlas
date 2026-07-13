@@ -5,11 +5,12 @@ import Image from "next/image"
 import dynamic from "next/dynamic"
 import { useRouter } from "next/navigation"
 import { notFound } from "next/navigation"
-import { X, ChevronRight, Send } from "lucide-react"
+import { X, ChevronRight, Send, Flag, ChevronUp } from "lucide-react"
 import { toast } from "sonner"
 import { useLanguage } from "@/lib/language-context"
 import { useGeolocation } from "@/hooks/use-geolocation"
 import { useNearestPoi } from "@/hooks/use-nearest-poi"
+import { useDepartureCountdown, type CountdownState } from "@/hooks/use-departure-countdown"
 import { lofotenRoutes, type POI } from "@/lib/lofoten-data"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -58,6 +59,24 @@ function formatDistance(metres: number): string {
   return `${(metres / 1000).toFixed(1)}km`
 }
 
+const countdownStyles: Record<CountdownState, React.CSSProperties> = {
+  normal: {
+    backgroundColor: "rgba(201,169,98,0.12)",
+    border: "1px solid rgba(201,169,98,0.3)",
+    color: "#C9A962",
+  },
+  warning: {
+    backgroundColor: "rgba(195,92,60,0.16)",
+    border: "1px solid rgba(195,92,60,0.45)",
+    color: "#E28563",
+  },
+  critical: {
+    backgroundColor: "#C35C3C",
+    border: "1px solid #C35C3C",
+    color: "#F5F0E8",
+  },
+}
+
 export default function NavigatePage({ params }: { params: Promise<{ routeId: string }> }) {
   const { routeId } = use(params)
   const { lang, t } = useLanguage()
@@ -67,9 +86,27 @@ export default function NavigatePage({ params }: { params: Promise<{ routeId: st
 
   const { position, error: geoError } = useGeolocation()
   const { nearest, distanceMetres } = useNearestPoi(route.pois, position)
+  const countdown = useDepartureCountdown(routeId, route.duration)
 
   const [activePOI, setActivePOI] = useState<POI | null>(null)
   const [drawerOpen, setDrawerOpen] = useState(false)
+  const [showReturn, setShowReturn] = useState(false)
+
+  // Return path: guest position → meeting point. Without a GPS fix, fall back
+  // to the POI farthest from the meeting point — the worst-case return — so
+  // the path is actually legible on the map (the route start sits ~80m from
+  // the meeting point and would hide behind the flag marker).
+  const returnOrigin =
+    position ??
+    route.pois.reduce((far, poi) => {
+      const d = (c: [number, number]) =>
+        (c[0] - route.endCoords[0]) ** 2 +
+        ((c[1] - route.endCoords[1]) * Math.cos((route.endCoords[0] * Math.PI) / 180)) ** 2
+      return d(poi.coordinates) > d(far) ? poi.coordinates : far
+    }, route.startCoords)
+  const returnPath: [number, number][] | null = showReturn
+    ? [returnOrigin, route.endCoords]
+    : null
 
   const handlePoiClick = useCallback(
     (poiId: string) => {
@@ -104,6 +141,27 @@ export default function NavigatePage({ params }: { params: Promise<{ routeId: st
             {route.title[lang]}
           </p>
         </div>
+
+        {/* Departure countdown — the safety layer, always visible */}
+        {countdown.remainingMs !== null && (
+          <div
+            className={`ml-3 shrink-0 px-3 py-1.5 text-right ${countdown.state === "critical" ? "animate-pulse" : ""}`}
+            style={{ ...countdownStyles[countdown.state], borderRadius: "6px" }}
+          >
+            <p
+              className="font-sans font-medium uppercase"
+              style={{ fontSize: "0.5625rem", letterSpacing: "0.14em", opacity: 0.8, lineHeight: 1.2 }}
+            >
+              {t("nav_departure_label")}
+            </p>
+            <p
+              className="font-sans font-medium"
+              style={{ fontSize: "1rem", lineHeight: 1.2, fontVariantNumeric: "tabular-nums" }}
+            >
+              {countdown.label}
+            </p>
+          </div>
+        )}
 
         {/* Abort button */}
         <AlertDialog>
@@ -155,6 +213,8 @@ export default function NavigatePage({ params }: { params: Promise<{ routeId: st
               onPoiClick={handlePoiClick}
               interactive
               trackPosition
+              showMeetingPoint
+              returnPath={returnPath}
               className="w-full h-full"
             />
           </TabsContent>
@@ -187,6 +247,52 @@ export default function NavigatePage({ params }: { params: Promise<{ routeId: st
             )}
           </button>
         )}
+
+        {/* Meeting point — one tap away, per the operational-safety promise */}
+        <div
+          className="shrink-0"
+          style={{ backgroundColor: "rgba(15,31,21,0.97)", borderTop: "1px solid rgba(201,169,98,0.12)", backdropFilter: "blur(10px)" }}
+        >
+          <button
+            onClick={() => setShowReturn((v) => !v)}
+            className="w-full flex items-center gap-3 px-4 py-3 text-left transition-opacity hover:opacity-80"
+            aria-expanded={showReturn}
+          >
+            <span
+              className="shrink-0 flex items-center justify-center"
+              style={{
+                width: "28px",
+                height: "28px",
+                borderRadius: "6px",
+                backgroundColor: showReturn ? "#C35C3C" : "rgba(195,92,60,0.15)",
+                border: "1px solid rgba(195,92,60,0.45)",
+              }}
+            >
+              <Flag className="h-3.5 w-3.5" strokeWidth={2} style={{ color: showReturn ? "#F5F0E8" : "#E28563" }} />
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="font-sans truncate" style={{ fontSize: "0.75rem", color: "rgba(201,169,98,0.65)", letterSpacing: "0.06em" }}>
+                {t("nav_meeting_point")}
+              </p>
+              <p className="font-serif truncate" style={{ fontSize: "0.9375rem", fontWeight: 500, color: "#F5F0E8" }}>
+                {showReturn ? t("nav_hide_return") : t("nav_show_return")}
+              </p>
+            </div>
+            <ChevronUp
+              className="h-4 w-4 shrink-0 transition-transform duration-200"
+              style={{ color: "rgba(245,240,232,0.45)", transform: showReturn ? "rotate(180deg)" : "none" }}
+              strokeWidth={2}
+            />
+          </button>
+          {showReturn && (
+            <p
+              className="px-4 pb-3 font-sans"
+              style={{ fontSize: "0.8125rem", lineHeight: 1.5, color: "rgba(245,240,232,0.6)" }}
+            >
+              {route.returnLogic[lang]}
+            </p>
+          )}
+        </div>
 
         {/* Geolocation error */}
         {geoError && !position && (

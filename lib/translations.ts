@@ -148,6 +148,11 @@ export const translations = {
     nav_exp_away: "away",
     nav_exp_completed: "Route complete",
     nav_exp_location_error: "Location unavailable. Enable GPS to track your position.",
+    nav_departure_label: "Departure in",
+    nav_meeting_point: "Meeting point",
+    nav_show_return: "Show return path",
+    nav_hide_return: "Hide return path",
+    detail_return_label: "Return plan",
 
     // POI drawer
     poi_type_city: "Cultural Stop",
@@ -332,6 +337,11 @@ export const translations = {
     nav_exp_away: "先",
     nav_exp_completed: "ルート完了",
     nav_exp_location_error: "位置情報が利用できません。GPSを有効にしてください。",
+    nav_departure_label: "出発まで",
+    nav_meeting_point: "ミーティングポイント",
+    nav_show_return: "帰りのルートを表示",
+    nav_hide_return: "帰りのルートを隠す",
+    detail_return_label: "帰還プラン",
 
     // POI drawer
     poi_type_city: "文化スポット",
@@ -516,6 +526,11 @@ export const translations = {
     nav_exp_away: "距离",
     nav_exp_completed: "路线完成",
     nav_exp_location_error: "位置不可用。请启用GPS以追踪您的位置。",
+    nav_departure_label: "距出发",
+    nav_meeting_point: "集合点",
+    nav_show_return: "显示返回路线",
+    nav_hide_return: "隐藏返回路线",
+    detail_return_label: "返回计划",
 
     // POI drawer
     poi_type_city: "文化景点",

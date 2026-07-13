@@ -1,11 +1,12 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import Link from "next/link"
 import { Clock, MapPin, ArrowRight, Navigation } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export function MeetingPointPanel() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const sectionRef = useRef<HTMLElement>(null)
   const [ticked, setTicked] = useState(false)
   const [barSettled, setBarSettled] = useState(false)
@@ -212,6 +213,17 @@ export function MeetingPointPanel() {
                 </li>
               ))}
             </ul>
+
+            {/* Into the live demo — countdown pre-set so the safety layer is
+                immediately visible, matching the mockup's 22 minutes */}
+            <Link
+              href={`/explore/first-evening-svolvaer/navigate?demoMinutes=22${lang !== "en" ? `&lang=${lang}` : ""}`}
+              className="mt-12 inline-flex items-center gap-2 font-sans font-medium uppercase transition-opacity duration-200 hover:opacity-75"
+              style={{ fontSize: "0.8rem", letterSpacing: "0.12em", color: "#C9A962" }}
+            >
+              {t("meeting_point_cta")}
+              <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
+            </Link>
           </div>
 
         </div>

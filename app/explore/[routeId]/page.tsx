@@ -5,10 +5,11 @@ import Link from "next/link"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 import { notFound } from "next/navigation"
-import { ArrowLeft, Clock, Route, MapPin, Play } from "lucide-react"
+import { ArrowLeft, Clock, Route, MapPin, Play, Flag, CloudRain, Footprints } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { LanguageToggle } from "@/components/language-toggle"
 import { lofotenRoutes } from "@/lib/lofoten-data"
+import { stampRouteStart } from "@/hooks/use-departure-countdown"
 import { Badge } from "@/components/ui/badge"
 
 const LofotenMap = dynamic(
@@ -27,6 +28,11 @@ const poiTypeLabels: Record<string, { en: string; ja: string; zh: string }> = {
   cultural_story:   { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
   industry_poi:     { en: "Cultural Stop",  ja: "文化スポット",  zh: "文化景点" },
   host_narrative:   { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
+}
+
+const difficultyLabels: Record<string, { en: string; ja: string; zh: string }> = {
+  Easy:     { en: "Easy",     ja: "やさしい", zh: "轻松" },
+  Moderate: { en: "Moderate", ja: "中程度",   zh: "中等" },
 }
 
 export default function RouteDetailPage({ params }: { params: Promise<{ routeId: string }> }) {
@@ -91,6 +97,47 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
             <MapPin className="h-3.5 w-3.5" strokeWidth={1.5} />
             <span className="font-sans" style={{ fontSize: "0.875rem" }}>{route.pois.length} {t("routes_stops")}</span>
           </div>
+          <div className="flex items-center gap-1.5" style={{ color: "rgba(245,240,232,0.5)" }}>
+            <Footprints className="h-3.5 w-3.5" strokeWidth={1.5} />
+            <span className="font-sans" style={{ fontSize: "0.875rem" }}>
+              {difficultyLabels[route.difficulty]?.[lang] ?? route.difficulty}
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5" style={{ color: "rgba(245,240,232,0.5)" }}>
+            <CloudRain className="h-3.5 w-3.5" strokeWidth={1.5} />
+            <span className="font-sans" style={{ fontSize: "0.875rem" }}>{route.weatherSuitability[lang]}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Return plan — the safety layer, visible before the first step */}
+      <div
+        className="mx-4 mb-5 px-4 py-3.5 flex items-start gap-3"
+        style={{
+          backgroundColor: "rgba(195,92,60,0.08)",
+          border: "1px solid rgba(195,92,60,0.25)",
+          borderRadius: "4px",
+        }}
+      >
+        <span
+          className="shrink-0 flex items-center justify-center mt-0.5"
+          style={{
+            width: "26px",
+            height: "26px",
+            borderRadius: "6px",
+            backgroundColor: "rgba(195,92,60,0.15)",
+            border: "1px solid rgba(195,92,60,0.4)",
+          }}
+        >
+          <Flag className="h-3.5 w-3.5" strokeWidth={2} style={{ color: "#E28563" }} />
+        </span>
+        <div className="min-w-0">
+          <p className="font-sans font-medium uppercase mb-1" style={{ fontSize: "0.625rem", letterSpacing: "0.16em", color: "rgba(226,133,99,0.9)" }}>
+            {t("detail_return_label")}
+          </p>
+          <p className="font-sans" style={{ fontSize: "0.875rem", lineHeight: 1.55, color: "rgba(245,240,232,0.75)" }}>
+            {route.returnLogic[lang]}
+          </p>
         </div>
       </div>
 
@@ -103,6 +150,7 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
       <div className="px-4 mb-8">
         <Link
           href={`/explore/${routeId}/navigate${lang !== "en" ? `?lang=${lang}` : ""}`}
+          onClick={() => stampRouteStart(routeId)}
           className="flex items-center justify-center gap-3 w-full py-4 font-sans font-medium uppercase transition-opacity hover:opacity-85 active:scale-[0.98]"
           style={{
             backgroundColor: "#C9A962",
