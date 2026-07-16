@@ -178,25 +178,58 @@ export function LofotenRoutesPanel() {
           >
             {t("routes_live_preview_hint")}
           </p>
-          <div
-            className="relative overflow-hidden reveal-scale"
-            style={{
-              width: "min(390px, 92vw)",
-              height: "760px",
-              maxHeight: "78vh",
-              borderRadius: "36px",
-              border: "6px solid #1f4a3a",
-              boxShadow: "0 24px 64px rgba(28,43,30,0.22)",
-              backgroundColor: "#0F1F15",
-            }}
-          >
-            <iframe
-              src={`/explore${lang !== "en" ? `?lang=${lang}` : ""}`}
-              title="HostAtlas guest app — live preview"
-              loading="lazy"
-              className="absolute inset-0 w-full h-full border-0"
-              style={{ borderRadius: "30px" }}
-            />
+          <div className="flex flex-row items-center justify-center gap-10">
+            <div
+              className="relative overflow-hidden reveal-scale"
+              style={{
+                width: "min(390px, 92vw)",
+                height: "760px",
+                maxHeight: "78vh",
+                borderRadius: "36px",
+                border: "6px solid #1f4a3a",
+                boxShadow: "0 24px 64px rgba(28,43,30,0.22)",
+                backgroundColor: "#0F1F15",
+              }}
+            >
+              <iframe
+                src={`/explore${lang !== "en" ? `?lang=${lang}` : ""}`}
+                title="HostAtlas guest app — live preview"
+                loading="lazy"
+                allow="geolocation"
+                className="absolute inset-0 w-full h-full border-0"
+                style={{ borderRadius: "30px" }}
+              />
+            </div>
+
+            {/* QR access card — desktop only, hidden on mobile (can't scan the screen you're on) */}
+            <div
+              className="hidden md:flex flex-col items-center"
+              style={{
+                backgroundColor: "#f6f3ee",
+                border: "1px solid rgba(201,169,98,0.3)",
+                borderRadius: "8px",
+                padding: "16px",
+              }}
+            >
+              <Image
+                src="/qr-explore.svg"
+                alt="QR code linking to the HostAtlas guest experience"
+                width={160}
+                height={160}
+              />
+              <p
+                className="font-sans text-center"
+                style={{
+                  fontSize: "0.75rem",
+                  color: "rgba(28,43,30,0.6)",
+                  maxWidth: "180px",
+                  lineHeight: 1.5,
+                  marginTop: "12px",
+                }}
+              >
+                {t("routes_qr_scan_hint")}
+              </p>
+            </div>
           </div>
         </div>
 
