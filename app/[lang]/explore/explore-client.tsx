@@ -1,8 +1,8 @@
 "use client"
 
-import Link from "next/link"
 import Image from "next/image"
 import { Clock, Route, ArrowRight } from "lucide-react"
+import { LocalizedLink } from "@/components/localized-link"
 import { useLanguage } from "@/lib/language-context"
 import { LanguageToggle } from "@/components/language-toggle"
 import { OfflineReady } from "@/components/offline-ready"
@@ -17,14 +17,14 @@ const themeColors: Record<string, string> = {
   "weather-safe-short-walk":   "#8FAAB8",
 }
 
-export default function ExplorePage() {
+export default function ExploreClient() {
   const { lang, t } = useLanguage()
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#0F1F15", color: "#F5F0E8" }}>
       {/* Header */}
       <header className="sticky top-0 z-50 px-5 py-4 flex items-center justify-between" style={{ backgroundColor: "rgba(15,31,21,0.95)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(201,169,98,0.12)" }}>
-        <Link href={lang !== "en" ? `/?lang=${lang}` : "/"} aria-label="Back to main site">
+        <LocalizedLink href="/" aria-label="Back to main site">
           <Image
             src="/host-atlas-logo.png"
             alt="The Host Atlas"
@@ -32,7 +32,7 @@ export default function ExplorePage() {
             height={64}
             className="h-10 w-auto object-contain brightness-0 invert opacity-85"
           />
-        </Link>
+        </LocalizedLink>
         <LanguageToggle />
       </header>
 
@@ -65,9 +65,9 @@ export default function ExplorePage() {
         {lofotenRoutes.map((route, index) => {
           const accentColor = themeColors[route.id] ?? "#C9A962"
           return (
-            <Link
+            <LocalizedLink
               key={route.id}
-              href={`/explore/${route.id}${lang !== "en" ? `?lang=${lang}` : ""}`}
+              href={`/explore/${route.id}`}
               className="group flex gap-4 p-5 transition-all duration-200 hover:opacity-90 active:scale-[0.99]"
               style={{
                 backgroundColor: "rgba(255,255,255,0.04)",
@@ -125,7 +125,7 @@ export default function ExplorePage() {
                 className="h-4 w-4 shrink-0 self-center transition-transform duration-200 group-hover:translate-x-1"
                 style={{ color: accentColor, opacity: 0.6 }}
               />
-            </Link>
+            </LocalizedLink>
           )
         })}
       </div>

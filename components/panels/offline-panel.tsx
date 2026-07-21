@@ -101,9 +101,9 @@ export function OfflinePanel() {
             {/* How it works — sequential reveal, 300ms apart */}
             <div className="space-y-0">
               {[
-                { step: "01", label: "Guest scans QR code at destination", sub: "All route content pre-loaded in one moment" },
-                { step: "02", label: "Phone goes into a dead zone", sub: "No signal. No problem. Content already cached.", underline: true },
-                { step: "03", label: "Route continues without interruption", sub: "Map, narration, photos, return logic — all offline" },
+                { step: "01", label: t("offline_step_1_label"), sub: t("offline_step_1_sub") },
+                { step: "02", label: t("offline_step_2_label"), sub: t("offline_step_2_sub"), underline: true },
+                { step: "03", label: t("offline_step_3_label"), sub: t("offline_step_3_sub") },
               ].map(({ step, label, sub, underline }, i) => (
                 <div
                   key={step}

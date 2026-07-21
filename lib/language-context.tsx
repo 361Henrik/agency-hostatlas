@@ -1,41 +1,27 @@
 "use client"
 
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react"
+import { createContext, useContext, type ReactNode } from "react"
 import { translations, type TranslationKey } from "./translations"
+import type { Lang } from "./locale"
 
-export type Lang = "en" | "ja" | "zh"
-
-const LANG_STORAGE_KEY = "hostatlas-lang"
-
-function isLang(value: string | null): value is Lang {
-  return value === "en" || value === "ja" || value === "zh"
-}
+export type { Lang }
 
 interface LanguageContextValue {
   lang: Lang
-  setLang: (l: Lang) => void
   t: (key: TranslationKey) => string
 }
 
 const LanguageContext = createContext<LanguageContextValue | null>(null)
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en")
-
-  // Read persisted language after mount only — avoids SSR/CSR hydration mismatch.
-  useEffect(() => {
-    const stored = window.localStorage.getItem(LANG_STORAGE_KEY)
-    if (isLang(stored)) setLangState(stored)
-  }, [])
-
-  const setLang = (l: Lang) => {
-    setLangState(l)
-    window.localStorage.setItem(LANG_STORAGE_KEY, l)
-  }
-
+// The URL is the single source of truth: lang arrives from the [lang] route
+// param via the root layout. No state, no localStorage — SSR and hydration
+// render identical output in the right language, and a locale navigation
+// re-renders the persistent layout with the new param so every consumer
+// updates without a remount.
+export function LanguageProvider({ lang, children }: { lang: Lang; children: ReactNode }) {
   const t = (key: TranslationKey): string => translations[lang][key] ?? key
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t }}>
+    <LanguageContext.Provider value={{ lang, t }}>
       {children}
     </LanguageContext.Provider>
   )

@@ -74,6 +74,12 @@ export const translations = {
     offline_heading: "Works with no signal.",
     offline_body: "Lofoten has connectivity dead zones. Remote fjord roads, island crossings, and mountain paths regularly drop to zero 4G. Any tool requiring a live connection fails exactly when your guests need it most. HostAtlas pre-caches all route content at the point of QR scan. It works offline. Completely.",
     offline_stat: "Significant parts of Lofoten have zero 4G coverage",
+    offline_step_1_label: "Guest scans QR code at destination",
+    offline_step_1_sub: "All route content pre-loaded in one moment",
+    offline_step_2_label: "Phone goes into a dead zone",
+    offline_step_2_sub: "No signal. No problem. Content already cached.",
+    offline_step_3_label: "Route continues without interruption",
+    offline_step_3_sub: "Map, narration, photos, return logic — all offline",
 
     // Photo moment panel
     photo_eyebrow: "The Photo Layer",
@@ -289,6 +295,12 @@ export const translations = {
     offline_heading: "電波なしで動作します。",
     offline_body: "ロフォーテンには電波のデッドゾーンがあります。リモートフィヨルド道路、島間の渡し、山道では定期的に4Gがゼロになります。HostAtlasはQRスキャン時にすべてのルートコンテンツをキャッシュします。完全にオフラインで動作します。",
     offline_stat: "ロフォーテンの相当な地域で4G圏外",
+    offline_step_1_label: "目的地でゲストがQRコードをスキャン",
+    offline_step_1_sub: "すべてのルートコンテンツを一度にプリロード",
+    offline_step_2_label: "スマートフォンが圏外エリアへ",
+    offline_step_2_sub: "電波なし。問題なし。コンテンツはキャッシュ済み。",
+    offline_step_3_label: "ルートは中断なく継続",
+    offline_step_3_sub: "地図・ナレーション・写真・帰還案内 — すべてオフライン",
 
     // Photo moment panel
     photo_eyebrow: "フォトレイヤー",
@@ -504,6 +516,12 @@ export const translations = {
     offline_heading: "无信号也能正常使用。",
     offline_body: "罗弗敦有网络盲区。偏远的峡湾公路、岛屿渡口和山间小径经常出现4G信号为零的情况。任何需要实时连接的工具，都会在客人最需要时失效。HostAtlas在扫描二维码时即预缓存所有路线内容。完全支持离线使用。",
     offline_stat: "罗弗敦相当大的区域没有4G覆盖",
+    offline_step_1_label: "客人在目的地扫描二维码",
+    offline_step_1_sub: "所有路线内容即刻预载",
+    offline_step_2_label: "手机进入信号盲区",
+    offline_step_2_sub: "没有信号，没有问题。内容已缓存。",
+    offline_step_3_label: "路线继续，毫无中断",
+    offline_step_3_sub: "地图、讲解、照片、返回指引 — 全部离线可用",
 
     // Photo moment panel
     photo_eyebrow: "摄影层",

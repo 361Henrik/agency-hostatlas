@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useLanguage } from "@/lib/language-context"
+import { localizePath } from "@/lib/locale"
 import { useParallax } from "@/hooks/use-parallax"
 
 export function HeroPanel() {
@@ -104,7 +105,7 @@ export function HeroPanel() {
               {t("cta_request_conversation")}
             </button>
             <Link
-              href={lang === "ja" ? "/explore?lang=ja" : lang === "zh" ? "/explore?lang=zh" : "/explore"}
+              href={localizePath("/explore", lang)}
               className="font-sans font-medium uppercase py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
               style={{ color: "rgba(201,169,98,0.85)", fontSize: "0.8rem", letterSpacing: "0.12em" }}
             >

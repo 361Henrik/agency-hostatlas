@@ -1,17 +1,17 @@
 "use client"
 
-import { use, useState, useCallback } from "react"
+import { useState, useCallback } from "react"
 import Image from "next/image"
 import dynamic from "next/dynamic"
 import { useRouter } from "next/navigation"
-import { notFound } from "next/navigation"
 import { X, ChevronRight, Send, Flag, ChevronUp } from "lucide-react"
 import { toast } from "sonner"
 import { useLanguage } from "@/lib/language-context"
+import { localizePath } from "@/lib/locale"
 import { useGeolocation } from "@/hooks/use-geolocation"
 import { useNearestPoi } from "@/hooks/use-nearest-poi"
 import { useDepartureCountdown, type CountdownState } from "@/hooks/use-departure-countdown"
-import { lofotenRoutes, type POI } from "@/lib/lofoten-data"
+import { lofotenRoutes, poiTypeLabels, type POI } from "@/lib/lofoten-data"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -46,14 +46,6 @@ const LiveViewCamera = dynamic(
   { ssr: false }
 )
 
-const poiTypeLabels: Record<string, { en: string; ja: string; zh: string }> = {
-  city_highlight:  { en: "Cultural Stop",  ja: "文化スポット",     zh: "文化景点" },
-  photo_moment:    { en: "Photo Moment",   ja: "フォトモーメント", zh: "拍照时机" },
-  cultural_story:  { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
-  industry_poi:    { en: "Cultural Stop",  ja: "文化スポット",     zh: "文化景点" },
-  host_narrative:  { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
-}
-
 function formatDistance(metres: number): string {
   if (metres < 1000) return `${metres}m`
   return `${(metres / 1000).toFixed(1)}km`
@@ -77,12 +69,11 @@ const countdownStyles: Record<CountdownState, React.CSSProperties> = {
   },
 }
 
-export default function NavigatePage({ params }: { params: Promise<{ routeId: string }> }) {
-  const { routeId } = use(params)
+export default function NavigateClient({ routeId }: { routeId: string }) {
   const { lang, t } = useLanguage()
   const router = useRouter()
   const route = lofotenRoutes.find((r) => r.id === routeId)
-  if (!route) notFound()
+  if (!route) return null // server shell guarantees a valid id
 
   const { position, error: geoError } = useGeolocation()
   const { nearest, distanceMetres } = useNearestPoi(route.pois, position)
@@ -193,7 +184,7 @@ export default function NavigatePage({ params }: { params: Promise<{ routeId: st
               <AlertDialogAction
                 className="font-sans"
                 style={{ backgroundColor: "rgba(201,169,98,0.15)", color: "#C9A962", border: "1px solid rgba(201,169,98,0.3)" }}
-                onClick={() => router.push(`/explore/${routeId}`)}
+                onClick={() => router.push(localizePath(`/explore/${routeId}`, lang))}
               >
                 {t("nav_exp_abort_yes")}
               </AlertDialogAction>

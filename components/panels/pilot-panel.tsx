@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { Clock, BarChart3, ShieldCheck, Check } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import { localizePath } from "@/lib/locale"
 import type { Lang } from "@/lib/language-context"
 import { CALENDLY_URL, WECHAT_QR_SRC } from "@/lib/contact"
 
@@ -112,7 +113,7 @@ function EnquiryForm() {
   const { t, lang } = useLanguage()
   const [status, setStatus] = useState<FormStatus>("idle")
 
-  const explorePath = lang !== "en" ? `/explore?lang=${lang}` : "/explore"
+  const explorePath = localizePath("/explore", lang)
 
   const schema = useMemo(
     () =>

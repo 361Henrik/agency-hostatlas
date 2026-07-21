@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Clock, Route, ArrowRight, Star, CloudRain } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import { localizePath } from "@/lib/locale"
 import { lofotenRoutes } from "@/lib/lofoten-data"
 import { Badge } from "@/components/ui/badge"
 
@@ -48,12 +49,11 @@ export function LofotenRoutesPanel() {
         >
           {lofotenRoutes.map((route, index) => {
             const accentColor = themeColors[route.id] ?? "#C9A962"
-            const langParam = lang !== "en" ? `?lang=${lang}` : ""
             const thumbnail = route.pois[0]?.imageUrl
             return (
               <Link
                 key={route.id}
-                href={`/explore/${route.id}${langParam}`}
+                href={localizePath(`/explore/${route.id}`, lang)}
                 className="reveal group flex flex-col bg-card border border-accent/10 hover:border-accent/30 transition-all duration-300 hover:shadow-lg shrink-0 w-[85vw] snap-center md:w-auto md:shrink"
               >
                 {/* Photographic thumbnail */}
@@ -192,7 +192,7 @@ export function LofotenRoutesPanel() {
               }}
             >
               <iframe
-                src={`/explore${lang !== "en" ? `?lang=${lang}` : ""}`}
+                src={localizePath("/explore", lang)}
                 title="HostAtlas guest app — live preview"
                 loading="lazy"
                 allow="geolocation"

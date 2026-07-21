@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { Clock, MapPin, ArrowRight, Navigation } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import { localizePath } from "@/lib/locale"
 
 export function MeetingPointPanel() {
   const { t, lang } = useLanguage()
@@ -217,7 +218,7 @@ export function MeetingPointPanel() {
             {/* Into the live demo — countdown pre-set so the safety layer is
                 immediately visible, matching the mockup's 22 minutes */}
             <Link
-              href={`/explore/first-evening-svolvaer/navigate?demoMinutes=22${lang !== "en" ? `&lang=${lang}` : ""}`}
+              href={`${localizePath("/explore/first-evening-svolvaer/navigate", lang)}?demoMinutes=22`}
               className="mt-12 inline-flex items-center gap-2 font-sans font-medium uppercase transition-opacity duration-200 hover:opacity-75"
               style={{ fontSize: "0.8rem", letterSpacing: "0.12em", color: "#C9A962" }}
             >

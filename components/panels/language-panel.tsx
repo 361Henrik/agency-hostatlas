@@ -1,6 +1,8 @@
 "use client"
 
+import { usePathname, useRouter } from "next/navigation"
 import { useLanguage, type Lang } from "@/lib/language-context"
+import { localizePath, stripLocale } from "@/lib/locale"
 
 const CARDS: { code: string; name: string; sub: string; sample: string; lang: Lang }[] = [
   {
@@ -27,7 +29,15 @@ const CARDS: { code: string; name: string; sub: string; sample: string; lang: La
 ]
 
 export function LanguagePanel() {
-  const { t, lang, setLang } = useLanguage()
+  const { t, lang } = useLanguage()
+  const router = useRouter()
+  const pathname = usePathname()
+  // Language is a URL now — switching navigates to the same page under the
+  // selected locale prefix.
+  const setLang = (next: Lang) => {
+    const { path } = stripLocale(pathname)
+    router.push(localizePath(path, next))
+  }
 
   return (
     <section

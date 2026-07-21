@@ -11,7 +11,7 @@
 //   ha-assets   other same-origin assets: logo, icons (stale-while-revalidate)
 //   ha-tiles    OSM raster tiles (cache-first, LRU-capped)
 
-const VERSION = "v1"
+const VERSION = "v2"
 const DOC_CACHE = `ha-docs-${VERSION}`
 const STATIC_CACHE = `ha-static-${VERSION}`
 const IMAGE_CACHE = `ha-images-${VERSION}`
@@ -24,19 +24,21 @@ const STATIC_LRU_MAX = 120
 const IMAGE_LRU_MAX = 80
 
 // Mirrors lib/offline-urls.ts OFFLINE_DOCS — update both together.
-const OFFLINE_DOCS = [
-  "/explore",
-  "/explore/first-evening-svolvaer",
-  "/explore/first-evening-svolvaer/navigate",
-  "/explore/story-of-skrei",
-  "/explore/story-of-skrei/navigate",
-  "/explore/golden-hour-photo-walk",
-  "/explore/golden-hour-photo-walk/navigate",
-  "/explore/coastal-culture-craft",
-  "/explore/coastal-culture-craft/navigate",
-  "/explore/weather-safe-short-walk",
-  "/explore/weather-safe-short-walk/navigate",
+// EN is unprefixed; ja/zh carry locale path prefixes.
+const ROUTE_IDS = [
+  "first-evening-svolvaer",
+  "story-of-skrei",
+  "golden-hour-photo-walk",
+  "coastal-culture-craft",
+  "weather-safe-short-walk",
 ]
+const OFFLINE_DOCS = ["", "/ja", "/zh"].flatMap((prefix) => [
+  `${prefix}/explore`,
+  ...ROUTE_IDS.flatMap((id) => [
+    `${prefix}/explore/${id}`,
+    `${prefix}/explore/${id}/navigate`,
+  ]),
+])
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

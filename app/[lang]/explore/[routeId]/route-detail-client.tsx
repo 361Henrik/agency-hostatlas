@@ -1,14 +1,12 @@
 "use client"
 
-import { use } from "react"
-import Link from "next/link"
 import Image from "next/image"
 import dynamic from "next/dynamic"
-import { notFound } from "next/navigation"
 import { ArrowLeft, Clock, Route, MapPin, Play, Flag, CloudRain, Footprints } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { LanguageToggle } from "@/components/language-toggle"
-import { lofotenRoutes } from "@/lib/lofoten-data"
+import { LocalizedLink } from "@/components/localized-link"
+import { lofotenRoutes, poiTypeLabels, difficultyLabels } from "@/lib/lofoten-data"
 import { stampRouteStart } from "@/hooks/use-departure-countdown"
 import { Badge } from "@/components/ui/badge"
 
@@ -22,24 +20,10 @@ const LofotenMap = dynamic(
   }
 )
 
-const poiTypeLabels: Record<string, { en: string; ja: string; zh: string }> = {
-  city_highlight:   { en: "Cultural Stop",  ja: "文化スポット",  zh: "文化景点" },
-  photo_moment:     { en: "Photo Moment",   ja: "フォトモーメント", zh: "拍照时机" },
-  cultural_story:   { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
-  industry_poi:     { en: "Cultural Stop",  ja: "文化スポット",  zh: "文化景点" },
-  host_narrative:   { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
-}
-
-const difficultyLabels: Record<string, { en: string; ja: string; zh: string }> = {
-  Easy:     { en: "Easy",     ja: "やさしい", zh: "轻松" },
-  Moderate: { en: "Moderate", ja: "中程度",   zh: "中等" },
-}
-
-export default function RouteDetailPage({ params }: { params: Promise<{ routeId: string }> }) {
-  const { routeId } = use(params)
+export default function RouteDetailClient({ routeId }: { routeId: string }) {
   const { lang, t } = useLanguage()
   const route = lofotenRoutes.find((r) => r.id === routeId)
-  if (!route) notFound()
+  if (!route) return null // server shell guarantees a valid id
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#0F1F15", color: "#F5F0E8" }}>
@@ -48,15 +32,15 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
         className="sticky top-0 z-50 px-4 py-3 flex items-center justify-between"
         style={{ backgroundColor: "rgba(15,31,21,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(201,169,98,0.12)" }}
       >
-        <Link
-          href={`/explore${lang !== "en" ? `?lang=${lang}` : ""}`}
+        <LocalizedLink
+          href="/explore"
           className="flex items-center gap-2 transition-opacity hover:opacity-70"
           style={{ color: "rgba(245,240,232,0.7)" }}
         >
           <ArrowLeft className="h-4 w-4" strokeWidth={1.5} />
           <span className="font-sans" style={{ fontSize: "0.875rem" }}>{t("explore_back")}</span>
-        </Link>
-        <Link href={lang !== "en" ? `/?lang=${lang}` : "/"} className="absolute left-1/2 -translate-x-1/2" aria-label="Back to main site">
+        </LocalizedLink>
+        <LocalizedLink href="/" className="absolute left-1/2 -translate-x-1/2" aria-label="Back to main site">
           <Image
             src="/host-atlas-logo.png"
             alt="The Host Atlas"
@@ -64,7 +48,7 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
             height={48}
             className="h-8 w-auto object-contain brightness-0 invert opacity-70"
           />
-        </Link>
+        </LocalizedLink>
         <LanguageToggle />
       </header>
 
@@ -148,8 +132,8 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
 
       {/* Start CTA */}
       <div className="px-4 mb-8">
-        <Link
-          href={`/explore/${routeId}/navigate${lang !== "en" ? `?lang=${lang}` : ""}`}
+        <LocalizedLink
+          href={`/explore/${routeId}/navigate`}
           onClick={() => stampRouteStart(routeId)}
           className="flex items-center justify-center gap-3 w-full py-4 font-sans font-medium uppercase transition-opacity hover:opacity-85 active:scale-[0.98]"
           style={{
@@ -162,7 +146,7 @@ export default function RouteDetailPage({ params }: { params: Promise<{ routeId:
         >
           <Play className="h-4 w-4" strokeWidth={2} fill="currentColor" />
           {t("explore_start")}
-        </Link>
+        </LocalizedLink>
       </div>
 
       {/* POI list */}
