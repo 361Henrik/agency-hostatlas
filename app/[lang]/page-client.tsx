@@ -13,6 +13,7 @@ import { LanguagePanel } from "@/components/panels/language-panel"
 import { GuideControlPanel } from "@/components/panels/guide-control-panel"
 import { ManagedServicePanel } from "@/components/panels/managed-service-panel"
 import { StrategicValuePanel } from "@/components/panels/strategic-value-panel"
+import { EngagementReportPanel } from "@/components/panels/engagement-report-panel"
 import { PilotPanel } from "@/components/panels/pilot-panel"
 
 export default function Page() {
@@ -32,6 +33,7 @@ export default function Page() {
         <GuideControlPanel />
         <ManagedServicePanel />
         <StrategicValuePanel />
+        <EngagementReportPanel />
         <PilotPanel />
       </main>
     </>
