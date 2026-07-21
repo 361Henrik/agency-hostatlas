@@ -2,9 +2,14 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { useMemo, useState } from "react"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
 import { Clock, BarChart3, ShieldCheck, Check } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import type { Lang } from "@/lib/language-context"
+import { CALENDLY_URL, WECHAT_QR_SRC } from "@/lib/contact"
 
 type L = Record<Lang, string>
 
@@ -74,10 +79,333 @@ const projectDetails: Array<{ icon: React.ElementType; label: L; detail: L }> = 
   },
 ]
 
-export function PilotPanel() {
+const inputStyle: React.CSSProperties = {
+  width: "100%",
+  backgroundColor: "rgba(15,31,21,0.6)",
+  border: "1px solid rgba(201,169,98,0.25)",
+  borderRadius: "2px",
+  color: "#F5F0E8",
+  padding: "0.6rem 0.75rem",
+  fontSize: "0.9rem",
+  outline: "none",
+}
+
+const labelStyle: React.CSSProperties = {
+  display: "block",
+  fontSize: "0.75rem",
+  textTransform: "uppercase",
+  letterSpacing: "0.14em",
+  color: "rgba(201,169,98,0.75)",
+  marginBottom: "0.4rem",
+}
+
+function focusOn(e: React.FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+  e.currentTarget.style.borderColor = "rgba(201,169,98,0.6)"
+}
+function focusOff(e: React.FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+  e.currentTarget.style.borderColor = "rgba(201,169,98,0.25)"
+}
+
+type FormStatus = "idle" | "submitting" | "success" | "error_unavailable" | "error_generic"
+
+function EnquiryForm() {
   const { t, lang } = useLanguage()
+  const [status, setStatus] = useState<FormStatus>("idle")
 
   const explorePath = lang !== "en" ? `/explore?lang=${lang}` : "/explore"
+
+  const schema = useMemo(
+    () =>
+      z.object({
+        name: z.string().min(1, t("form_validation_required")).max(200),
+        email: z
+          .string()
+          .min(1, t("form_validation_required"))
+          .email(t("form_validation_email")),
+        agency: z.string().min(1, t("form_validation_required")).max(200),
+        market: z.enum(["ja", "zh", "other"], { message: t("form_validation_required") }),
+        group_size: z.string().max(100).optional(),
+        next_departure_window: z.string().max(200).optional(),
+        message: z.string().max(4000).optional(),
+      }),
+    [t],
+  )
+
+  type FormValues = z.infer<typeof schema>
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      name: "",
+      email: "",
+      agency: "",
+      market: "" as FormValues["market"],
+      group_size: "",
+      next_departure_window: "",
+      message: "",
+    },
+  })
+
+  // Merge react-hook-form's register (which supplies its own onBlur) with the
+  // focus-border styling so neither overwrites the other.
+  const bind = (name: keyof FormValues) => {
+    const r = register(name)
+    return {
+      ...r,
+      onFocus: focusOn,
+      onBlur: (e: React.FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        r.onBlur(e)
+        focusOff(e)
+      },
+    }
+  }
+
+  const onSubmit = async (values: FormValues) => {
+    setStatus("submitting")
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, source_lang: lang }),
+      })
+      if (res.status === 201) {
+        setStatus("success")
+        return
+      }
+      if (res.status === 503) {
+        setStatus("error_unavailable")
+        return
+      }
+      setStatus("error_generic")
+    } catch {
+      setStatus("error_unavailable")
+    }
+  }
+
+  const errorText = (msg?: string) =>
+    msg ? (
+      <p className="font-sans" style={{ fontSize: "0.7rem", color: "#c35c3c", marginTop: "0.3rem" }}>
+        {msg}
+      </p>
+    ) : null
+
+  const mailtoFallback = (
+    <p className="font-sans mt-4 text-center" style={{ fontSize: "0.875rem", color: "rgba(245,240,232,0.4)" }}>
+      {t("cta_email_prefix")}{" "}
+      <a
+        href="mailto:connect@hostatlas.guide"
+        className="transition-opacity hover:opacity-75"
+        style={{ color: "rgba(201,169,98,0.7)" }}
+      >
+        connect@hostatlas.guide
+      </a>
+    </p>
+  )
+
+  const exploreLink = (
+    <Link
+      href={explorePath}
+      className="inline-block mt-5 font-sans font-medium uppercase transition-opacity duration-200 hover:opacity-70 w-full text-center"
+      style={{ fontSize: "0.75rem", letterSpacing: "0.14em", color: "rgba(201,169,98,0.6)" }}
+    >
+      {t("cta_lofoten_experience")}
+    </Link>
+  )
+
+  if (status === "success") {
+    return (
+      <>
+        <div className="flex flex-col items-center text-center py-4">
+          <span
+            className="flex items-center justify-center mb-5"
+            style={{
+              width: "2.75rem",
+              height: "2.75rem",
+              borderRadius: "9999px",
+              border: "1px solid rgba(201,169,98,0.5)",
+              backgroundColor: "rgba(201,169,98,0.08)",
+            }}
+          >
+            <Check className="h-5 w-5 text-accent" strokeWidth={2.5} />
+          </span>
+          <p className="font-serif mb-3" style={{ fontSize: "1.375rem", color: "#C9A962", fontWeight: 500 }}>
+            {t("form_success_title")}
+          </p>
+          <p className="font-sans" style={{ fontSize: "1rem", lineHeight: 1.6, color: "rgba(245,240,232,0.7)" }}>
+            {t("form_success_body")}
+          </p>
+        </div>
+        {mailtoFallback}
+        {exploreLink}
+      </>
+    )
+  }
+
+  const submitting = status === "submitting"
+
+  return (
+    <>
+      <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-4" style={{ fontSize: "0.75rem" }}>
+        {t("pilot_contact_label")}
+      </p>
+      <p className="font-sans mb-5" style={{ fontSize: "1.0625rem", lineHeight: 1.6, color: "rgba(245,240,232,0.75)" }}>
+        {t("pilot_contact_body")}
+      </p>
+
+      <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <div style={{ marginBottom: "0.9rem" }}>
+          <label htmlFor="lead-name" className="font-sans" style={labelStyle}>
+            {t("form_label_name")}
+          </label>
+          <input id="lead-name" type="text" style={inputStyle} {...bind("name")} />
+          {errorText(errors.name?.message)}
+        </div>
+
+        <div style={{ marginBottom: "0.9rem" }}>
+          <label htmlFor="lead-email" className="font-sans" style={labelStyle}>
+            {t("form_label_email")}
+          </label>
+          <input id="lead-email" type="email" style={inputStyle} {...bind("email")} />
+          {errorText(errors.email?.message)}
+        </div>
+
+        <div style={{ marginBottom: "0.9rem" }}>
+          <label htmlFor="lead-agency" className="font-sans" style={labelStyle}>
+            {t("form_label_agency")}
+          </label>
+          <input id="lead-agency" type="text" style={inputStyle} {...bind("agency")} />
+          {errorText(errors.agency?.message)}
+        </div>
+
+        <div style={{ marginBottom: "0.9rem" }}>
+          <label htmlFor="lead-market" className="font-sans" style={labelStyle}>
+            {t("form_label_market")}
+          </label>
+          <select id="lead-market" style={inputStyle} defaultValue="" {...bind("market")}>
+            <option value="" disabled>
+              —
+            </option>
+            <option value="ja">{t("form_market_ja")}</option>
+            <option value="zh">{t("form_market_zh")}</option>
+            <option value="other">{t("form_market_other")}</option>
+          </select>
+          {errorText(errors.market?.message)}
+        </div>
+
+        <div style={{ marginBottom: "0.9rem" }}>
+          <label htmlFor="lead-group" className="font-sans" style={labelStyle}>
+            {t("form_label_group_size")}
+          </label>
+          <input id="lead-group" type="text" style={inputStyle} {...bind("group_size")} />
+          {errorText(errors.group_size?.message)}
+        </div>
+
+        <div style={{ marginBottom: "0.9rem" }}>
+          <label htmlFor="lead-departure" className="font-sans" style={labelStyle}>
+            {t("form_label_departure")}
+          </label>
+          <input
+            id="lead-departure"
+            type="text"
+            placeholder={t("form_placeholder_departure")}
+            style={inputStyle}
+            {...bind("next_departure_window")}
+          />
+          {errorText(errors.next_departure_window?.message)}
+        </div>
+
+        <div style={{ marginBottom: "1.25rem" }}>
+          <label htmlFor="lead-message" className="font-sans" style={labelStyle}>
+            {t("form_label_message")}
+          </label>
+          <textarea
+            id="lead-message"
+            rows={3}
+            style={{ ...inputStyle, resize: "vertical" }}
+            {...bind("message")}
+          />
+          {errorText(errors.message?.message)}
+        </div>
+
+        {status === "error_unavailable" && (
+          <p className="font-sans mb-4" style={{ fontSize: "0.8125rem", lineHeight: 1.5, color: "#c35c3c" }}>
+            {t("form_error_unavailable")}
+          </p>
+        )}
+        {status === "error_generic" && (
+          <p className="font-sans mb-4" style={{ fontSize: "0.8125rem", lineHeight: 1.5, color: "#c35c3c" }}>
+            {t("form_error_generic")}
+          </p>
+        )}
+
+        <button
+          type="submit"
+          disabled={submitting}
+          className="inline-flex items-center justify-center w-full font-sans font-medium uppercase tracking-[0.12em] transition-all duration-300"
+          style={{
+            fontSize: "0.8125rem",
+            color: "#1F3528",
+            backgroundColor: "#C9A962",
+            padding: "1rem 2rem",
+            letterSpacing: "0.12em",
+            opacity: submitting ? 0.6 : 1,
+            cursor: submitting ? "default" : "pointer",
+          }}
+        >
+          {submitting ? t("form_submitting") : t("form_submit")}
+        </button>
+      </form>
+
+      {CALENDLY_URL && (
+        <a
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center w-full font-sans font-medium uppercase tracking-[0.12em] transition-opacity duration-200 hover:opacity-75 mt-3"
+          style={{
+            fontSize: "0.8125rem",
+            color: "#C9A962",
+            border: "1px solid rgba(201,169,98,0.5)",
+            padding: "0.85rem 2rem",
+            letterSpacing: "0.12em",
+          }}
+        >
+          {t("cta_book_walkthrough")}
+        </a>
+      )}
+
+      {mailtoFallback}
+
+      {WECHAT_QR_SRC && (
+        <div className="flex flex-col items-center mt-6">
+          <Image
+            src={WECHAT_QR_SRC}
+            alt={t("wechat_label")}
+            width={120}
+            height={120}
+            className="object-contain"
+            style={{ border: "1px solid rgba(201,169,98,0.25)", borderRadius: "2px" }}
+          />
+          <p
+            className="font-sans mt-2 uppercase"
+            style={{ fontSize: "0.7rem", letterSpacing: "0.14em", color: "rgba(201,169,98,0.7)" }}
+          >
+            {t("wechat_label")}
+          </p>
+        </div>
+      )}
+
+      {exploreLink}
+    </>
+  )
+}
+
+export function PilotPanel() {
+  const { t, lang } = useLanguage()
 
   return (
     <section
@@ -201,47 +529,7 @@ export function PilotPanel() {
               className="p-7 reveal-scale"
               style={{ border: "1px solid rgba(201,169,98,0.35)", backgroundColor: "rgba(255,255,255,0.04)" }}
             >
-              <p className="font-sans font-medium uppercase tracking-[0.2em] text-accent mb-4" style={{ fontSize: "0.75rem" }}>
-                {t("pilot_contact_label")}
-              </p>
-              <p className="font-sans mb-5" style={{ fontSize: "1.1875rem", lineHeight: 1.6, color: "rgba(245,240,232,0.75)" }}>
-                {t("pilot_contact_body")}
-              </p>
-              <a
-                href="mailto:connect@hostatlas.guide?subject=Agency%20Enquiry%20%E2%80%94%20HostAtlas"
-                className="inline-flex items-center justify-center w-full font-sans font-medium uppercase tracking-[0.12em] transition-all duration-300"
-                style={{
-                  fontSize: "0.8125rem",
-                  color: "#1F3528",
-                  backgroundColor: "#C9A962",
-                  padding: "1rem 2rem",
-                  letterSpacing: "0.12em",
-                }}
-                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#b8944f" }}
-                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#C9A962" }}
-              >
-                {t("cta_request_conversation")}
-              </a>
-              <p
-                className="font-sans mt-4 text-center"
-                style={{ fontSize: "0.875rem", color: "rgba(245,240,232,0.4)" }}
-              >
-                {t("cta_email_prefix")}{" "}
-                <a
-                  href="mailto:connect@hostatlas.guide"
-                  className="transition-opacity hover:opacity-75"
-                  style={{ color: "rgba(201,169,98,0.7)" }}
-                >
-                  connect@hostatlas.guide
-                </a>
-              </p>
-              <Link
-                href={explorePath}
-                className="inline-block mt-5 font-sans font-medium uppercase transition-opacity duration-200 hover:opacity-70 w-full text-center"
-                style={{ fontSize: "0.75rem", letterSpacing: "0.14em", color: "rgba(201,169,98,0.6)" }}
-              >
-                {t("cta_lofoten_experience")}
-              </Link>
+              <EnquiryForm />
             </div>
           </div>
         </div>
