@@ -11,6 +11,7 @@ import { useLanguage } from "@/lib/language-context"
 import { localizePath } from "@/lib/locale"
 import type { Lang } from "@/lib/language-context"
 import { CALENDLY_URL, WECHAT_QR_SRC } from "@/lib/contact"
+import { LocalizedLink } from "@/components/localized-link"
 
 type L = Record<Lang, string>
 
@@ -574,9 +575,19 @@ export function PilotPanel() {
               connect@hostatlas.guide
             </a>
 
-            <span className="font-sans" style={{ fontSize: "0.8125rem", color: "rgba(245,240,232,0.35)", letterSpacing: "0.08em" }}>
-              © 2026 The Host Atlas
-            </span>
+            <div className="flex items-center gap-4">
+              <span className="font-sans" style={{ fontSize: "0.8125rem", color: "rgba(245,240,232,0.35)", letterSpacing: "0.08em" }}>
+                © 2026 The Host Atlas
+              </span>
+              <span aria-hidden="true" style={{ width: "1px", height: "0.75rem", backgroundColor: "rgba(245,240,232,0.2)" }} />
+              <LocalizedLink
+                href="/privacy"
+                className="font-sans transition-opacity duration-200 hover:opacity-70"
+                style={{ fontSize: "0.8125rem", color: "rgba(245,240,232,0.35)", letterSpacing: "0.08em" }}
+              >
+                {t("footer_privacy")}
+              </LocalizedLink>
+            </div>
           </div>
         </div>
       </div>

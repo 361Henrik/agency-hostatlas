@@ -177,6 +177,11 @@ export const translations = {
     // Footer
     footer_heading: "Give Your Guests the Confidence to Explore",
     footer_body: "Every free-time window on your itinerary is an opportunity. HostAtlas turns unstructured minutes into curated, safe, multilingual experiences your guests will carry home — and recommend to others.",
+    footer_privacy: "Privacy",
+
+    // Privacy / trust
+    privacy_location_note: "Location is processed on your device only — never stored.",
+    privacy_camera_note: "Camera images stay on your device — nothing is recorded or uploaded.",
 
     // Explore / guest app
     explore_eyebrow: "HostAtlas · Lofoten, Norway",
@@ -423,6 +428,11 @@ export const translations = {
     // Footer
     footer_heading: "ゲストに探索する自信を",
     footer_body: "旅程上のすべての自由時間は機会です。HostAtlasはその非構造的な時間を、ゲストが家に持ち帰り、他の人に勧めるキュレーションされた体験に変えます。",
+    footer_privacy: "プライバシー",
+
+    // Privacy / trust
+    privacy_location_note: "位置情報は端末内でのみ処理され、保存されることはありません。",
+    privacy_camera_note: "カメラ映像は端末内に留まり、録画・送信されることはありません。",
 
     // Explore / guest app
     explore_eyebrow: "HostAtlas · ロフォーテン、ノルウェー",
@@ -669,6 +679,11 @@ export const translations = {
     // Footer
     footer_heading: "给您的宾客探索的信心",
     footer_body: "行程中的每一段自由时间都是机会。HostAtlas将非结构化的时间转变为精心策划的安全多语言体验，让您的宾客带回家，并向他人推荐。",
+    footer_privacy: "隐私",
+
+    // Privacy / trust
+    privacy_location_note: "位置信息仅在您的设备上处理，绝不存储。",
+    privacy_camera_note: "相机画面仅保留在您的设备上，不会被录制或上传。",
 
     // Explore / guest app
     explore_eyebrow: "HostAtlas · 罗弗敦，挪威",

@@ -294,6 +294,13 @@ export default function NavigateClient({ routeId }: { routeId: string }) {
           </div>
         )}
 
+        {/* Privacy reassurance — subtle, always shown regardless of geoError state */}
+        <div className="shrink-0 py-1 text-center" style={{ backgroundColor: "rgba(15,31,21,0.97)" }}>
+          <p className="font-sans" style={{ fontSize: "0.6875rem", color: "rgba(245,240,232,0.35)" }}>
+            {t("privacy_location_note")}
+          </p>
+        </div>
+
         {/* Tab bar */}
         <TabsList
           className="shrink-0 rounded-none h-12 w-full"

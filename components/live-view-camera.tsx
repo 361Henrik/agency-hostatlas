@@ -75,6 +75,16 @@ export function LiveViewCamera() {
           <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-[#C9A962]" />
         </div>
       </div>
+
+      {/* Privacy reassurance overlay — subtle, bottom of camera view */}
+      <div className="absolute bottom-2 left-0 right-0 flex justify-center px-4 pointer-events-none">
+        <p
+          className="font-sans text-center"
+          style={{ fontSize: "0.6875rem", color: "rgba(245,240,232,0.45)", textShadow: "0 1px 3px rgba(0,0,0,0.6)" }}
+        >
+          {t("privacy_camera_note")}
+        </p>
+      </div>
     </div>
   )
 }

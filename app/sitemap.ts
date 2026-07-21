@@ -9,6 +9,7 @@ const PATHS: Array<{ path: string; priority: number }> = [
   { path: "/", priority: 1 },
   { path: "/explore", priority: 0.8 },
   ...lofotenRoutes.map((r) => ({ path: `/explore/${r.id}`, priority: 0.6 })),
+  { path: "/privacy", priority: 0.3 },
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
