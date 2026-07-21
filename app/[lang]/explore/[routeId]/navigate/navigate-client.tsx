@@ -74,15 +74,35 @@ export default function NavigateClient({ routeId }: { routeId: string }) {
   const { lang, t } = useLanguage()
   const router = useRouter()
   const route = lofotenRoutes.find((r) => r.id === routeId)
-  if (!route) return null // server shell guarantees a valid id
 
   const { position, error: geoError } = useGeolocation()
-  const { nearest, distanceMetres } = useNearestPoi(route.pois, position)
-  const countdown = useDepartureCountdown(routeId, route.duration)
+  const { nearest, distanceMetres } = useNearestPoi(route?.pois ?? [], position)
+  const countdown = useDepartureCountdown(routeId, route?.duration ?? "60 min")
 
   const [activePOI, setActivePOI] = useState<POI | null>(null)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [showReturn, setShowReturn] = useState(false)
+
+  const handlePoiClick = useCallback(
+    (poiId: string) => {
+      const poi = route?.pois.find((p) => p.id === poiId) ?? null
+      setActivePOI(poi)
+      setDrawerOpen(true)
+      trackEvent("poi_open", { route: routeId, poi: poiId, lang })
+    },
+    [route?.pois, routeId, lang]
+  )
+
+  const handleSendMore = useCallback(
+    (poi: POI) => {
+      toast.success(t("poi_send_more_toast"), {
+        description: poi.followUpTopic?.[lang] ?? poi.title[lang],
+      })
+    },
+    [lang, t]
+  )
+
+  if (!route) return null // server shell guarantees a valid id
 
   // Return path: guest position → meeting point. Without a GPS fix, fall back
   // to the POI farthest from the meeting point — the worst-case return — so
@@ -99,25 +119,6 @@ export default function NavigateClient({ routeId }: { routeId: string }) {
   const returnPath: [number, number][] | null = showReturn
     ? [returnOrigin, route.endCoords]
     : null
-
-  const handlePoiClick = useCallback(
-    (poiId: string) => {
-      const poi = route.pois.find((p) => p.id === poiId) ?? null
-      setActivePOI(poi)
-      setDrawerOpen(true)
-      trackEvent("poi_open", { route: routeId, poi: poiId, lang })
-    },
-    [route.pois, routeId, lang]
-  )
-
-  const handleSendMore = useCallback(
-    (poi: POI) => {
-      toast.success(t("poi_send_more_toast"), {
-        description: poi.followUpTopic?.[lang] ?? poi.title[lang],
-      })
-    },
-    [lang, t]
-  )
 
   return (
     <div className="fixed inset-0 flex flex-col" style={{ backgroundColor: "#0F1F15" }}>
