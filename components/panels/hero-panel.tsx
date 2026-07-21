@@ -3,6 +3,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useLanguage } from "@/lib/language-context"
+import { localizePath } from "@/lib/locale"
 import { useParallax } from "@/hooks/use-parallax"
 
 export function HeroPanel() {
@@ -91,15 +92,20 @@ export function HeroPanel() {
           </p>
 
           <div className="hero-intro mt-10 md:mt-14 flex flex-col sm:flex-row items-start gap-4" style={{ animationDelay: "540ms" }}>
-            <a
-              href="mailto:connect@hostatlas.guide?subject=Agency%20Enquiry%20%E2%80%94%20HostAtlas"
+            <button
+              type="button"
+              onClick={() =>
+                document
+                  .querySelector('[data-section="contact"]')
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="font-sans font-medium uppercase px-7 py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
               style={{ backgroundColor: "rgba(201,169,98,1)", color: "#1C2B1E", fontSize: "0.8rem", letterSpacing: "0.12em" }}
             >
               {t("cta_request_conversation")}
-            </a>
+            </button>
             <Link
-              href={lang === "ja" ? "/explore?lang=ja" : lang === "zh" ? "/explore?lang=zh" : "/explore"}
+              href={localizePath("/explore", lang)}
               className="font-sans font-medium uppercase py-3 transition-opacity duration-200 hover:opacity-80 inline-block"
               style={{ color: "rgba(201,169,98,0.85)", fontSize: "0.8rem", letterSpacing: "0.12em" }}
             >

@@ -33,6 +33,20 @@ export interface LofotenRoute {
   pois: POI[]
 }
 
+// Shared UI label tables (previously duplicated across the explore pages).
+export const poiTypeLabels: Record<string, LocalizedString> = {
+  city_highlight:  { en: "Cultural Stop",  ja: "文化スポット",     zh: "文化景点" },
+  photo_moment:    { en: "Photo Moment",   ja: "フォトモーメント", zh: "拍照时机" },
+  cultural_story:  { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
+  industry_poi:    { en: "Cultural Stop",  ja: "文化スポット",     zh: "文化景点" },
+  host_narrative:  { en: "Guide Story",    ja: "ガイドストーリー", zh: "导游故事" },
+}
+
+export const difficultyLabels: Record<string, LocalizedString> = {
+  Easy:     { en: "Easy",     ja: "やさしい", zh: "轻松" },
+  Moderate: { en: "Moderate", ja: "中程度",   zh: "中等" },
+}
+
 export const lofotenRoutes: LofotenRoute[] = [
   {
     id: "first-evening-svolvaer",

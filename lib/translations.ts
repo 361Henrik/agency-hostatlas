@@ -54,6 +54,7 @@ export const translations = {
     routes_view_route: "View Route",
     routes_start_route: "Start Route",
     routes_qr_label: "Guests access all routes at",
+    routes_qr_scan_hint: "Point your camera here — the guest experience opens on your phone.",
     routes_footnote: "Routes shown are the Lofoten demonstration set. Custom routes built for your specific destinations and itinerary within 48 hours.",
     routes_live_preview_label: "Try it — live guest preview",
     routes_live_preview_hint: "This is the real guest experience, not a mockup. Scroll and tap inside.",
@@ -73,6 +74,12 @@ export const translations = {
     offline_heading: "Works with no signal.",
     offline_body: "Lofoten has connectivity dead zones. Remote fjord roads, island crossings, and mountain paths regularly drop to zero 4G. Any tool requiring a live connection fails exactly when your guests need it most. HostAtlas pre-caches all route content at the point of QR scan. It works offline. Completely.",
     offline_stat: "Significant parts of Lofoten have zero 4G coverage",
+    offline_step_1_label: "Guest scans QR code at destination",
+    offline_step_1_sub: "All route content pre-loaded in one moment",
+    offline_step_2_label: "Phone goes into a dead zone",
+    offline_step_2_sub: "No signal. No problem. Content already cached.",
+    offline_step_3_label: "Route continues without interruption",
+    offline_step_3_sub: "Map, narration, photos, return logic — all offline",
 
     // Photo moment panel
     photo_eyebrow: "The Photo Layer",
@@ -108,6 +115,31 @@ export const translations = {
     strategic_heading: "What your guests felt. What you learned.",
     strategic_intro: "Premium hospitality that generates measurable data — and a tour programme that looks like it thought about every moment, not just the scheduled stops.",
 
+    // Engagement report panel
+    engagement_eyebrow: "The Post-Departure Report",
+    engagement_heading: "This is what you receive after every departure.",
+    engagement_body: "Every route walked, every window used, every moment your guests chose to enter — returned to you as a single, readable report. Below is a sample from one Lofoten departure.",
+    engagement_sample_caption: "Sample report — illustrative data",
+    engagement_meta_guests: "42 guests",
+    engagement_meta_departure: "Shanghai departure",
+    engagement_meta_windows: "3 free-time windows",
+    engagement_meta_destination: "Lofoten",
+    engagement_routes_title: "How far each route was walked",
+    engagement_backup_note: "Weather-backup route — low by design, activated only if the weather closed in.",
+    engagement_stat1_value: "78%",
+    engagement_stat1_label: "of guests left the hotel radius",
+    engagement_stat2_value: "31 min",
+    engagement_stat2_label: "average time beyond the meeting point",
+    engagement_stat3_value: "92%",
+    engagement_stat3_label: "returned before the 15-minute warning",
+    engagement_stat4_label: "language split across guest sessions",
+    engagement_photo_label: "Most-engaged stop",
+    engagement_photo_name: "Harbour Reflection Point",
+    engagement_photo_detail: "Golden Hour viewpoint · 14 min average dwell · 89% of walkers stopped to photograph",
+    engagement_reco_label: "Recommendation",
+    engagement_reco_body: "Window 2 was under-used — schedule the Skrei route before dinner, when the group is already at the harbour.",
+    engagement_framing: "The same report lands after every departure — so your next itinerary is shaped by what your last guests actually did.",
+
     // Pilot / CTA panel
     pilot_eyebrow: "Apply for the Pilot Cohort",
     pilot_heading: "See it live. Run it on your next departure.",
@@ -119,9 +151,37 @@ export const translations = {
     pilot_contact_label: "Talk to Us",
     pilot_contact_body: "Reach us directly to discuss your destination, your group profile, and how HostAtlas can turn your guests' free time into the part of the trip they remember most.",
 
+    // Lead form
+    form_label_name: "Name",
+    form_label_email: "Work email",
+    form_label_agency: "Agency",
+    form_label_market: "Primary market",
+    form_market_ja: "Japan",
+    form_market_zh: "China",
+    form_market_other: "Other",
+    form_label_group_size: "Typical group size",
+    form_label_departure: "Next Norway departure window",
+    form_label_message: "Message",
+    form_placeholder_departure: "e.g. September 2026",
+    form_submit: "Request a conversation",
+    form_submitting: "Sending…",
+    form_success_title: "Thank you — we've received your enquiry.",
+    form_success_body: "We reply within one business day. If your departure is imminent, email us directly and we'll prioritise it.",
+    form_error_unavailable: "The form is temporarily unavailable — please email us directly below.",
+    form_error_generic: "Something went wrong — please try again or email us directly.",
+    form_validation_required: "Required",
+    form_validation_email: "Enter a valid email",
+    cta_book_walkthrough: "Book a 20-minute walkthrough",
+    wechat_label: "WeChat",
+
     // Footer
     footer_heading: "Give Your Guests the Confidence to Explore",
     footer_body: "Every free-time window on your itinerary is an opportunity. HostAtlas turns unstructured minutes into curated, safe, multilingual experiences your guests will carry home — and recommend to others.",
+    footer_privacy: "Privacy",
+
+    // Privacy / trust
+    privacy_location_note: "Location is processed on your device only — never stored.",
+    privacy_camera_note: "Camera images stay on your device — nothing is recorded or uploaded.",
 
     // Explore / guest app
     explore_eyebrow: "HostAtlas · Lofoten, Norway",
@@ -148,6 +208,13 @@ export const translations = {
     nav_exp_away: "away",
     nav_exp_completed: "Route complete",
     nav_exp_location_error: "Location unavailable. Enable GPS to track your position.",
+    offline_preparing: "Preparing offline access",
+    offline_ready: "Available offline",
+    nav_departure_label: "Departure in",
+    nav_meeting_point: "Meeting point",
+    nav_show_return: "Show return path",
+    nav_hide_return: "Hide return path",
+    detail_return_label: "Return plan",
 
     // POI drawer
     poi_type_city: "Cultural Stop",
@@ -238,6 +305,7 @@ export const translations = {
     routes_view_route: "ルートを見る",
     routes_start_route: "ルートを開始",
     routes_qr_label: "ゲストはこちらですべてのルートにアクセスできます",
+    routes_qr_scan_hint: "カメラをかざしてください — ゲスト体験がお手元のスマートフォンで開きます。",
     routes_footnote: "表示されているルートはロフォーテンのデモセットです。48時間以内にカスタムルートを構築します。",
     routes_live_preview_label: "実際に試す — ライブゲストプレビュー",
     routes_live_preview_hint: "これはモックアップではなく、実際のゲスト体験です。中でスクロールしてタップしてみてください。",
@@ -257,6 +325,12 @@ export const translations = {
     offline_heading: "電波なしで動作します。",
     offline_body: "ロフォーテンには電波のデッドゾーンがあります。リモートフィヨルド道路、島間の渡し、山道では定期的に4Gがゼロになります。HostAtlasはQRスキャン時にすべてのルートコンテンツをキャッシュします。完全にオフラインで動作します。",
     offline_stat: "ロフォーテンの相当な地域で4G圏外",
+    offline_step_1_label: "目的地でゲストがQRコードをスキャン",
+    offline_step_1_sub: "すべてのルートコンテンツを一度にプリロード",
+    offline_step_2_label: "スマートフォンが圏外エリアへ",
+    offline_step_2_sub: "電波なし。問題なし。コンテンツはキャッシュ済み。",
+    offline_step_3_label: "ルートは中断なく継続",
+    offline_step_3_sub: "地図・ナレーション・写真・帰還案内 — すべてオフライン",
 
     // Photo moment panel
     photo_eyebrow: "フォトレイヤー",
@@ -292,6 +366,31 @@ export const translations = {
     strategic_heading: "ゲストが感じたこと。あなたが学んだこと。",
     strategic_intro: "測定可能なデータを生成するプレミアムホスピタリティ — スケジュールされたストップだけでなく、すべての瞬間を考えたツアープログラム。",
 
+    // Engagement report panel
+    engagement_eyebrow: "出発後レポート",
+    engagement_heading: "出発ごとに、これをお受け取りいただけます。",
+    engagement_body: "どのルートが歩かれ、どの時間帯が活用され、ゲストがどの瞬間に足を踏み入れたか — そのすべてを、一目で読み取れる一つのレポートとしてお返しします。以下はロフォーテンのある出発からのサンプルです。",
+    engagement_sample_caption: "サンプルレポート — 例示データ",
+    engagement_meta_guests: "42名のゲスト",
+    engagement_meta_departure: "上海発",
+    engagement_meta_windows: "3つの自由時間帯",
+    engagement_meta_destination: "ロフォーテン",
+    engagement_routes_title: "各ルートがどこまで歩かれたか",
+    engagement_backup_note: "天候バックアップルート — 設計上、意図的に低め。悪天候時のみ有効化されます。",
+    engagement_stat1_value: "78%",
+    engagement_stat1_label: "のゲストがホテル周辺を離れました",
+    engagement_stat2_value: "31分",
+    engagement_stat2_label: "集合地点を離れた平均時間",
+    engagement_stat3_value: "92%",
+    engagement_stat3_label: "が15分前の通知より前に戻りました",
+    engagement_stat4_label: "ゲストセッションの言語構成",
+    engagement_photo_label: "最も関心を集めた立ち寄り地点",
+    engagement_photo_name: "港の反射ポイント",
+    engagement_photo_detail: "ゴールデンアワーの展望地点 · 平均滞在14分 · 歩いたゲストの89%が撮影のため立ち止まりました",
+    engagement_reco_label: "推奨事項",
+    engagement_reco_body: "時間帯2の利用が少なめでした — グループがすでに港にいる夕食前に、スクレイのルートを組み込むことをお勧めします。",
+    engagement_framing: "同じレポートが出発ごとにお手元に届きます — 次の旅程は、前回のゲストが実際に取った行動によって形づくられます。",
+
     // Pilot / CTA panel
     pilot_eyebrow: "パイロット参加を申し込む",
     pilot_heading: "ライブで見てください。次の出発で実行しましょう。",
@@ -303,9 +402,37 @@ export const translations = {
     pilot_contact_label: "お話しましょう",
     pilot_contact_body: "目的地、グループプロファイル、そしてHostAtlasがゲストの自由時間をどのように変えられるかについてお気軽にご連絡ください。",
 
+    // Lead form
+    form_label_name: "お名前",
+    form_label_email: "勤務先メールアドレス",
+    form_label_agency: "旅行会社名",
+    form_label_market: "主要マーケット",
+    form_market_ja: "日本",
+    form_market_zh: "中国",
+    form_market_other: "その他",
+    form_label_group_size: "標準的なグループ人数",
+    form_label_departure: "次回ノルウェー出発時期",
+    form_label_message: "メッセージ",
+    form_placeholder_departure: "例：2026年9月",
+    form_submit: "ご相談を申し込む",
+    form_submitting: "送信中…",
+    form_success_title: "ありがとうございます — お問い合わせを承りました。",
+    form_success_body: "1営業日以内にご返信いたします。ご出発が間近な場合は、直接メールをお送りいただければ優先的に対応いたします。",
+    form_error_unavailable: "フォームは一時的にご利用いただけません — 恐れ入りますが下記より直接メールをお送りください。",
+    form_error_generic: "問題が発生しました — 再度お試しいただくか、直接メールをお送りください。",
+    form_validation_required: "必須項目です",
+    form_validation_email: "有効なメールアドレスをご入力ください",
+    cta_book_walkthrough: "20分間のご説明を予約する",
+    wechat_label: "WeChat",
+
     // Footer
     footer_heading: "ゲストに探索する自信を",
     footer_body: "旅程上のすべての自由時間は機会です。HostAtlasはその非構造的な時間を、ゲストが家に持ち帰り、他の人に勧めるキュレーションされた体験に変えます。",
+    footer_privacy: "プライバシー",
+
+    // Privacy / trust
+    privacy_location_note: "位置情報は端末内でのみ処理され、保存されることはありません。",
+    privacy_camera_note: "カメラ映像は端末内に留まり、録画・送信されることはありません。",
 
     // Explore / guest app
     explore_eyebrow: "HostAtlas · ロフォーテン、ノルウェー",
@@ -332,6 +459,13 @@ export const translations = {
     nav_exp_away: "先",
     nav_exp_completed: "ルート完了",
     nav_exp_location_error: "位置情報が利用できません。GPSを有効にしてください。",
+    offline_preparing: "オフライン利用を準備中",
+    offline_ready: "オフライン利用可能",
+    nav_departure_label: "出発まで",
+    nav_meeting_point: "ミーティングポイント",
+    nav_show_return: "帰りのルートを表示",
+    nav_hide_return: "帰りのルートを隠す",
+    detail_return_label: "帰還プラン",
 
     // POI drawer
     poi_type_city: "文化スポット",
@@ -422,6 +556,7 @@ export const translations = {
     routes_view_route: "查看路线",
     routes_start_route: "开始路线",
     routes_qr_label: "客人可通过以下链接访问所有路线",
+    routes_qr_scan_hint: "用相机扫一扫 — 客人体验即刻在您的手机上打开。",
     routes_footnote: "所示路线为罗弗敦演示集。48小时内为您的特定目的地和行程定制路线。",
     routes_live_preview_label: "立即体验 — 实时客人预览",
     routes_live_preview_hint: "这不是模型演示，而是真实的客人体验。可在其中滚动和点击。",
@@ -441,6 +576,12 @@ export const translations = {
     offline_heading: "无信号也能正常使用。",
     offline_body: "罗弗敦有网络盲区。偏远的峡湾公路、岛屿渡口和山间小径经常出现4G信号为零的情况。任何需要实时连接的工具，都会在客人最需要时失效。HostAtlas在扫描二维码时即预缓存所有路线内容。完全支持离线使用。",
     offline_stat: "罗弗敦相当大的区域没有4G覆盖",
+    offline_step_1_label: "客人在目的地扫描二维码",
+    offline_step_1_sub: "所有路线内容即刻预载",
+    offline_step_2_label: "手机进入信号盲区",
+    offline_step_2_sub: "没有信号，没有问题。内容已缓存。",
+    offline_step_3_label: "路线继续，毫无中断",
+    offline_step_3_sub: "地图、讲解、照片、返回指引 — 全部离线可用",
 
     // Photo moment panel
     photo_eyebrow: "摄影层",
@@ -476,6 +617,31 @@ export const translations = {
     strategic_heading: "宾客的感受。您的收获。",
     strategic_intro: "产生可量化数据的高端接待服务——一个不仅考虑计划停留点，而是思考每个时刻的旅游项目。",
 
+    // Engagement report panel
+    engagement_eyebrow: "出发后报告",
+    engagement_heading: "每次出发后，您都会收到这份报告。",
+    engagement_body: "每条被行走的路线、每个被利用的时段、您的客人选择进入的每个时刻——都汇成一份清晰易读的报告返还给您。以下是罗弗敦某次出发的示例。",
+    engagement_sample_caption: "示例报告 — 数据仅供说明",
+    engagement_meta_guests: "42位客人",
+    engagement_meta_departure: "上海出发",
+    engagement_meta_windows: "3个自由时间段",
+    engagement_meta_destination: "罗弗敦",
+    engagement_routes_title: "每条路线被行走的程度",
+    engagement_backup_note: "全天候备用路线——按设计意图偏低，仅在天气变差时启用。",
+    engagement_stat1_value: "78%",
+    engagement_stat1_label: "的客人离开了酒店周边范围",
+    engagement_stat2_value: "31分钟",
+    engagement_stat2_label: "离开集合点的平均时长",
+    engagement_stat3_value: "92%",
+    engagement_stat3_label: "在15分钟提醒前返回",
+    engagement_stat4_label: "客人使用中的语言构成",
+    engagement_photo_label: "最受关注的停留点",
+    engagement_photo_name: "港口倒影点",
+    engagement_photo_detail: "黄金时段观景点 · 平均停留14分钟 · 89%的步行客人驻足拍照",
+    engagement_reco_label: "建议",
+    engagement_reco_body: "第2个时间段利用率偏低——建议将斯克莱路线安排在晚餐前，此时团队已在港口。",
+    engagement_framing: "同样的报告会在每次出发后送达——让您的下一份行程由上一批客人的真实行动来塑造。",
+
     // Pilot / CTA panel
     pilot_eyebrow: "申请加入试点",
     pilot_heading: "现场观看。在下次出发时运行。",
@@ -487,9 +653,37 @@ export const translations = {
     pilot_contact_label: "与我们交流",
     pilot_contact_body: "直接联系我们，讨论您的目的地、团队特征，以及HostAtlas如何将宾客的自由时间转变为最难忘的旅程体验。",
 
+    // Lead form
+    form_label_name: "姓名",
+    form_label_email: "工作邮箱",
+    form_label_agency: "旅行社",
+    form_label_market: "主要市场",
+    form_market_ja: "日本",
+    form_market_zh: "中国",
+    form_market_other: "其他",
+    form_label_group_size: "常规团队人数",
+    form_label_departure: "下次挪威出发时间",
+    form_label_message: "留言",
+    form_placeholder_departure: "例：2026年9月",
+    form_submit: "申请沟通",
+    form_submitting: "发送中…",
+    form_success_title: "感谢您 — 我们已收到您的咨询。",
+    form_success_body: "我们将在一个工作日内回复。如果您的出发日期临近，请直接发送邮件，我们会优先处理。",
+    form_error_unavailable: "表单暂时无法使用 — 请通过下方直接向我们发送邮件。",
+    form_error_generic: "出现了一些问题 — 请重试或直接向我们发送邮件。",
+    form_validation_required: "必填",
+    form_validation_email: "请输入有效的邮箱",
+    cta_book_walkthrough: "预约20分钟讲解",
+    wechat_label: "微信",
+
     // Footer
     footer_heading: "给您的宾客探索的信心",
     footer_body: "行程中的每一段自由时间都是机会。HostAtlas将非结构化的时间转变为精心策划的安全多语言体验，让您的宾客带回家，并向他人推荐。",
+    footer_privacy: "隐私",
+
+    // Privacy / trust
+    privacy_location_note: "位置信息仅在您的设备上处理，绝不存储。",
+    privacy_camera_note: "相机画面仅保留在您的设备上，不会被录制或上传。",
 
     // Explore / guest app
     explore_eyebrow: "HostAtlas · 罗弗敦，挪威",
@@ -516,6 +710,13 @@ export const translations = {
     nav_exp_away: "距离",
     nav_exp_completed: "路线完成",
     nav_exp_location_error: "位置不可用。请启用GPS以追踪您的位置。",
+    offline_preparing: "正在准备离线使用",
+    offline_ready: "可离线使用",
+    nav_departure_label: "距出发",
+    nav_meeting_point: "集合点",
+    nav_show_return: "显示返回路线",
+    nav_hide_return: "隐藏返回路线",
+    detail_return_label: "返回计划",
 
     // POI drawer
     poi_type_city: "文化景点",
