@@ -12,6 +12,7 @@ import { localizePath } from "@/lib/locale"
 import type { Lang } from "@/lib/language-context"
 import { CALENDLY_URL, WECHAT_QR_SRC } from "@/lib/contact"
 import { LocalizedLink } from "@/components/localized-link"
+import { trackEvent } from "@/lib/track"
 
 type L = Record<Lang, string>
 
@@ -176,15 +177,24 @@ function EnquiryForm() {
       })
       if (res.status === 201) {
         setStatus("success")
+        trackEvent("lead_submit", { outcome: "success", lang })
         return
       }
       if (res.status === 503) {
         setStatus("error_unavailable")
+        trackEvent("lead_submit", { outcome: "unavailable", lang })
+        return
+      }
+      if (res.status === 400) {
+        setStatus("error_generic")
+        trackEvent("lead_submit", { outcome: "invalid", lang })
         return
       }
       setStatus("error_generic")
+      trackEvent("lead_submit", { outcome: "error", lang })
     } catch {
       setStatus("error_unavailable")
+      trackEvent("lead_submit", { outcome: "error", lang })
     }
   }
 
@@ -202,6 +212,7 @@ function EnquiryForm() {
         href="mailto:connect@hostatlas.guide"
         className="transition-opacity hover:opacity-75"
         style={{ color: "rgba(201,169,98,0.7)" }}
+        onClick={() => trackEvent("mailto_click", { surface: "pilot", lang })}
       >
         connect@hostatlas.guide
       </a>
@@ -375,6 +386,7 @@ function EnquiryForm() {
             padding: "0.85rem 2rem",
             letterSpacing: "0.12em",
           }}
+          onClick={() => trackEvent("calendly_click", { lang })}
         >
           {t("cta_book_walkthrough")}
         </a>

@@ -8,6 +8,7 @@ import { LanguageToggle } from "@/components/language-toggle"
 import { LocalizedLink } from "@/components/localized-link"
 import { lofotenRoutes, poiTypeLabels, difficultyLabels } from "@/lib/lofoten-data"
 import { stampRouteStart } from "@/hooks/use-departure-countdown"
+import { trackEvent } from "@/lib/track"
 import { Badge } from "@/components/ui/badge"
 
 const LofotenMap = dynamic(
@@ -134,7 +135,10 @@ export default function RouteDetailClient({ routeId }: { routeId: string }) {
       <div className="px-4 mb-8">
         <LocalizedLink
           href={`/explore/${routeId}/navigate`}
-          onClick={() => stampRouteStart(routeId)}
+          onClick={() => {
+            stampRouteStart(routeId)
+            trackEvent("route_start", { route: routeId, lang })
+          }}
           className="flex items-center justify-center gap-3 w-full py-4 font-sans font-medium uppercase transition-opacity hover:opacity-85 active:scale-[0.98]"
           style={{
             backgroundColor: "#C9A962",

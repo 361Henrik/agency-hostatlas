@@ -12,6 +12,7 @@ import { useGeolocation } from "@/hooks/use-geolocation"
 import { useNearestPoi } from "@/hooks/use-nearest-poi"
 import { useDepartureCountdown, type CountdownState } from "@/hooks/use-departure-countdown"
 import { lofotenRoutes, poiTypeLabels, type POI } from "@/lib/lofoten-data"
+import { trackEvent } from "@/lib/track"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -104,8 +105,9 @@ export default function NavigateClient({ routeId }: { routeId: string }) {
       const poi = route.pois.find((p) => p.id === poiId) ?? null
       setActivePOI(poi)
       setDrawerOpen(true)
+      trackEvent("poi_open", { route: routeId, poi: poiId, lang })
     },
-    [route.pois]
+    [route.pois, routeId, lang]
   )
 
   const handleSendMore = useCallback(
@@ -245,7 +247,11 @@ export default function NavigateClient({ routeId }: { routeId: string }) {
           style={{ backgroundColor: "rgba(15,31,21,0.97)", borderTop: "1px solid rgba(201,169,98,0.12)", backdropFilter: "blur(10px)" }}
         >
           <button
-            onClick={() => setShowReturn((v) => !v)}
+            onClick={() => {
+              const next = !showReturn
+              setShowReturn(next)
+              trackEvent("meeting_point_toggle", { route: routeId, shown: next })
+            }}
             className="w-full flex items-center gap-3 px-4 py-3 text-left transition-opacity hover:opacity-80"
             aria-expanded={showReturn}
           >

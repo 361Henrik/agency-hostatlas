@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from "next/navigation"
 import { useLanguage, type Lang } from "@/lib/language-context"
 import { localizePath, stripLocale } from "@/lib/locale"
+import { trackEvent } from "@/lib/track"
 
 const LANG_CYCLE: Lang[] = ["en", "ja", "zh"]
 const LANG_LABELS: Record<Lang, string> = { en: "EN", ja: "日本語", zh: "中文" }
@@ -26,6 +27,7 @@ export function LanguageToggle({ className = "", onLight = false }: LanguageTogg
         // Language is a URL, not client state — navigate to the same page
         // under the next locale prefix.
         const { path } = stripLocale(pathname)
+        trackEvent("language_switch", { from: lang, to: next })
         router.push(localizePath(path, next))
       }}
       className={`font-sans font-medium uppercase transition-opacity duration-200 hover:opacity-70 ${className}`}

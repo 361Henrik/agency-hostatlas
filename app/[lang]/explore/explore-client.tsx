@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react"
 import Image from "next/image"
 import { Clock, Route, ArrowRight } from "lucide-react"
 import { LocalizedLink } from "@/components/localized-link"
@@ -8,6 +9,7 @@ import { LanguageToggle } from "@/components/language-toggle"
 import { OfflineReady } from "@/components/offline-ready"
 import { lofotenRoutes } from "@/lib/lofoten-data"
 import { Badge } from "@/components/ui/badge"
+import { trackEvent } from "@/lib/track"
 
 const themeColors: Record<string, string> = {
   "first-evening-svolvaer":    "#C9A962",
@@ -19,6 +21,16 @@ const themeColors: Record<string, string> = {
 
 export default function ExploreClient() {
   const { lang, t } = useLanguage()
+
+  useEffect(() => {
+    const surface = window.self !== window.top ? "iframe" : "direct"
+    trackEvent("demo_open", { surface, lang })
+    if (new URLSearchParams(window.location.search).get("src") === "qr") {
+      trackEvent("qr_visit", { lang })
+    }
+    // Fire once on mount only — not on every lang re-render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#0F1F15", color: "#F5F0E8" }}>

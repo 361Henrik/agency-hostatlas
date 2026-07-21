@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 import { useLanguage } from "@/lib/language-context"
 import { lofotenRoutes } from "@/lib/lofoten-data"
+import { trackEvent } from "@/lib/track"
 import {
   OFFLINE_DOCS,
   OFFLINE_IMAGES,
@@ -65,7 +66,7 @@ async function warmUp(prefetch: (href: string) => void): Promise<boolean> {
 }
 
 export function OfflineReady() {
-  const { t } = useLanguage()
+  const { t, lang } = useLanguage()
   const router = useRouter()
   const [status, setStatus] = useState<Status>("idle")
 
@@ -76,7 +77,10 @@ export function OfflineReady() {
     navigator.serviceWorker.ready
       .then(() => warmUp(router.prefetch.bind(router)))
       .then((complete) => {
-        if (!cancelled) setStatus(complete ? "ready" : "idle")
+        if (!cancelled) {
+          setStatus(complete ? "ready" : "idle")
+          if (complete) trackEvent("offline_ready", { lang })
+        }
       })
       .catch(() => {
         if (!cancelled) setStatus("idle")
@@ -84,7 +88,7 @@ export function OfflineReady() {
     return () => {
       cancelled = true
     }
-  }, [router])
+  }, [router, lang])
 
   if (status === "idle") return null
 
